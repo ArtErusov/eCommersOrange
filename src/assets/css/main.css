@@ -1,0 +1,13 @@
+@import './reset.css';
+:root {
+  --black: #393939;
+  --white: #ffffff;
+}
+
+
+* {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: "Comfortaa", sans-serif;
+  color: var(--black);
+}
