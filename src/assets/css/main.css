@@ -2,6 +2,7 @@
 :root {
   --black: #393939;
   --white: #ffffff;
+  --dark-gray: #797979;
 }
 
 
@@ -10,4 +11,16 @@
   font-weight: 400;
   font-family: "Comfortaa", sans-serif;
   color: var(--black);
+}
+
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.flex{
+  display: flex;
+  justify-content: space-between;
 }
