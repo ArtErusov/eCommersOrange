@@ -5,14 +5,12 @@
   --dark-gray: #797979;
 }
 
-
 * {
   font-size: 16px;
   font-weight: 400;
-  font-family: "Comfortaa", sans-serif;
+  font-family: 'Comfortaa', sans-serif;
   color: var(--black);
 }
-
 
 .container {
   max-width: 1400px;
@@ -20,7 +18,7 @@
   padding: 0 10px;
 }
 
-.flex{
+.flex {
   display: flex;
   justify-content: space-between;
 }
