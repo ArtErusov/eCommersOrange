@@ -1,11 +1,13 @@
-import Header from "./components/layout/Header/Header"
+import Header from './components/layout/Header/Header';
+import MainPage from './pages/MainPage/MainPage';
 
 function App() {
-    return (
-      <>
+  return (
+    <>
       <Header />
-      </>
-    )
-  }
-  
-  export default App
+      <MainPage />
+    </>
+  );
+}
+
+export default App;

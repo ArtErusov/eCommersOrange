@@ -1,0 +1,28 @@
+@import '../../../../assets/css/main.css';
+
+.sort {
+  width: 300px;
+  height: 36px;
+  padding: 8px 0 0 10px;
+  border-radius: 10px;
+  border: 1px solid var(--gray);
+  cursor: pointer;
+  position: relative;
+}
+
+.sort_list {
+  position: absolute;
+  background-color: aquamarine;
+  z-index: 2;
+}
+
+.sort_list li {
+  margin-top: 10px;
+  background-color: var(--white);
+  width: 300px;
+  height: 36px;
+  padding: 8px 0 0 10px;
+  border-radius: 10px;
+  border: 1px solid var(--gray);
+  cursor: pointer;
+}
