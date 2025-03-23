@@ -1,13 +1,9 @@
-import SelectCategory from './components/SelectCategory/SelectCategory';
-import SelectSort from './components/SelectSort/SelectSort';
+import SelectionBlock from './components/SelectionBlock/SelectionBlock';
 import styles from './styles.module.css';
 function Header() {
   return (
     <div className={styles.container}>
-      <div className={styles.selection_block}>
-        <SelectCategory />
-        <SelectSort />
-      </div>
+      <SelectionBlock />
     </div>
   );
 }
