@@ -38,16 +38,15 @@
   background-color: var(--white);
   width: 298px;
   padding: 10px 0 10px 10px;
-  border-radius: 10px;
   cursor: pointer;
 }
 
+.sort_active ul li:last-child {
+  border-radius: 0 0 10px 10px;
+}
+
 .sort_active ul li:hover {
-  background-color: var(--ogange);
+  background-color: var(--dark-gray);
   font-weight: 700;
   color: var(--white);
-  width: 298px;
-  padding: 10px 0 10px 10px;
-  border-radius: 10px;
-  cursor: pointer;
 }
