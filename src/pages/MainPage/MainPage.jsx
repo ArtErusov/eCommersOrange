@@ -8,7 +8,6 @@ function Header() {
         <SelectCategory />
         <SelectSort />
       </div>
-      <div className={styles.test}></div>
     </div>
   );
 }

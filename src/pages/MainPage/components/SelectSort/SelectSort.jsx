@@ -3,23 +3,34 @@ import styles from './styles.module.css';
 
 function SelectSort() {
   const [selectedSorting, setSelectedSorting] = useState(0);
-  const [sortActive, setSortActive] = useState(true);
-  const sortCategory = ['Лучшее совпадение', 'Сначало дешевле', 'Сначало дороже'];
+  const [sortActive, setSortActive] = useState(false);
+  const sortCategory = ['Лучшее совпадение', 'Сначала дешевле', 'Сначала дороже'];
   console.log(sortActive);
+
+  const handleSelect = (index) => {
+    setSelectedSorting(index);
+    setSortActive(false);
+  };
+
   return (
-    <div>
-      <div onClick={() => setSortActive(!sortActive)} className={styles.sort}>
+    <div
+      onMouseEnter={() => setSortActive(true)}
+      onMouseLeave={() => setSortActive(false)}
+      className={sortActive ? styles.sort_active : styles.sort}
+    >
+      <div onClick={() => setSortActive(!sortActive)} className={styles.sort_display}>
         {sortCategory[selectedSorting]}
       </div>
       {sortActive && (
-        <ul className={styles.sort_list}>
-          {sortCategory
-            .filter((_, index) => selectedSorting !== index)
-            .map((item, index) => (
-              <li onClick={() => setSelectedSorting(index)} key={index}>
-                {item}
-              </li>
-            ))}
+        <ul>
+          {sortCategory.map(
+            (item, index) =>
+              index !== selectedSorting && (
+                <li onClick={() => handleSelect(index)} key={index} className={styles.sort_item}>
+                  {item}
+                </li>
+              ),
+          )}
         </ul>
       )}
     </div>

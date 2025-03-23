@@ -2,10 +2,5 @@
 .selection_block {
   display: flex;
   justify-content: space-between;
-}
-
-.test {
-  width: 100%;
-  height: 500px;
-  background-color: black;
+  margin-top: 25px;
 }
