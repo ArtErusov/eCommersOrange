@@ -1,0 +1,22 @@
+@import '../../../../assets/css/main.css';
+
+.banner_block {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ----------------BannersBlock-------------- */
+.banner {
+  background-color: var(--gray);
+  width: 914px;
+  height: 300px;
+  border-radius: 14px;
+}
+
+/* ----------------ProductCardBanner-------------- */
+.ProductCardBanner {
+  background-color: antiquewhite;
+  width: 446px;
+  height: 300px;
+  border-radius: 14px;
+}
