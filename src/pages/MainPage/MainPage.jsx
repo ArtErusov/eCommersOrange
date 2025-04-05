@@ -3,6 +3,7 @@ import BannersBlock from './components/BannersBlock/BannersBlock';
 import SelectionBlock from './components/SelectionBlock/SelectionBlock';
 
 import styles from './styles.module.css';
+import ProductCard from '../../components/ui/ProductCard/ProductCard';
 
 function MainPage() {
   const [items, setItems] = useState([]);
@@ -23,9 +24,12 @@ function MainPage() {
     <div className={styles.container}>
       <BannersBlock />
       <SelectionBlock />
-      {items.map((item, index) => (
-        <p key={index}>{item.src[0]}</p>
-      ))}
+      <div className={styles.productList}>
+        {items.map((item) => (
+          <ProductCard key={item.id} item={item} />
+        ))}
+      </div>
+      <div style={{ width: '100%', height: '120px', backgroundColor: 'lightgray' }}></div>
     </div>
   );
 }
