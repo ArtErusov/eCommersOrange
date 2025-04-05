@@ -1,0 +1,13 @@
+@import '../../../assets/css/main.css';
+
+.button {
+  padding: 10px 24px;
+  background-color: var(--orange);
+  color: white;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: var(--light-orange);
+}

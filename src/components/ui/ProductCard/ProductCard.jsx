@@ -1,3 +1,4 @@
+import Button from '../Button/Button';
 import styles from './styles.module.css';
 
 function ProductCard({ item }) {
@@ -19,7 +20,7 @@ function ProductCard({ item }) {
           </h3>
         </div>
         <div className={styles.extraContent}>
-          <button className={styles.button}>Добавить в корзину</button>
+          <Button>в корзину</Button>
         </div>
       </div>
     </div>
