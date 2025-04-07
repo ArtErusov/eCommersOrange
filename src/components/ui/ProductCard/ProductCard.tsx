@@ -2,13 +2,24 @@ import { Product } from '../../../types/product.ts';
 import Button from '../Button/Button.tsx';
 import styles from './styles.module.css';
 
-import { FC } from 'react';
+import { FC, useState } from 'react';
 
 interface ProductCardProps {
   item: Product;
 }
 
 const ProductCard: FC<ProductCardProps> = ({ item }) => {
+  const [itemInCart, setItemInCart] = useState<boolean>(false);
+
+  const handleAddToCart = () => {
+    if (itemInCart) {
+      console.log(`Удален из корзины: ${item.text}, ID: ${item.id}`);
+    } else {
+      console.log(`Добавлен в корзину: ${item.text}, ID: ${item.id}`);
+    }
+    setItemInCart(!itemInCart);
+  };
+
   return (
     <div className={styles.card_wrapper}>
       <div className={styles.card}>
@@ -27,7 +38,9 @@ const ProductCard: FC<ProductCardProps> = ({ item }) => {
           </h3>
         </div>
         <div className={styles.card_content_extra}>
-          <Button>в корзину</Button>
+          <Button onClick={() => handleAddToCart()}>
+            {itemInCart ? 'в корзине' : 'в корзину'}
+          </Button>
         </div>
       </div>
     </div>
