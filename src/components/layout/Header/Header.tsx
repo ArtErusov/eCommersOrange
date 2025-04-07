@@ -1,6 +1,7 @@
+import { FC } from 'react';
 import styles from './styles.module.css';
-function Header() {
-  const cities = [
+const Header: FC = () => {
+  const cities: string[] = [
     'Москва',
     'Тула',
     'Краснодар',
@@ -28,5 +29,10 @@ function Header() {
       </div>
     </header>
   );
-}
+};
 export default Header;
+
+// FC (FunctionComponent) — это встроенный тип в React, который описывает функциональный компонент.
+// Он автоматически добавляет типизацию для props (хотя в данном случае пропсы не используются) и возвращаемого значения (JSX).
+
+// const Header: FC = () => {...} явно указывает, что Header — это функциональный компонент.

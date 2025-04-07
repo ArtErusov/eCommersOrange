@@ -1,18 +1,19 @@
-import { useEffect, useState } from 'react';
-import BannersBlock from './components/BannersBlock/BannersBlock';
-import SelectionBlock from './components/SelectionBlock/SelectionBlock';
+import { FC, useEffect, useState } from 'react';
+import { Product } from '../../types/product.ts';
+
+import BannersBlock from './components/BannersBlock/BannersBlock.tsx';
+import SelectionBlock from './components/SelectionBlock/SelectionBlock.tsx';
+import ProductCard from '../../components/ui/ProductCard/ProductCard.tsx';
 
 import styles from './styles.module.css';
-import ProductCard from '../../components/ui/ProductCard/ProductCard';
 
-function MainPage() {
-  const [items, setItems] = useState([]);
+const MainPage: FC = () => {
+  const [items, setItems] = useState<Product[]>([]);
 
   useEffect(() => {
     fetch('https://65523e2c5c69a7790329c0eb.mockapi.io/Orange')
       .then((res) => res.json())
-      .then((json) => {
-        console.log('dsfsdfsd', json);
+      .then((json: Product[]) => {
         setItems(json);
       })
       .catch((error) => {
@@ -32,5 +33,5 @@ function MainPage() {
       <div style={{ width: '100%', height: '120px', backgroundColor: 'lightgray' }}></div>
     </div>
   );
-}
+};
 export default MainPage;

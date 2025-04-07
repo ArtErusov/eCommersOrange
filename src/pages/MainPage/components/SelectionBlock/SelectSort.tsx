@@ -1,13 +1,13 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import styles from './styles.module.css';
 
-function SelectSort() {
-  const [selectedSorting, setSelectedSorting] = useState(0);
-  const [sortActive, setSortActive] = useState(false);
-  const sortCategory = ['Лучшее совпадение', 'Сначала дешевле', 'Сначала дороже'];
+const SelectSort: FC = () => {
+  const [selectedSorting, setSelectedSorting] = useState<number>(0);
+  const [sortActive, setSortActive] = useState<boolean>(false);
+  const sortCategory: string[] = ['Лучшее совпадение', 'Сначала дешевле', 'Сначала дороже'];
   console.log(sortActive);
 
-  const handleSelect = (index) => {
+  const handleSelect = (index: number): void => {
     setSelectedSorting(index);
     setSortActive(false);
   };
@@ -35,5 +35,5 @@ function SelectSort() {
       )}
     </div>
   );
-}
+};
 export default SelectSort;

@@ -1,13 +1,14 @@
-import SelectCategory from './SelectCategory';
-import SelectSort from './SelectSort';
+import { FC } from 'react';
+import SelectCategory from './SelectCategory.tsx';
+import SelectSort from './SelectSort.tsx';
 import styles from './styles.module.css';
 
-function SelectionBlock() {
+const SelectionBlock: FC = () => {
   return (
     <div className={styles.selection_block}>
       <SelectCategory />
       <SelectSort />
     </div>
   );
-}
+};
 export default SelectionBlock;

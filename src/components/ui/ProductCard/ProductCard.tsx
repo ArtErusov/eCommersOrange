@@ -1,7 +1,14 @@
-import Button from '../Button/Button';
+import { Product } from '../../../types/product.ts';
+import Button from '../Button/Button.tsx';
 import styles from './styles.module.css';
 
-function ProductCard({ item }) {
+import { FC } from 'react';
+
+interface ProductCardProps {
+  item: Product;
+}
+
+const ProductCard: FC<ProductCardProps> = ({ item }) => {
   return (
     <div className={styles.cardWrapper}>
       <div className={styles.card}>
@@ -25,5 +32,5 @@ function ProductCard({ item }) {
       </div>
     </div>
   );
-}
+};
 export default ProductCard;
