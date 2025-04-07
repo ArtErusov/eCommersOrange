@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import styles from './styles.module.css';
 
-function SelectCategory() {
-  const category = ['Все', 'ps 5', 'Swith', 'Xbox', 'PC'];
-  const [selectedCategory, setSelectedCategory] = useState(0);
+const SelectCategory: FC = () => {
+  const category: string[] = ['Все', 'ps 5', 'Swith', 'Xbox', 'PC'];
+  const [selectedCategory, setSelectedCategory] = useState<number>(0);
 
   return (
     <ul className={styles.category_list}>
@@ -18,5 +18,5 @@ function SelectCategory() {
       ))}
     </ul>
   );
-}
+};
 export default SelectCategory;

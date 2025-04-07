@@ -1,7 +1,7 @@
 import styles from './styles.module.css';
 
-import AdvertisingBanner from './AdvertisingBanner';
-import ProductCardBanner from './ProductCardBanner';
+import AdvertisingBanner from './AdvertisingBanner.tsx';
+import ProductCardBanner from './ProductCardBanner.tsx';
 
 function BannersBlock() {
   return (

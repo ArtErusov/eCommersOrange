@@ -4,11 +4,11 @@ import banner2 from '../../../../assets/images/BannerImgTwo.png';
 import banner3 from '../../../../assets/images/BannerImgThree.png';
 import banner4 from '../../../../assets/images/BannerImgFour.png';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, FC } from 'react';
 
-function AdvertisingBanner() {
+const AdvertisingBanner: FC = () => {
   const banners = [banner1, banner2, banner3, banner4];
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -41,5 +41,5 @@ function AdvertisingBanner() {
       </div>
     </div>
   );
-}
+};
 export default AdvertisingBanner;
