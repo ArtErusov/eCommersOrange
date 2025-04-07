@@ -9,5 +9,5 @@
 }
 
 .button:hover {
-  background-color: var(--light-orange);
+  background-color: var(--dark-gray);
 }
