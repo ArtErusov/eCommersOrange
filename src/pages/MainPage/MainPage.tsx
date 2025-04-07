@@ -1,22 +1,11 @@
 import { FC, useEffect, useState } from 'react';
+import { Product } from '../../types/product.ts';
 
 import BannersBlock from './components/BannersBlock/BannersBlock.tsx';
 import SelectionBlock from './components/SelectionBlock/SelectionBlock.tsx';
 import ProductCard from '../../components/ui/ProductCard/ProductCard.tsx';
 
 import styles from './styles.module.css';
-
-export interface Product {
-  id: number;
-  src: string[];
-  price: string;
-  label: string;
-  rating: string;
-  review: string;
-  platforms: string[];
-  manufacturer: string;
-  text: string;
-}
 
 const MainPage: FC = () => {
   const [items, setItems] = useState<Product[]>([]);
