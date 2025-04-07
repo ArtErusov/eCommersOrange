@@ -10,9 +10,9 @@ interface ProductCardProps {
 
 const ProductCard: FC<ProductCardProps> = ({ item }) => {
   return (
-    <div className={styles.cardWrapper}>
+    <div className={styles.card_wrapper}>
       <div className={styles.card}>
-        <div className={styles.mainContent}>
+        <div className={styles.card_content}>
           <img className={styles.card_img} src={item.src[0]} alt="" />
           <p className={styles.card_price}>{item.price} ₽</p>
           <h3 className={styles.card_text}>
@@ -26,7 +26,7 @@ const ProductCard: FC<ProductCardProps> = ({ item }) => {
             )}
           </h3>
         </div>
-        <div className={styles.extraContent}>
+        <div className={styles.card_content_extra}>
           <Button>в корзину</Button>
         </div>
       </div>

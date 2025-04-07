@@ -1,6 +1,6 @@
 @import '../../../assets/css/main.css';
 
-.cardWrapper {
+.card_wrapper {
   position: relative;
   width: 200px;
   height: 319px;
@@ -29,7 +29,7 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.188);
 }
 
-.mainContent {
+.card_content {
   flex: 0 0 319px;
   /* display: flex;
   flex-direction: column; */
@@ -54,7 +54,7 @@
   display: block;
 }
 
-.extraContent {
+.card_content_extra {
   flex: 1;
   display: flex;
   align-items: center;
@@ -64,6 +64,6 @@
   transition: opacity 0.3s ease;
 }
 
-.card:hover .extraContent {
+.card:hover .card_content_extra {
   opacity: 1;
 }
