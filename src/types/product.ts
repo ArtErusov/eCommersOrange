@@ -1,10 +1,10 @@
 export interface Product {
     id: number;
     src: string[];
-    price: string;
-    label: string;
-    rating: string;
-    review: string;
+    price: number;
+    label?: string;
+    rating: number;
+    review: number; 
     platforms: string[];
     manufacturer: string;
     text: string;
