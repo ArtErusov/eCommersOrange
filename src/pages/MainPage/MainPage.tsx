@@ -27,7 +27,7 @@ const MainPage: FC = () => {
 
   return (
     <div className={styles.container}>
-      <BannersBlock />
+      <BannersBlock item={items[1]} />
       <SelectionBlock />
 
       <div className={styles.productList}>

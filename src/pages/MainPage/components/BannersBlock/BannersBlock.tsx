@@ -1,14 +1,20 @@
 import styles from './styles.module.css';
 
 import AdvertisingBanner from './AdvertisingBanner.tsx';
-import ProductCardBanner from './ProductCardBanner.tsx';
+import BannerCard from '../../../../components/ui/BannerCard/BannerCard.tsx';
+import { FC } from 'react';
+import { Product } from '../../../../types/product.ts';
 
-function BannersBlock() {
+interface ProductCardProps {
+  item: Product;
+}
+
+const BannersBlock: FC<ProductCardProps> = ({ item }) => {
   return (
     <div className={styles.banner_block}>
       <AdvertisingBanner />
-      <ProductCardBanner />
+      <BannerCard item={item} />
     </div>
   );
-}
+};
 export default BannersBlock;
