@@ -1,69 +1,88 @@
 @import '../../../assets/css/main.css';
-
-.card_wrapper {
-  position: relative;
-  width: 200px;
-  height: 319px;
-}
-
-.card {
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 319px;
-  overflow: hidden;
-  transition: height 0.3s ease;
+.card_container {
+  width: 446px;
+  height: 289px;
+  border-radius: 14px;
   display: flex;
-  flex-direction: column;
-  background-color: var(--white);
+  border: 1px solid var(--gray);
 }
-
+/* left */
 .card_img {
-  margin-top: 4px;
+  margin: 21px 0 0 15px;
+  width: 200px;
+  height: 200px;
 }
 
-.card:hover {
-  height: 394px;
-  z-index: 2;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.188);
-}
-
-.card_content {
-  flex: 0 0 319px;
-  /* display: flex;
-  flex-direction: column; */
-}
-.card_price {
-  margin: 20px 0 0 10px;
-  font-size: 18px;
+.card_title {
+  margin: 24px 0 0 15px;
+  font-size: 24px;
   font-weight: 600;
 }
+/* right */
 
-.card_text {
-  margin: 10px 10px 0 10px;
-  line-clamp: 3;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.card_right {
+  margin-left: 28px;
 }
-
-.card_text span {
-  display: block;
-}
-
-.card_content_extra {
-  flex: 1;
+.card_time {
+  margin-top: 15px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--white);
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  gap: 10px;
+}
+.card_time div {
+  font-size: 24px;
+  font-weight: 600;
+}
+.card_time_counter {
+  height: 46px;
+  width: 46px;
+  background-color: var(--gray);
+  border-radius: 6px;
+  text-align: center;
+  padding-top: 10px;
 }
 
-.card:hover .card_content_extra {
-  opacity: 1;
+.card_time_separator {
+  margin-top: 8px;
+}
+
+/* ------------ */
+.card_label {
+  margin-top: 21px;
+  display: flex;
+  position: relative;
+}
+.card_label p {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--white);
+  margin-top: 3px;
+}
+
+.card_label_gray {
+  width: 134px;
+  height: 20px;
+  background-color: var(--dark-gray);
+  border-radius: 15px 3px 15px 3px;
+}
+
+.card_label_gray p {
+  margin-left: 10px;
+}
+.card_label_red {
+  border-radius: 15px 3px 15px 3px;
+  height: 20px;
+  width: 52px;
+  background-color: var(--red);
+  z-index: 1;
+  position: absolute;
+  right: 52px;
+}
+
+.card_label_red p {
+  text-align: center;
+}
+
+.card_price {
+  font-size: 24px;
+  font-weight: 600;
 }

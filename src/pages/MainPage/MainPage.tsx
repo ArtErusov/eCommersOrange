@@ -27,7 +27,11 @@ const MainPage: FC = () => {
 
   return (
     <div className={styles.container}>
-      <BannersBlock item={items[1]} />
+      {isLoading ? (
+        <BannersBlock item={items[1]} />
+      ) : (
+        <div className={styles.temporary_skeleton}>тут будет прогрузка </div>
+      )}
       <SelectionBlock />
 
       <div className={styles.productList}>
