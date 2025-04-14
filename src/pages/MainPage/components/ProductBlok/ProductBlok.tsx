@@ -1,6 +1,6 @@
 import ProductCard from '../../../../components/ui/ProductCard/ProductCard';
 import Sceleton from '../../../../components/ui/Sceleton/Sceleton';
-import SelectionBlock from '../SelectionBlock/SelectionBlock';
+import SelectionBlock from './components/SelectionBlock/SelectionBlock';
 
 import styles from './styles.module.css';
 
