@@ -22,14 +22,20 @@ const MainPage: FC = () => {
   const category: Category[] = [
     { id: 'all', name: 'Все' },
     { id: 'ps5', name: 'ps 5' },
-    { id: 'switch', name: 'Swith' },
-    { id: 'xbox', name: 'Xbox' },
-    { id: 'pc', name: 'PC' },
+    { id: 'Switch', name: 'Swith' },
+    { id: 'Xbox', name: 'Xbox' },
+    { id: 'PC', name: 'PC' },
   ];
+
+  // https://65523e2c5c69a7790329c0eb.mockapi.io/Orange?platforms=PC
 
   useEffect(() => {
     setIsLoading(false);
-    fetch('https://65523e2c5c69a7790329c0eb.mockapi.io/Orange')
+    fetch(
+      `https://65523e2c5c69a7790329c0eb.mockapi.io/Orange${
+        selectedCategory !== 'all' ? `?platforms=${selectedCategory}` : ''
+      }`,
+    )
       .then((res) => res.json())
       .then((json: Product[]) => {
         setItems(json);
@@ -38,7 +44,7 @@ const MainPage: FC = () => {
       .catch((error) => {
         console.error('Ошибка при загрузке данных:', error);
       });
-  }, []);
+  }, [selectedCategory]);
 
   return (
     <div className={styles.container}>

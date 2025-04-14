@@ -17,8 +17,6 @@ const SelectCategory: FC<SelectCategoryProps> = ({
   selectedCategory,
   setSelectedCategory,
 }) => {
-  // const [selectedCategory, setSelectedCategory] = useState<string>('all');
-
   return (
     <ul className={styles.category_list}>
       {category.map((item) => (
