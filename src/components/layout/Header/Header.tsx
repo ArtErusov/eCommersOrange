@@ -1,5 +1,7 @@
-import { FC } from 'react';
+import { FC, FormEvent, useState } from 'react';
 import styles from './styles.module.css';
+import searchIcon from '../../../assets/images/svg/Search.svg';
+
 const Header: FC = () => {
   const cities: string[] = [
     'Москва',
@@ -14,6 +16,14 @@ const Header: FC = () => {
     'Владивосток',
   ];
 
+  const [dataSearch, setDataSearch] = useState<string>('');
+
+  const handlerSearch = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log('Форма отправлена', dataSearch);
+    setDataSearch('');
+  };
+
   return (
     <header>
       <div className={styles.top_header}>
@@ -24,7 +34,20 @@ const Header: FC = () => {
       </div>
       <div className={`${styles.container} ${styles.flex}`}>
         <div className={styles.temporary_filling}>Тут будет лого</div>
-        <div className={styles.temporary_filling}>Тут будет поиск</div>
+        <form className={styles.search} onSubmit={handlerSearch}>
+          <input
+            className={styles.search_input}
+            type="text"
+            value={dataSearch}
+            onChange={(e) => setDataSearch(e.target.value)}
+            placeholder="Начните поиск..."
+          />
+
+          <button className={styles.search_btn} type="submit">
+            <img src={searchIcon} alt="" />
+          </button>
+        </form>
+
         <div className={styles.temporary_filling}>Тут будет корзина</div>
       </div>
     </header>
