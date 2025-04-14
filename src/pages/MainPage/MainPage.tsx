@@ -8,9 +8,24 @@ import ProductCard from '../../components/ui/ProductCard/ProductCard.tsx';
 import styles from './styles.module.css';
 import Sceleton from '../../components/ui/Sceleton/Sceleton.tsx';
 
+interface Category {
+  id: string;
+  name: string;
+}
+
 const MainPage: FC = () => {
   const [items, setItems] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  // ----------SelectCategory---------logics------------
+  const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const category: Category[] = [
+    { id: 'all', name: 'Все' },
+    { id: 'ps5', name: 'ps 5' },
+    { id: 'switch', name: 'Swith' },
+    { id: 'xbox', name: 'Xbox' },
+    { id: 'pc', name: 'PC' },
+  ];
 
   useEffect(() => {
     setIsLoading(false);
@@ -32,7 +47,12 @@ const MainPage: FC = () => {
       ) : (
         <div className={styles.temporary_skeleton}>тут будет прогрузка </div>
       )}
-      <SelectionBlock />
+
+      <SelectionBlock
+        category={category}
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
+      />
 
       <div className={styles.productList}>
         {isLoading

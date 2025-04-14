@@ -1,19 +1,33 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import styles from './styles.module.css';
 
-const SelectCategory: FC = () => {
-  const category: string[] = ['Все', 'ps 5', 'Swith', 'Xbox', 'PC'];
-  const [selectedCategory, setSelectedCategory] = useState<number>(0);
+interface Category {
+  id: string;
+  name: string;
+}
+
+interface SelectCategoryProps {
+  category: Category[];
+  selectedCategory: string;
+  setSelectedCategory: (id: string) => void;
+}
+
+const SelectCategory: FC<SelectCategoryProps> = ({
+  category,
+  selectedCategory,
+  setSelectedCategory,
+}) => {
+  // const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
   return (
     <ul className={styles.category_list}>
-      {category.map((item, index) => (
+      {category.map((item) => (
         <li
-          onClick={() => setSelectedCategory(index)}
-          className={index === selectedCategory ? styles.category_active : styles.category_item}
-          key={index}
+          onClick={() => setSelectedCategory(item.id)}
+          className={item.id === selectedCategory ? styles.category_active : styles.category_item}
+          key={item.id}
         >
-          {item}
+          {item.name}
         </li>
       ))}
     </ul>
