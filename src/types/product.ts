@@ -8,4 +8,5 @@ export interface Product {
     platforms: string[];
     manufacturer: string;
     text: string;
+    dataSearch: string;
   }
