@@ -2,66 +2,13 @@ import { FC, FormEvent, useEffect, useState } from 'react';
 import styles from './styles.module.css';
 import searchIcon from '../../../../../assets/images/svg/Search.svg';
 import { Product } from '../../../../../types/product';
+import temporaryItem from './temporaryData.json';
 
 const SearchBlock: FC = () => {
-  //Временные данные удалить их, и подтягивать данные из мейн через контекст
-  const temporaryItem: Product[] = [
-    {
-      id: 1235234,
-      src: [
-        'https://img.mvideo.ru/Pdb/small_pic/480/400221326b.jpg',
-        'https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486215.jpeg/resize/720x720/',
-        'https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486230.jpeg/resize/3840x2160/',
-        'https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486247.jpeg/resize/3840x2160/',
-      ],
-      price: 7499,
-      rating: 37,
-      review: 43,
-      platforms: ['ps5', 'PC'],
-      manufacturer: 'CI Games',
-      text: 'Lords of the Fallen',
-      dataSearch: 'Заглушка',
-    },
-    {
-      id: 2432412,
-      src: [
-        'https://img.mvideo.ru/Pdb/small_pic/480/400177672b.jpg',
-        'https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486215.jpeg/resize/720x720/',
-        'https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486230.jpeg/resize/3840x2160/',
-        'https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486247.jpeg/resize/3840x2160/',
-      ],
-      price: 9950,
-      rating: 42,
-      review: 682,
-      platforms: ['ps5'],
-      manufacturer: 'PlayStation',
-      text: "Marvel's Spider-Man 2",
-      dataSearch: 'Заглушка',
-    },
-    {
-      id: 3421654,
-      src: [
-        'https://img.mvideo.ru/Pdb/small_pic/480/400083897b.jpg',
-        'https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486215.jpeg/resize/720x720/',
-        'https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486230.jpeg/resize/3840x2160/',
-        'https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486247.jpeg/resize/3840x2160/',
-      ],
-      label: '28',
-      price: 4499,
-      rating: 48,
-      review: 91,
-      platforms: ['ps4', 'Xbox', 'ps5', 'PC'],
-      manufacturer: 'Capcom',
-      text: 'Resident Evil 4 Remake Стандартное издание',
-      dataSearch: 'Заглушка',
-    },
-  ];
-
   const [dataSearch, setDataSearch] = useState<string>('');
   const [isInputFocused, setIsInputFocused] = useState<boolean>(false);
 
   const [items, setItems] = useState<Product[]>([]);
-  // const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
     if (!dataSearch) {
@@ -80,13 +27,13 @@ const SearchBlock: FC = () => {
 
   const handlerSearch = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Форма отправлена', dataSearch);
     setDataSearch('');
   };
 
   const handlerBlur = () => {
     setIsInputFocused(false);
     setItems([]);
+    setDataSearch('');
   };
 
   return (
