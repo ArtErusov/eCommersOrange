@@ -42,8 +42,8 @@
 .search_btn:hover {
   background-color: var(--dark-gray);
 }
-
-.search_results {
+.search_results,
+.search_loading {
   margin-top: 10px;
   position: absolute;
   width: 100%;
@@ -51,5 +51,15 @@
   border-radius: 10px;
   border: 2px solid var(--gray);
   background-color: var(--white);
+}
+
+.search_results {
   cursor: pointer;
+}
+
+.search_loading {
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

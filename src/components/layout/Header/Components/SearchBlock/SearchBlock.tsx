@@ -1,7 +1,10 @@
 import { FC, FormEvent, useEffect, useState } from 'react';
 import { Product } from '../../../../../types/product';
+import { useDebounce } from '../../../../../helpers/hooks/UseDebounce';
 
 import styles from './styles.module.css';
+import loading from '../../../../../assets/images/svg/Loading.svg';
+import notFound from '../../../../../assets/images/svg/NotFound.svg';
 
 import searchIcon from '../../../../../assets/images/svg/Search.svg';
 import temporaryItem from './temporaryData.json';
@@ -11,21 +14,37 @@ const SearchBlock: FC = () => {
   const [dataSearch, setDataSearch] = useState<string>('');
   const [isInputFocused, setIsInputFocused] = useState<boolean>(false);
   const [items, setItems] = useState<Product[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [itemsNotFound, setItemsNotFound] = useState<boolean>(false);
+
+  const debauncedDataSearch = useDebounce(dataSearch, 1500);
 
   useEffect(() => {
     if (dataSearch === '') {
       return;
     }
-
+    setIsLoading(false);
     fetch(`https://65523e2c5c69a7790329c0eb.mockapi.io/Orange?dataSearch=${dataSearch}`)
       .then((res) => res.json())
-      .then((json: Product[]) => {
+      .then((json: Product[] | 'Not found') => {
+        if (json === 'Not found') {
+          setIsInputFocused(false);
+          setItemsNotFound(true);
+          setIsLoading(true);
+          setDataSearch('');
+
+          setTimeout(() => {
+            setItemsNotFound(false);
+          }, 3000);
+          return;
+        }
         setItems(json);
+        setIsLoading(true);
       })
       .catch((error) => {
         console.error('Ошибка при загрузке данных:', error);
       });
-  }, [dataSearch]);
+  }, [debauncedDataSearch]);
 
   const handlerSearch = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -54,14 +73,26 @@ const SearchBlock: FC = () => {
           <img src={searchIcon} alt="" />
         </button>
       </form>
-      {isInputFocused && <div className={styles.overlay} />}
-      {isInputFocused && (
-        <ul className={styles.search_results}>
-          {items.length === 0
-            ? temporaryItem.map((item) => <SearchCard item={item} />)
-            : items.map((item) => <SearchCard item={item} />)}
-        </ul>
+
+      {(isInputFocused || itemsNotFound) && <div className={styles.overlay} />}
+      {itemsNotFound && (
+        <div className={styles.search_loading}>
+          <img src={notFound} alt="" />
+          <p>Ничего не найдено....</p>
+        </div>
       )}
+      {isInputFocused &&
+        (isLoading ? (
+          <ul className={styles.search_results}>
+            {items.length === 0
+              ? temporaryItem.map((item) => <SearchCard item={item} />)
+              : items.map((item) => <SearchCard item={item} />)}
+          </ul>
+        ) : (
+          <div className={styles.search_loading}>
+            <img src={loading} alt="" />
+          </div>
+        ))}
     </div>
   );
 };
