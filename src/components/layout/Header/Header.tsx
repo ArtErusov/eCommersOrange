@@ -1,6 +1,7 @@
 import { FC, FormEvent, useState } from 'react';
 import styles from './styles.module.css';
 import searchIcon from '../../../assets/images/svg/Search.svg';
+import SearchBlock from './Components/SearchBlock/SearchBlock';
 
 const Header: FC = () => {
   const cities: string[] = [
@@ -34,20 +35,7 @@ const Header: FC = () => {
       </div>
       <div className={`${styles.container} ${styles.flex}`}>
         <div className={styles.temporary_filling}>Тут будет лого</div>
-        <form className={styles.search} onSubmit={handlerSearch}>
-          <input
-            className={styles.search_input}
-            type="text"
-            value={dataSearch}
-            onChange={(e) => setDataSearch(e.target.value)}
-            placeholder="Начните поиск..."
-          />
-
-          <button className={styles.search_btn} type="submit">
-            <img src={searchIcon} alt="" />
-          </button>
-        </form>
-
+        <SearchBlock />
         <div className={styles.temporary_filling}>Тут будет корзина</div>
       </div>
     </header>
