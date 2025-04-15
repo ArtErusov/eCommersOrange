@@ -3,6 +3,7 @@ import styles from './styles.module.css';
 import searchIcon from '../../../../../assets/images/svg/Search.svg';
 import { Product } from '../../../../../types/product';
 import temporaryItem from './temporaryData.json';
+import SearchCard from '../../../../ui/SearchCard/SearchCard';
 
 const SearchBlock: FC = () => {
   const [dataSearch, setDataSearch] = useState<string>('');
@@ -56,18 +57,8 @@ const SearchBlock: FC = () => {
       {isInputFocused && (
         <ul className={styles.search_results}>
           {items.length === 0
-            ? temporaryItem.map((item) => (
-                <li className={styles.search_results_item} key={item.id}>
-                  <img className={styles.search_results_img} src={item.src[0]} alt="" />
-                  {item.text}
-                </li>
-              ))
-            : items.map((item) => (
-                <li className={styles.search_results_item} key={item.id}>
-                  <img className={styles.search_results_img} src={item.src[0]} alt="" />
-                  {item.text}
-                </li>
-              ))}
+            ? temporaryItem.map((item) => <SearchCard item={item} />)
+            : items.map((item) => <SearchCard item={item} />)}
         </ul>
       )}
     </div>
