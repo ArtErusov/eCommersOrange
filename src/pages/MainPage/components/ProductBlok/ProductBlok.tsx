@@ -6,6 +6,7 @@ import styles from './styles.module.css';
 
 import { FC, useEffect, useState } from 'react';
 import { Product } from '../../../../types/product';
+import Pagination from './components/Pagination/Pagination';
 
 interface Category {
   id: string;
@@ -15,6 +16,7 @@ interface Category {
 const ProductBlok: FC = () => {
   const [items, setItems] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [page, setPage] = useState<number>(1);
 
   // ----------SelectCategory---------logics------------
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -33,9 +35,9 @@ const ProductBlok: FC = () => {
   useEffect(() => {
     setIsLoading(false);
     fetch(
-      `https://65523e2c5c69a7790329c0eb.mockapi.io/Orange${
-        selectedCategory !== 'all' ? `?platforms=${selectedCategory}` : ''
-      }`,
+      `https://65523e2c5c69a7790329c0eb.mockapi.io/Orange?${
+        selectedCategory !== 'all' ? `platforms=${selectedCategory}&` : ''
+      }page=${page}&limit=6`,
     )
       .then((res) => res.json())
       .then((json: Product[]) => {
@@ -45,7 +47,7 @@ const ProductBlok: FC = () => {
       .catch((error) => {
         console.error('Ошибка при загрузке данных:', error);
       });
-  }, [selectedCategory]);
+  }, [selectedCategory, page]);
 
   return (
     <>
@@ -58,8 +60,10 @@ const ProductBlok: FC = () => {
       <div className={styles.productList}>
         {isLoading
           ? items.map((item) => <ProductCard key={item.id} item={item} />)
-          : [...Array(12)].map((_, index) => <Sceleton key={index} />)}
+          : [...Array(6)].map((_, index) => <Sceleton key={index} />)}
       </div>
+
+      <Pagination page={page} setPage={setPage} />
     </>
   );
 };
