@@ -1,18 +1,19 @@
 import { FC, FormEvent, useEffect, useState } from 'react';
-import styles from './styles.module.css';
-import searchIcon from '../../../../../assets/images/svg/Search.svg';
 import { Product } from '../../../../../types/product';
+
+import styles from './styles.module.css';
+
+import searchIcon from '../../../../../assets/images/svg/Search.svg';
 import temporaryItem from './temporaryData.json';
 import SearchCard from '../../../../ui/SearchCard/SearchCard';
 
 const SearchBlock: FC = () => {
   const [dataSearch, setDataSearch] = useState<string>('');
   const [isInputFocused, setIsInputFocused] = useState<boolean>(false);
-
   const [items, setItems] = useState<Product[]>([]);
 
   useEffect(() => {
-    if (!dataSearch) {
+    if (dataSearch === '') {
       return;
     }
 
@@ -53,7 +54,7 @@ const SearchBlock: FC = () => {
           <img src={searchIcon} alt="" />
         </button>
       </form>
-
+      {isInputFocused && <div className={styles.overlay} />}
       {isInputFocused && (
         <ul className={styles.search_results}>
           {items.length === 0
