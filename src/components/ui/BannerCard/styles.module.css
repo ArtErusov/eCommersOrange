@@ -7,32 +7,32 @@
   border: 1px solid var(--gray);
 }
 /* left */
-.card_img {
+.img {
   margin: 21px 0 0 15px;
   width: 200px;
   height: 200px;
 }
 
-.card_title {
+.title {
   margin: 24px 0 0 15px;
   font-size: 24px;
   font-weight: 600;
 }
 /* right */
 
-.card_right {
+.right {
   margin-left: 28px;
 }
-.card_time {
+.time {
   margin-top: 15px;
   display: flex;
   gap: 10px;
 }
-.card_time div {
+.time div {
   font-size: 24px;
   font-weight: 600;
 }
-.card_time_counter {
+.time_counter {
   height: 46px;
   width: 46px;
   background-color: var(--gray);
@@ -41,7 +41,7 @@
   padding-top: 10px;
 }
 
-.card_time_separator {
+.time_separator {
   margin-top: 8px;
 }
 
@@ -82,7 +82,51 @@
   text-align: center;
 }
 
-.card_price {
+.price_block {
+  margin-top: 24px;
+  display: flex;
+}
+
+.price {
   font-size: 24px;
   font-weight: 600;
+}
+
+.discount {
+  position: relative;
+  margin: 4px 0 0 10px;
+  font-size: 14px;
+  color: var(--dark-gray);
+}
+
+.discount::after {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: -3px;
+  right: -3px;
+  height: 2px;
+  background-color: var(--red);
+  pointer-events: none;
+}
+
+.text {
+  height: 70px;
+  width: 177px;
+  margin-top: 12px;
+}
+
+.text_manufacturer {
+  margin-top: 12px;
+  width: 177px;
+  height: 22px;
+}
+
+.text_description {
+  width: 177px;
+  height: 44px;
+}
+
+.btn_pos {
+  margin-left: 20px;
 }

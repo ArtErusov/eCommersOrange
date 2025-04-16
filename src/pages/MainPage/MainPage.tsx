@@ -25,7 +25,7 @@ const MainPage: FC = () => {
   return (
     <div className={styles.container}>
       {isLoading ? (
-        <BannersBlock item={items[1]} />
+        <BannersBlock item={items[5]} />
       ) : (
         <div className={styles.temporary_skeleton}>тут будет прогрузка </div>
       )}
