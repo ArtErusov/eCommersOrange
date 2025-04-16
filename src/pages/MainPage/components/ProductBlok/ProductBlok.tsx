@@ -17,6 +17,7 @@ const ProductBlok: FC = () => {
   const [items, setItems] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [page, setPage] = useState<number>(1);
+  const [elementsOnPage, setElementsOnPage] = useState<number>(1);
 
   // ----------SelectCategory---------logics------------
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -49,6 +50,23 @@ const ProductBlok: FC = () => {
       });
   }, [selectedCategory, page]);
 
+  useEffect(() => {
+    setIsLoading(false);
+    fetch(
+      `https://65523e2c5c69a7790329c0eb.mockapi.io/Orange${
+        selectedCategory !== 'all' ? `?platforms=${selectedCategory}` : ''
+      }`,
+    )
+      .then((res) => res.json())
+      .then((json: Product[]) => {
+        setElementsOnPage(Math.ceil(json.length / 6));
+      })
+      .catch((error) => {
+        console.error('Ошибка при загрузке данных:', error);
+      });
+    console.log(elementsOnPage);
+  }, [selectedCategory]);
+
   return (
     <>
       <SelectionBlock
@@ -63,7 +81,7 @@ const ProductBlok: FC = () => {
           : [...Array(6)].map((_, index) => <Sceleton key={index} />)}
       </div>
 
-      <Pagination page={page} setPage={setPage} />
+      <Pagination elementsOnPage={elementsOnPage} page={page} setPage={setPage} />
     </>
   );
 };
