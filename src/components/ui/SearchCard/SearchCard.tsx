@@ -9,7 +9,7 @@ interface ProductCardProps {
 
 const SearchCard: FC<ProductCardProps> = ({ item }) => {
   return (
-    <li className={styles.card} key={item.id}>
+    <li className={styles.card}>
       <div className={styles.card_container}>
         <img className={styles.img} src={item.src[0]} alt="" />
         <div>

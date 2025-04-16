@@ -14,23 +14,28 @@ const SearchBlock: FC = () => {
   const [dataSearch, setDataSearch] = useState<string>('');
   const [isInputFocused, setIsInputFocused] = useState<boolean>(false);
   const [items, setItems] = useState<Product[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [itemsNotFound, setItemsNotFound] = useState<boolean>(false);
 
-  const debauncedDataSearch = useDebounce(dataSearch, 1500);
+  const debouncedDataSearch = useDebounce(dataSearch, 1500);
 
   useEffect(() => {
     if (dataSearch === '') {
       return;
     }
-    setIsLoading(false);
+    setIsLoading(true);
     fetch(`https://65523e2c5c69a7790329c0eb.mockapi.io/Orange?dataSearch=${dataSearch}`)
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error('Server error');
+        }
+        return res.json();
+      })
       .then((json: Product[] | 'Not found') => {
         if (json === 'Not found') {
           setIsInputFocused(false);
           setItemsNotFound(true);
-          setIsLoading(true);
+          setIsLoading(false);
           setDataSearch('');
 
           setTimeout(() => {
@@ -39,12 +44,14 @@ const SearchBlock: FC = () => {
           return;
         }
         setItems(json);
-        setIsLoading(true);
+        setIsLoading(false);
+        setItemsNotFound(false);
       })
       .catch((error) => {
-        console.error('Ошибка при загрузке данных:', error);
+        setIsLoading(false);
+        console.error('Ошибка при загрузке данных в компоненте SearchBlock :', error);
       });
-  }, [debauncedDataSearch]);
+  }, [debouncedDataSearch]);
 
   const handlerSearch = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -58,42 +65,44 @@ const SearchBlock: FC = () => {
   };
 
   return (
-    <div className={styles.search_container}>
-      <form onSubmit={handlerSearch}>
-        <input
-          className={styles.search_input}
-          type="text"
-          value={dataSearch}
-          onFocus={() => setIsInputFocused(true)}
-          onBlur={() => handlerBlur()}
-          onChange={(e) => setDataSearch(e.target.value)}
-          placeholder="Начните поиск..."
-        />
-        <button className={styles.search_btn} type="submit">
-          <img src={searchIcon} alt="" />
-        </button>
-      </form>
-
+    <>
       {(isInputFocused || itemsNotFound) && <div className={styles.overlay} />}
-      {itemsNotFound && (
-        <div className={styles.search_loading}>
-          <img src={notFound} alt="" />
-          <p>Ничего не найдено....</p>
-        </div>
-      )}
-      {isInputFocused &&
-        (isLoading ? (
-          <ul className={styles.search_results}>
-            {items.length === 0
-              ? temporaryItem.map((item) => <SearchCard item={item} />)
-              : items.map((item) => <SearchCard item={item} />)}
-          </ul>
-        ) : (
-          <div className={styles.search_loading}>
-            <img src={loading} alt="" />
+      <div className={styles.search_container}>
+        <form onSubmit={handlerSearch}>
+          <input
+            className={styles.search_input}
+            type="text"
+            value={dataSearch}
+            onFocus={() => setIsInputFocused(true)}
+            onBlur={() => handlerBlur()}
+            onChange={(e) => setDataSearch(e.target.value)}
+            placeholder="Начните поиск..."
+          />
+          <button className={styles.search_btn} type="submit">
+            <img src={searchIcon} alt="Кнопка поиска" />
+          </button>
+        </form>
+
+        {itemsNotFound && (
+          <div className={styles.error_message}>
+            <img src={notFound} alt="Ничего не найдено" />
+            <p>Ничего не найдено....</p>
           </div>
-        ))}
-    </div>
+        )}
+        {isInputFocused &&
+          (isLoading ? (
+            <div className={styles.search_loading}>
+              <img src={loading} alt="Идет загрузка" />
+            </div>
+          ) : (
+            <ul className={styles.search_results}>
+              {items.length === 0
+                ? temporaryItem.map((item) => <SearchCard key={item.id} item={item} />)
+                : items.map((item) => <SearchCard key={item.id} item={item} />)}
+            </ul>
+          ))}
+      </div>
+    </>
   );
 };
 export default SearchBlock;

@@ -18,12 +18,12 @@
 }
 
 .search_input {
+  background-color: var(--white);
   width: 100%;
   height: 52px;
   padding-left: 10px;
   border-radius: 10px;
   border: 2px solid var(--gray);
-  z-index: 11;
 }
 
 .search_btn {
@@ -36,14 +36,14 @@
   right: 6px;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 11;
 }
 
 .search_btn:hover {
   background-color: var(--dark-gray);
 }
 .search_results,
-.search_loading {
+.search_loading,
+.error_message {
   margin-top: 10px;
   position: absolute;
   width: 100%;
