@@ -1,9 +1,25 @@
-import { FC, FormEvent, useState } from 'react';
+import { FC, useState, useEffect } from 'react';
 import styles from './styles.module.css';
-import searchIcon from '../../../assets/images/svg/Search.svg';
+
+import closeList from '../../../assets/images/svg/closeList.svg';
+import openList from '../../../assets/images/svg/openList.svg';
+
 import SearchBlock from './Components/SearchBlock/SearchBlock';
+import { useLocalStorage } from '../../../helpers/hooks/useLocalStorage';
 
 const Header: FC = () => {
+  const [isActive, setIsActive] = useState<boolean>(false);
+
+  const [selectedCity, setSelectedCity] = useLocalStorage<string>(
+    'selectedCity',
+    'Санкт-Петербург',
+  );
+
+  const handleSelectedCity = (item: string) => {
+    setSelectedCity(item);
+    setIsActive(false);
+  };
+
   const cities: string[] = [
     'Москва',
     'Тула',
@@ -17,22 +33,38 @@ const Header: FC = () => {
     'Владивосток',
   ];
 
-  const [dataSearch, setDataSearch] = useState<string>('');
-
-  const handlerSearch = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log('Форма отправлена', dataSearch);
-    setDataSearch('');
-  };
-
   return (
     <header>
       <div className={styles.top_header}>
         <div className={`${styles.container} ${styles.flex}`}>
-          <div>Город: {cities[1]}</div>
+          <div onMouseLeave={() => setIsActive(false)} className={styles.citySelector}>
+            <p className={styles.label}>Город : </p>
+            <button className={styles.selectedCity} onClick={() => setIsActive(!isActive)}>
+              {selectedCity}
+            </button>
+            {isActive ? (
+              <img src={closeList} alt="Закрыть выбор города" />
+            ) : (
+              <img src={openList} alt="Открыть выбор города" />
+            )}
+            {isActive && (
+              <ul className={styles.dropdownList}>
+                {cities.map(
+                  (item, index) =>
+                    item !== selectedCity && (
+                      <li onClick={() => handleSelectedCity(item)} key={index}>
+                        {item}
+                      </li>
+                    ),
+                )}
+              </ul>
+            )}
+          </div>
+
           <p>Портфолио</p>
         </div>
       </div>
+
       <div className={`${styles.container} ${styles.flex}`}>
         <div className={styles.temporary_filling}>Тут будет лого</div>
         <SearchBlock />
@@ -42,8 +74,3 @@ const Header: FC = () => {
   );
 };
 export default Header;
-
-// FC (FunctionComponent) — это встроенный тип в React, который описывает функциональный компонент.
-// Он автоматически добавляет типизацию для props (хотя в данном случае пропсы не используются) и возвращаемого значения (JSX).
-
-// const Header: FC = () => {...} явно указывает, что Header — это функциональный компонент.
