@@ -1,4 +1,4 @@
-import { FC, useState, useEffect } from 'react';
+import { FC, useState } from 'react';
 import styles from './styles.module.css';
 
 import closeList from '../../../assets/images/svg/closeList.svg';
@@ -35,7 +35,7 @@ const Header: FC = () => {
 
   return (
     <header>
-      <div className={styles.top_header}>
+      <div className={styles.fillСolor}>
         <div className={`${styles.container} ${styles.flex}`}>
           <div onMouseLeave={() => setIsActive(false)} className={styles.citySelector}>
             <p className={styles.label}>Город : </p>
@@ -49,19 +49,18 @@ const Header: FC = () => {
             )}
             {isActive && (
               <ul className={styles.dropdownList}>
-                {cities.map(
-                  (item, index) =>
-                    item !== selectedCity && (
-                      <li onClick={() => handleSelectedCity(item)} key={index}>
-                        {item}
-                      </li>
-                    ),
-                )}
+                {cities
+                  .filter((city) => city !== selectedCity)
+                  .map((city, index) => (
+                    <li key={index} onClick={() => handleSelectedCity(city)}>
+                      {city}
+                    </li>
+                  ))}
               </ul>
             )}
           </div>
 
-          <p>Портфолио</p>
+          <p className={styles.portfolio}>Портфолио</p>
         </div>
       </div>
 

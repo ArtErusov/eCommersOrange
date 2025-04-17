@@ -2,12 +2,12 @@ import { useState, useEffect } from 'react';
 
 export function useLocalStorage<T>(key: string, defaultValue: T) {
   const [value, setValue] = useState<T>(() => {
-    if (typeof window === 'undefined') return defaultValue; // SSR защита
+    if (typeof window === 'undefined') return defaultValue; 
     try {
       const stored = localStorage.getItem(key);
       return stored ? JSON.parse(stored) : defaultValue;
-    } catch (e) {
-      console.error('useLocalStorage error:', e);
+    } catch (error) {
+      console.error('useLocalStorage error:', error);
       return defaultValue;
     }
   });
@@ -15,8 +15,8 @@ export function useLocalStorage<T>(key: string, defaultValue: T) {
   useEffect(() => {
     try {
       localStorage.setItem(key, JSON.stringify(value));
-    } catch (e) {
-      console.error('useLocalStorage error:', e);
+    } catch (error) {
+      console.error('useLocalStorage error:', error);
     }
   }, [key, value]);
 
