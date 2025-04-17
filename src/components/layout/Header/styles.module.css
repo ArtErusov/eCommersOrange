@@ -6,15 +6,6 @@
   height: 24px;
 }
 
-.temporary_filling {
-  width: 300px;
-  height: 30px;
-  background-color: bisque;
-  text-align: center;
-  margin-top: 10px;
-  padding-top: 7px;
-}
-
 /* Выбор города */
 .citySelector {
   display: flex;
@@ -65,4 +56,68 @@
 }
 .dropdownList li:hover {
   background-color: var(--gray);
+}
+
+/* Основной Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.leftBlock {
+  display: flex;
+  gap: 28px;
+}
+
+.catalog_wrapper {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+}
+
+.catalog_btn {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 52px;
+  height: 52px;
+  background-color: var(--orange);
+  border-radius: 10px;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  transition: width 0.3s ease;
+  z-index: 8;
+  white-space: nowrap;
+  padding: 0 10px;
+  gap: 10px;
+}
+
+.catalog_icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.catalog_label {
+  opacity: 0;
+  color: var(--white);
+  font-size: 600;
+  font-size: 20px;
+  transform: translateX(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.catalog_wrapper:hover .catalog_btn {
+  width: 160px;
+}
+
+.catalog_wrapper:hover .catalog_label {
+  opacity: 1;
+  transform: translateX(0);
 }

@@ -6,6 +6,8 @@ import openList from '../../../assets/images/svg/openList.svg';
 
 import SearchBlock from './Components/SearchBlock/SearchBlock';
 import { useLocalStorage } from '../../../helpers/hooks/useLocalStorage';
+import mainLogo from '../../../assets/images/svg/mainLogo.svg';
+import catalogIcon from '../../../assets/images/svg/catalogIcon.svg';
 
 const Header: FC = () => {
   const [isActive, setIsActive] = useState<boolean>(false);
@@ -64,10 +66,20 @@ const Header: FC = () => {
         </div>
       </div>
 
-      <div className={`${styles.container} ${styles.flex}`}>
-        <div className={styles.temporary_filling}>Тут будет лого</div>
-        <SearchBlock />
-        <div className={styles.temporary_filling}>Тут будет корзина</div>
+      <div className={styles.container}>
+        <div className={styles.header}>
+          <div className={styles.leftBlock}>
+            <img src={mainLogo} alt="" />
+            <div className={styles.catalog_wrapper}>
+              <div className={styles.catalog_btn}>
+                <img src={catalogIcon} alt="Каталог" className={styles.catalog_icon} />
+                <span className={styles.catalog_label}>Каталог</span>
+              </div>
+            </div>
+          </div>
+          <SearchBlock />
+          <div className={styles.temporary_filling}>Тут будет корзина</div>
+        </div>
       </div>
     </header>
   );
