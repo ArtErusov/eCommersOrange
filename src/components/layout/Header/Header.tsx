@@ -1,13 +1,16 @@
 import { FC, useState } from 'react';
+import { useLocalStorage } from '../../../helpers/hooks/useLocalStorage';
+
 import styles from './styles.module.css';
 
 import closeList from '../../../assets/images/svg/closeList.svg';
 import openList from '../../../assets/images/svg/openList.svg';
-
-import SearchBlock from './Components/SearchBlock/SearchBlock';
-import { useLocalStorage } from '../../../helpers/hooks/useLocalStorage';
 import mainLogo from '../../../assets/images/svg/mainLogo.svg';
 import catalogIcon from '../../../assets/images/svg/catalogIcon.svg';
+import favoritesIcon from '../../../assets/images/svg/favoritesIcon.svg';
+import cartIcon from '../../../assets/images/svg/cartIcon.svg';
+
+import SearchBlock from './Components/SearchBlock/SearchBlock';
 
 const Header: FC = () => {
   const [isActive, setIsActive] = useState<boolean>(false);
@@ -78,7 +81,16 @@ const Header: FC = () => {
             </div>
           </div>
           <SearchBlock />
-          <div className={styles.temporary_filling}>Тут будет корзина</div>
+          <div className={styles.rightBlock}>
+            <div className={styles.rightBlock_item}>
+              <img src={favoritesIcon} alt="Избранные" />
+              <p>Избранные</p>
+            </div>
+            <div className={styles.rightBlock_item}>
+              <img src={cartIcon} alt="Корзина" />
+              <p>Корзина</p>
+            </div>
+          </div>
         </div>
       </div>
     </header>
