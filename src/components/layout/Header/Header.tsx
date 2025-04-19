@@ -85,10 +85,10 @@ const Header: FC = () => {
           <SearchBlock />
 
           <div className={styles.rightBlock}>
-            <div className={styles.rightBlock_item}>
+            <Link to="/reg" className={styles.rightBlock_item}>
               <img src={profileIcon} alt="Избранные" />
-              <Link to="/reg">войти</Link>
-            </div>
+              <p>войти</p>
+            </Link>
 
             <div className={styles.rightBlock_item}>
               <img src={favoritesIcon} alt="Избранные" />

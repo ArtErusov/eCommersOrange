@@ -4,6 +4,7 @@ import { Product } from '../../types/product.ts';
 import BannersBlock from './components/BannersBlock/BannersBlock.tsx';
 import styles from './styles.module.css';
 import ProductBlok from './components/ProductBlok/ProductBlok.tsx';
+import Header from '../../components/layout/Header/Header.tsx';
 
 const MainPage: FC = () => {
   const [items, setItems] = useState<Product[]>([]);
@@ -23,17 +24,20 @@ const MainPage: FC = () => {
   }, []);
 
   return (
-    <div className={styles.container}>
-      {isLoading ? (
-        <BannersBlock item={items[5]} />
-      ) : (
-        <div className={styles.temporary_skeleton}>тут будет прогрузка </div>
-      )}
+    <>
+      <Header />
+      <div className={styles.container}>
+        {isLoading ? (
+          <BannersBlock item={items[5]} />
+        ) : (
+          <div className={styles.temporary_skeleton}>тут будет прогрузка </div>
+        )}
 
-      <ProductBlok />
+        <ProductBlok />
 
-      <div style={{ width: '100%', height: '120px', backgroundColor: 'lightgray' }}></div>
-    </div>
+        <div style={{ width: '100%', height: '120px', backgroundColor: 'lightgray' }}></div>
+      </div>
+    </>
   );
 };
 export default MainPage;
