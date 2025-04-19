@@ -9,6 +9,7 @@ import mainLogo from '../../../assets/images/svg/mainLogo.svg';
 import catalogIcon from '../../../assets/images/svg/catalogIcon.svg';
 import favoritesIcon from '../../../assets/images/svg/favoritesIcon.svg';
 import cartIcon from '../../../assets/images/svg/cartIcon.svg';
+import profileIcon from '../../../assets/images/svg/profileIcon.svg';
 
 import SearchBlock from './Components/SearchBlock/SearchBlock';
 
@@ -81,14 +82,20 @@ const Header: FC = () => {
             </div>
           </div>
           <SearchBlock />
+
           <div className={styles.rightBlock}>
             <div className={styles.rightBlock_item}>
+              <img src={profileIcon} alt="Избранные" />
+              <p>войти</p>
+            </div>
+
+            <div className={styles.rightBlock_item}>
               <img src={favoritesIcon} alt="Избранные" />
-              <p>Избранные</p>
+              <p>избранные</p>
             </div>
             <div className={styles.rightBlock_item}>
               <img src={cartIcon} alt="Корзина" />
-              <p>Корзина</p>
+              <p>корзина</p>
             </div>
           </div>
         </div>
