@@ -12,6 +12,7 @@ import cartIcon from '../../../assets/images/svg/cartIcon.svg';
 import profileIcon from '../../../assets/images/svg/profileIcon.svg';
 
 import SearchBlock from './Components/SearchBlock/SearchBlock';
+import { Link } from 'react-router-dom';
 
 const Header: FC = () => {
   const [isActive, setIsActive] = useState<boolean>(false);
@@ -86,7 +87,7 @@ const Header: FC = () => {
           <div className={styles.rightBlock}>
             <div className={styles.rightBlock_item}>
               <img src={profileIcon} alt="Избранные" />
-              <p>войти</p>
+              <Link to="/reg">войти</Link>
             </div>
 
             <div className={styles.rightBlock_item}>
