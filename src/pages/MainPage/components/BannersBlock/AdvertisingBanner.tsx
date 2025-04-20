@@ -3,11 +3,12 @@ import banner1 from '../../../../assets/images/BannerImgOne.png';
 import banner2 from '../../../../assets/images/BannerImgTwo.png';
 import banner3 from '../../../../assets/images/BannerImgThree.png';
 import banner4 from '../../../../assets/images/BannerImgFour.png';
+import banner5 from '../../../../assets/images/BannerImgFive.png';
 
 import { useState, useEffect, FC } from 'react';
 
 const AdvertisingBanner: FC = () => {
-  const banners = [banner1, banner2, banner3, banner4];
+  const banners = [banner1, banner2, banner3, banner4, banner5];
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
   useEffect(() => {

@@ -1,7 +1,7 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+// import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 // import Header from './components/layout/Header/Header.tsx';
-import MainPage from './pages/MainPage/MainPage.tsx';
-import Registration from './pages/Registration/Registration.tsx';
+// import MainPage from './pages/MainPage/MainPage.tsx';
+// import Registration from './pages/Registration/Registration.tsx';
 
 // const router = createBrowserRouter([
 //   {
