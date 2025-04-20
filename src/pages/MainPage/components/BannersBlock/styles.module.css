@@ -16,7 +16,7 @@
 }
 
 /* ----------------AdvertisingBanner-------------- */
-.banner {
+.slider {
   background-color: var(--gray);
   width: 914px;
   height: 289px;
@@ -24,8 +24,8 @@
   position: relative;
 }
 
-.banner_prev,
-.banner_next {
+.slider__arrow-prev,
+.slider__arrow-next {
   height: 36px;
   width: 36px;
   background-color: var(--white);
@@ -34,20 +34,20 @@
   border-radius: 55px;
 }
 
-.banner_prev:hover,
-.banner_next:hover {
+.slider__arrow-prev:hover,
+.slider__arrow-next:hover {
   box-shadow: 0px 0px 11px 0px rgba(34, 60, 80, 0.158);
 }
 
-.banner_next {
+.slider__arrow-next {
   right: -18px;
 }
 
-.banner_prev {
+.slider__arrow-prev {
   left: -18px;
 }
 
-.banner_dots {
+.slider__dots {
   display: flex;
   gap: 8px;
   position: absolute;
@@ -56,19 +56,19 @@
   transform: translateX(-50%);
 }
 
-.banner_dot {
+.slider__dot {
   cursor: pointer;
   height: 3px;
   width: 28px;
   background-color: var(--white);
 }
 
-.banner_dot_active {
+.slider__dot-active {
   height: 3px;
   width: 28px;
   background-color: var(--orange);
 }
 
-.arrowNext {
-  color: var(--orange);
+.slider__arrow-icon {
+  transform: rotate(180deg);
 }

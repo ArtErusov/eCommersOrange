@@ -9,15 +9,17 @@ import arrow from '../../../../assets/images/svg/arrowBannerIcon.svg';
 import { useState, useEffect, FC } from 'react';
 
 const AdvertisingBanner: FC = () => {
-  const banners = [banner1, banner2, banner3, banner4, banner5];
+  const banners: string[] = [banner1, banner2, banner3, banner4, banner5];
+  const [isPaused, setIsPaused] = useState<boolean>(false);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
   useEffect(() => {
+    if (isPaused) return;
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % banners.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, [banners.length]);
+  }, [banners.length, isPaused]);
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % banners.length);
@@ -28,19 +30,29 @@ const AdvertisingBanner: FC = () => {
   };
 
   return (
-    <div className={styles.banner}>
-      <button className={styles.banner_prev} onClick={prevSlide}>
-        <img className={styles.arrowPrev} src={arrow} alt="" />
+    <div
+      className={styles['slider']}
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      <button
+        className={styles['slider__arrow-prev']}
+        onClick={prevSlide}
+        aria-label="Previous banner"
+      >
+        <img src={arrow} alt="Previous" />
       </button>
       <img src={banners[currentIndex]} alt="Banner" />
-      <button className={styles.banner_next} onClick={nextSlide}>
-        <img className={styles.arrowNext} src={arrow} alt="" />
+      <button className={styles['slider__arrow-next']} onClick={nextSlide} aria-label="Next banner">
+        <img className={styles['slider__arrow-icon']} src={arrow} alt="Next" />
       </button>
-      <div className={styles.banner_dots}>
+      <div className={styles['slider__dots']}>
         {banners.map((_, index) => (
           <div
             key={index}
-            className={currentIndex === index ? styles.banner_dot_active : styles.banner_dot}
+            className={
+              currentIndex === index ? styles['slider__dot-active'] : styles['slider__dot']
+            }
             onClick={() => setCurrentIndex(index)}
           ></div>
         ))}
