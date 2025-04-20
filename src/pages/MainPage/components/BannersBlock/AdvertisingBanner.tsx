@@ -4,6 +4,7 @@ import banner2 from '../../../../assets/images/BannerImgTwo.png';
 import banner3 from '../../../../assets/images/BannerImgThree.png';
 import banner4 from '../../../../assets/images/BannerImgFour.png';
 import banner5 from '../../../../assets/images/BannerImgFive.png';
+import arrow from '../../../../assets/images/svg/arrowBannerIcon.svg';
 
 import { useState, useEffect, FC } from 'react';
 
@@ -28,9 +29,13 @@ const AdvertisingBanner: FC = () => {
 
   return (
     <div className={styles.banner}>
-      <button className={styles.banner_prev} onClick={prevSlide}></button>
+      <button className={styles.banner_prev} onClick={prevSlide}>
+        <img className={styles.arrowPrev} src={arrow} alt="" />
+      </button>
       <img src={banners[currentIndex]} alt="Banner" />
-      <button className={styles.banner_next} onClick={nextSlide}></button>
+      <button className={styles.banner_next} onClick={nextSlide}>
+        <img className={styles.arrowNext} src={arrow} alt="" />
+      </button>
       <div className={styles.banner_dots}>
         {banners.map((_, index) => (
           <div

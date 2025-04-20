@@ -68,3 +68,7 @@
   width: 28px;
   background-color: var(--orange);
 }
+
+.arrowNext {
+  color: var(--orange);
+}
