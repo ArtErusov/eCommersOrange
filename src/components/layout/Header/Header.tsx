@@ -12,7 +12,6 @@ import cartIcon from '../../../assets/images/svg/cartIcon.svg';
 import profileIcon from '../../../assets/images/svg/profileIcon.svg';
 
 import SearchBlock from './Components/SearchBlock/SearchBlock';
-import { Link } from 'react-router-dom';
 import Modal from '../../ui/Modal/Modal';
 import Registration from '../../../pages/Registration/Registration';
 
@@ -105,9 +104,8 @@ const Header: FC = () => {
         </div>
       </div>
       {modalIsOpen && (
-        <Modal>
+        <Modal isOpen={modalIsOpen} onClose={() => setModalIsOpen(false)}>
           <Registration />
-          <button onClick={() => setModalIsOpen(false)}>Закрыть</button>
         </Modal>
       )}
     </header>
