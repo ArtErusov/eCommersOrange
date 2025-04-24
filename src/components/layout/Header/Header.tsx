@@ -13,10 +13,13 @@ import profileIcon from '../../../assets/images/svg/profileIcon.svg';
 
 import SearchBlock from './Components/SearchBlock/SearchBlock';
 import { Link } from 'react-router-dom';
+import Modal from '../../ui/Modal/Modal';
+import Registration from '../../../pages/Registration/Registration';
 
 const Header: FC = () => {
   const [isActive, setIsActive] = useState<boolean>(false);
 
+  const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
   const [selectedCity, setSelectedCity] = useLocalStorage<string>(
     'selectedCity',
     'Санкт-Петербург',
@@ -85,10 +88,10 @@ const Header: FC = () => {
           <SearchBlock />
 
           <div className={styles.rightBlock}>
-            <Link to="/reg" className={styles.rightBlock_item}>
+            <div onClick={() => setModalIsOpen(!modalIsOpen)} className={styles.rightBlock_item}>
               <img src={profileIcon} alt="Избранные" />
               <p>войти</p>
-            </Link>
+            </div>
 
             <div className={styles.rightBlock_item}>
               <img src={favoritesIcon} alt="Избранные" />
@@ -101,6 +104,12 @@ const Header: FC = () => {
           </div>
         </div>
       </div>
+      {modalIsOpen && (
+        <Modal>
+          <Registration />
+          <button onClick={() => setModalIsOpen(false)}>Закрыть</button>
+        </Modal>
+      )}
     </header>
   );
 };
