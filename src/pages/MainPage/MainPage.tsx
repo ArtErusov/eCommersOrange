@@ -36,6 +36,7 @@ const MainPage: FC = () => {
         <ProductBlok />
 
         <div style={{ width: '100%', height: '120px', backgroundColor: 'lightgray' }}></div>
+        <p className="mt-[400px]">Ghbdtn vbh</p>
       </div>
     </>
   );

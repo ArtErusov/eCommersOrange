@@ -1,4 +1,6 @@
-@import './reset.css';
+/* @import './reset.css'; */
+@import 'tailwindcss';
+
 :root {
   --black: #393939;
   --white: #ffffff;
