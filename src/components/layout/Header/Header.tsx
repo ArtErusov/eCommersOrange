@@ -10,7 +10,7 @@ import profileIcon from '../../../assets/images/svg/profileIcon.svg';
 import SearchBlock from './Components/SearchBlock/SearchBlock';
 import Modal from '../../ui/Modal/Modal';
 import Registration from '../../../pages/Registration/Registration';
-import SelectedCity from './selectedCity';
+import CitySelector from './CitySelector';
 
 const Header: FC = () => {
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
@@ -19,7 +19,7 @@ const Header: FC = () => {
     <header>
       <div className="bg-[var(--dark-gray)] w-full h-[24px]">
         <div className="container flex justify-between">
-          <SelectedCity />
+          <CitySelector />
           <p className="text-[var(--white)] mt-px">Портфолио</p>
         </div>
       </div>
@@ -27,7 +27,7 @@ const Header: FC = () => {
       <div className="container">
         <div className="flex justify-between mt-[15px]">
           <div className="flex gap-[28px]">
-            <img src={mainLogo} alt="Logotype" />
+            <img src={mainLogo} alt="Логотип компании" role="img" />
 
             <div className="relative w-[52px] h-[52px] flex-shrink-0 group">
               <div

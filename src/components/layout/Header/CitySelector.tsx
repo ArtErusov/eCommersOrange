@@ -7,7 +7,7 @@ import openList from '../../../assets/images/svg/openList.svg';
 
 import { CITIES } from '../../../constants/cities';
 
-const SelectedCity: FC = () => {
+const CitySelector: FC = () => {
   const [isActive, setIsActive] = useState<boolean>(false);
 
   const [selectedCity, setSelectedCity] = useLocalStorage<string>(
@@ -15,8 +15,8 @@ const SelectedCity: FC = () => {
     'Санкт-Петербург',
   );
 
-  const handleSelectedCity = (item: string) => {
-    setSelectedCity(item);
+  const handleSelectedCity = (cityName: string) => {
+    setSelectedCity(cityName);
     setIsActive(false);
   };
 
@@ -29,26 +29,23 @@ const SelectedCity: FC = () => {
       >
         {selectedCity}
       </button>
-
-      <img
+      <button
         onClick={() => setIsActive(!isActive)}
         className="w-[14px] h-[14px] mt-[5px] cursor-pointer"
-        src={isActive ? closeList : openList}
-        alt={isActive ? 'Открыть выбор города' : 'Закрыть выбор города'}
-      />
+      >
+        <img
+          src={isActive ? closeList : openList}
+          alt={isActive ? 'Закрыть выбор города' : 'Открыть выбор города'}
+        />
+      </button>
 
       {isActive && (
         <ul className="dropdownList">
-          {CITIES.filter((city) => city !== selectedCity).map((city, index, array) => {
-            const isFirst = index === 0;
-            const isLast = index === array.length - 1;
-
+          {CITIES.filter((city) => city !== selectedCity).map((city) => {
             return (
               <li
-                key={index}
-                className={`py-[2px] px-[10px] cursor-pointer hover:bg-[var(--gray)] ${
-                  isFirst ? 'hover:rounded-t-[10px]' : ''
-                } ${isLast ? 'hover:rounded-b-[10px]' : ''}`}
+                key={city}
+                className="py-[2px] px-[10px] cursor-pointer hover:bg-[var(--gray)] first:hover:rounded-t-[10px] last:hover:rounded-b-[10px]"
                 onClick={() => handleSelectedCity(city)}
               >
                 {city}
@@ -60,4 +57,4 @@ const SelectedCity: FC = () => {
     </div>
   );
 };
-export default SelectedCity;
+export default CitySelector;
