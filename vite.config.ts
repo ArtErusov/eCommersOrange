@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import svgr from 'vite-plugin-svgr';
 // @ts-expect-error временно — из-за отсутствия типов
+
 import tailwindcss from '@tailwindcss/vite';
 
 // https://vite.dev/config/

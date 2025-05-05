@@ -1,5 +1,5 @@
-/* @import './reset.css'; */
-@import 'tailwindcss';
+@import 'tailwindcss/preflight';
+@import 'tailwindcss/utilities';
 
 :root {
   --black: #393939;
@@ -10,10 +10,6 @@
   --light-orange: #ffd498;
   --red: #e81e1e;
 }
-
-/* body {
-  background-color: #ffd498;
-} */
 
 * {
   font-size: 16px;
@@ -31,4 +27,34 @@
 .flex {
   display: flex;
   justify-content: space-between;
+}
+
+@layer base {
+  :root {
+    --black: #393939;
+    --white: #ffffff;
+    --dark-gray: #797979;
+    --gray: #ededed;
+    --orange: #ff9b04;
+    --light-orange: #ffd498;
+    --red: #e81e1e;
+  }
+
+  * {
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'Comfortaa', sans-serif;
+    color: var(--black);
+  }
+}
+
+/* Кастомные утилиты */
+@layer utilities {
+  .container {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
