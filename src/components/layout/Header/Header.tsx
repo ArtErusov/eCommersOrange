@@ -1,7 +1,6 @@
 import { FC, useState } from 'react';
 import { useLocalStorage } from '../../../helpers/hooks/useLocalStorage';
-
-import styles from './styles.module.css';
+import '../../../assets/css/main.css';
 
 import closeList from '../../../assets/images/svg/closeList.svg';
 import openList from '../../../assets/images/svg/openList.svg';
@@ -97,33 +96,47 @@ const Header: FC = () => {
         </div>
       </div>
 
-      <div className={styles.container}>
-        <div className={styles.header}>
-          <div className={styles.leftBlock}>
-            <img src={mainLogo} alt="" />
-            <div className={styles.catalog_wrapper}>
-              <div className={styles.catalog_btn}>
-                <img src={catalogIcon} alt="Каталог" className={styles.catalog_icon} />
-                <span className={styles.catalog_label}>Каталог</span>
+      <div className="container">
+        <div className="flex justify-between mt-[15px]">
+          <div className="flex gap-[28px]">
+            <img src={mainLogo} alt="Logotype" />
+
+            <div className="relative w-[52px] h-[52px] flex-shrink-0 group">
+              <div
+                className="cursor-pointer absolute top-0 left-0 h-[52px] w-[52px] bg-[var(--orange)] rounded-[10px] text-[var(--white)] 
+                   flex items-center justify-start overflow-hidden transition-[width] duration-300 ease-in-out 
+                   z-[8] whitespace-nowrap px-[10px] gap-[10px] group-hover:w-[160px]"
+              >
+                <img src={catalogIcon} alt="Каталог" className="w-[24px] h-[24px] flex-shrink-0" />
+                <span
+                  className="opacity-0 text-[var(--white)] text-[20px] font-semibold translate-x-[-10px]
+                     transition-all duration-300 ease-in-out group-hover:opacity-100 group-hover:translate-x-0"
+                >
+                  Каталог
+                </span>
               </div>
             </div>
           </div>
+
           <SearchBlock />
 
-          <div className={styles.rightBlock}>
-            <div onClick={() => setModalIsOpen(!modalIsOpen)} className={styles.rightBlock_item}>
-              <img src={profileIcon} alt="Избранные" />
+          <div className="flex mt-[7px] gap-[24px]">
+            <button
+              onClick={() => setModalIsOpen(!modalIsOpen)}
+              className="flex flex-col items-center cursor-pointer"
+            >
+              <img className="w-[26px] h-[26px]" src={profileIcon} alt="Избранные" />
               <p>войти</p>
-            </div>
+            </button>
 
-            <div className={styles.rightBlock_item}>
-              <img src={favoritesIcon} alt="Избранные" />
+            <button className="flex flex-col items-center cursor-pointer">
+              <img className="w-[26px] h-[26px]" src={favoritesIcon} alt="Избранные" />
               <p>избранные</p>
-            </div>
-            <div className={styles.rightBlock_item}>
-              <img src={cartIcon} alt="Корзина" />
+            </button>
+            <button className="flex flex-col items-center cursor-pointer">
+              <img className="w-[26px] h-[26px]" src={cartIcon} alt="Корзина" />
               <p>корзина</p>
-            </div>
+            </button>
           </div>
         </div>
       </div>
