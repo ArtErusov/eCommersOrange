@@ -13,6 +13,7 @@ import profileIcon from '../../../assets/images/svg/profileIcon.svg';
 import SearchBlock from './Components/SearchBlock/SearchBlock';
 import Modal from '../../ui/Modal/Modal';
 import Registration from '../../../pages/Registration/Registration';
+import { CITIES } from '../../../constants/cities';
 
 const Header: FC = () => {
   const [isActive, setIsActive] = useState<boolean>(false);
@@ -28,19 +29,6 @@ const Header: FC = () => {
     setIsActive(false);
   };
 
-  const cities: string[] = [
-    'Москва',
-    'Тула',
-    'Краснодар',
-    'Санкт-Петербург',
-    'Екатеринбург',
-    'Новосибирск',
-    'Казань',
-    'Нижний Новгород',
-    'Ростов-на-Дону',
-    'Владивосток',
-  ];
-
   return (
     <header>
       <div className="bg-[var(--dark-gray)] w-full h-[24px]">
@@ -53,41 +41,32 @@ const Header: FC = () => {
             >
               {selectedCity}
             </button>
-            {isActive ? (
-              <img
-                className="w-[14px] h-[14px] mt-[5px] cursor-pointer"
-                src={closeList}
-                onClick={() => setIsActive(!isActive)}
-                alt="Закрыть выбор города"
-              />
-            ) : (
-              <img
-                onClick={() => setIsActive(!isActive)}
-                className="w-[14px] h-[14px] mt-[5px] cursor-pointer"
-                src={openList}
-                alt="Открыть выбор города"
-              />
-            )}
+
+            <img
+              onClick={() => setIsActive(!isActive)}
+              className="w-[14px] h-[14px] mt-[5px] cursor-pointer"
+              src={isActive ? closeList : openList}
+              alt={isActive ? 'Открыть выбор города' : 'Закрыть выбор города'}
+            />
+
             {isActive && (
               <ul className="dropdownList">
-                {cities
-                  .filter((city) => city !== selectedCity)
-                  .map((city, index, array) => {
-                    const isFirst = index === 0;
-                    const isLast = index === array.length - 1;
+                {CITIES.filter((city) => city !== selectedCity).map((city, index, array) => {
+                  const isFirst = index === 0;
+                  const isLast = index === array.length - 1;
 
-                    return (
-                      <li
-                        key={index}
-                        className={`py-[2px] px-[10px] cursor-pointer hover:bg-[var(--gray)] ${
-                          isFirst ? 'hover:rounded-t-[10px]' : ''
-                        } ${isLast ? 'hover:rounded-b-[10px]' : ''}`}
-                        onClick={() => handleSelectedCity(city)}
-                      >
-                        {city}
-                      </li>
-                    );
-                  })}
+                  return (
+                    <li
+                      key={index}
+                      className={`py-[2px] px-[10px] cursor-pointer hover:bg-[var(--gray)] ${
+                        isFirst ? 'hover:rounded-t-[10px]' : ''
+                      } ${isLast ? 'hover:rounded-b-[10px]' : ''}`}
+                      onClick={() => handleSelectedCity(city)}
+                    >
+                      {city}
+                    </li>
+                  );
+                })}
               </ul>
             )}
           </div>
