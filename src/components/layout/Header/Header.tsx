@@ -44,32 +44,56 @@ const Header: FC = () => {
 
   return (
     <header>
-      <div className={styles.fillСolor}>
-        <div className={`${styles.container} ${styles.flex}`}>
-          <div onMouseLeave={() => setIsActive(false)} className={styles.citySelector}>
-            <p className={styles.label}>Город : </p>
-            <button className={styles.selectedCity} onClick={() => setIsActive(!isActive)}>
+      <div className="bg-[var(--dark-gray)] w-full h-[24px]">
+        <div className="container flex justify-between">
+          <div onMouseLeave={() => setIsActive(false)} className="flex mt-px relative">
+            <p className="text-[var(--white)] whitespace-nowrap">Город : </p>
+            <button
+              className="mx-[10px] text-[var(--white)] whitespace-nowrap cursor-pointer"
+              onClick={() => setIsActive(!isActive)}
+            >
               {selectedCity}
             </button>
             {isActive ? (
-              <img src={closeList} alt="Закрыть выбор города" />
+              <img
+                className="w-[14px] h-[14px] mt-[5px] cursor-pointer"
+                src={closeList}
+                onClick={() => setIsActive(!isActive)}
+                alt="Закрыть выбор города"
+              />
             ) : (
-              <img src={openList} alt="Открыть выбор города" />
+              <img
+                onClick={() => setIsActive(!isActive)}
+                className="w-[14px] h-[14px] mt-[5px] cursor-pointer"
+                src={openList}
+                alt="Открыть выбор города"
+              />
             )}
             {isActive && (
-              <ul className={styles.dropdownList}>
+              <ul className="dropdownList">
                 {cities
                   .filter((city) => city !== selectedCity)
-                  .map((city, index) => (
-                    <li key={index} onClick={() => handleSelectedCity(city)}>
-                      {city}
-                    </li>
-                  ))}
+                  .map((city, index, array) => {
+                    const isFirst = index === 0;
+                    const isLast = index === array.length - 1;
+
+                    return (
+                      <li
+                        key={index}
+                        className={`py-[2px] px-[10px] cursor-pointer hover:bg-[var(--gray)] ${
+                          isFirst ? 'hover:rounded-t-[10px]' : ''
+                        } ${isLast ? 'hover:rounded-b-[10px]' : ''}`}
+                        onClick={() => handleSelectedCity(city)}
+                      >
+                        {city}
+                      </li>
+                    );
+                  })}
               </ul>
             )}
           </div>
 
-          <p className={styles.portfolio}>Портфолио</p>
+          <p className="text-[var(--white)] mt-px">Портфолио</p>
         </div>
       </div>
 
