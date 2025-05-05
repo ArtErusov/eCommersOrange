@@ -7,7 +7,7 @@ import favoritesIcon from '../../../assets/images/svg/favoritesIcon.svg';
 import cartIcon from '../../../assets/images/svg/cartIcon.svg';
 import profileIcon from '../../../assets/images/svg/profileIcon.svg';
 
-import SearchBlock from './Components/SearchBlock/SearchBlock';
+import SearchBlock from './SearchBlock';
 import Modal from '../../ui/Modal/Modal';
 import Registration from '../../../pages/Registration/Registration';
 import CitySelector from './CitySelector';

@@ -1,14 +1,16 @@
 import { FC, FormEvent, useEffect, useState } from 'react';
-import { Product } from '../../../../../types/product';
-import { useDebounce } from '../../../../../helpers/hooks/UseDebounce';
 
-import styles from './styles.module.css';
-import loading from '../../../../../assets/images/svg/Loading.svg';
-import notFound from '../../../../../assets/images/svg/NotFound.svg';
+import '../../../assets/css/main.css';
 
-import searchIcon from '../../../../../assets/images/svg/Search.svg';
-import temporaryItem from './temporaryData.json';
-import SearchCard from '../../../../ui/SearchCard/SearchCard';
+import notFound from '../../../assets/images/svg/NotFound.svg';
+import loading from '../../../assets/images/svg/Loading.svg';
+
+import searchIcon from '../../../assets/images/svg/Search.svg';
+
+import temporaryItem from '../../../data/temporaryData.json';
+import { Product } from '../../../types/product';
+import { useDebounce } from '../../../helpers/hooks/UseDebounce';
+import SearchCard from '../../ui/SearchCard/SearchCard';
 
 const SearchBlock: FC = () => {
   const [dataSearch, setDataSearch] = useState<string>('');
@@ -66,11 +68,11 @@ const SearchBlock: FC = () => {
 
   return (
     <>
-      {(isInputFocused || itemsNotFound) && <div className={styles.overlay} />}
-      <div className={styles.search_container}>
+      {(isInputFocused || itemsNotFound) && <div className="overlay" />}
+      <div className="relative w-[604px] h-[52px] z-11">
         <form onSubmit={handlerSearch}>
           <input
-            className={styles.search_input}
+            className="bg-[var(--white)] w-full h-[52px] pl-[10px] rounded-[10px] border-2 border-solid border-[var(--gray)]"
             type="text"
             value={dataSearch}
             onFocus={() => setIsInputFocused(true)}
@@ -78,24 +80,27 @@ const SearchBlock: FC = () => {
             onChange={(e) => setDataSearch(e.target.value)}
             placeholder="Начните поиск..."
           />
-          <button className={styles.search_btn} type="submit">
+          <button
+            className="w-[40px] h-[40px] bg-[var(--orange)] pl-[11px] rounded-[10px] absolute transition-colors duration-300 ease-in-out right-[6px] top-1/2 -translate-y-1/2 hover:bg-gray-dark-custom"
+            type="submit"
+          >
             <img src={searchIcon} alt="Кнопка поиска" />
           </button>
         </form>
 
         {itemsNotFound && (
-          <div className={styles.error_message}>
+          <div className="absolute mt-[10px] w-full z-[11] rounded-[10px] border-2 border-[var(--gray)] bg-[var(--white)]">
             <img src={notFound} alt="Ничего не найдено" />
             <p>Ничего не найдено....</p>
           </div>
         )}
         {isInputFocused &&
           (isLoading ? (
-            <div className={styles.search_loading}>
+            <div className="absolute mt-[10px] w-full z-[11] rounded-[10px] border-2 border-[var(--gray)] bg-[var(--white)] cursor-pointer h-[300px] flex justify-center items-center">
               <img src={loading} alt="Идет загрузка" />
             </div>
           ) : (
-            <ul className={styles.search_results}>
+            <ul className="absolute mt-[10px] w-full z-[11] rounded-[10px] border-2 border-[var(--gray)] bg-[var(--white)] cursor-pointer">
               {items.length === 0
                 ? temporaryItem.map((item) => <SearchCard key={item.id} item={item} />)
                 : items.map((item) => <SearchCard key={item.id} item={item} />)}
