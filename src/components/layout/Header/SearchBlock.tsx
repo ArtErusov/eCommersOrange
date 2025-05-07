@@ -69,7 +69,7 @@ const SearchBlock: FC = () => {
   return (
     <>
       {(isInputFocused || itemsNotFound) && <div className="overlay" />}
-      <div className="relative w-[604px] h-[52px] z-11">
+      <div className="relative ml-[60px] w-[540px] h-[52px] z-11">
         <form onSubmit={handlerSearch}>
           <input
             className="bg-[var(--white)] w-full h-[52px] pl-[10px] rounded-[10px] border-2 border-solid border-[var(--gray)]"

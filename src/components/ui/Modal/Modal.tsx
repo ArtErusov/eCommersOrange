@@ -1,4 +1,4 @@
-import styles from './styles.module.css';
+import '../../../assets/css/main.css';
 import ReactDOM from 'react-dom';
 import { FC, ReactNode, MouseEvent } from 'react';
 
@@ -18,8 +18,10 @@ const Modal: FC<ModalProps> = ({ children, isOpen, onClose }) => {
   };
 
   return ReactDOM.createPortal(
-    <div className={styles.backdrop} onClick={handleBackdropClick}>
-      <div className={styles.modal}>{children}</div>
+    <div className="backdrop" onClick={handleBackdropClick}>
+      <div className="bg-[var(--white)] p-[24px] rounded-[12px] shadow-lg min-w-[300px] max-w-[90vw]">
+        {children}
+      </div>
     </div>,
     document.getElementById('modal-root') as HTMLElement,
   );

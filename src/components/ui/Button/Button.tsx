@@ -1,5 +1,5 @@
 import { ButtonHTMLAttributes, FC } from 'react';
-import styles from './styles.module.css';
+import '../../../assets/css/main.css';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: string;
@@ -7,7 +7,10 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const Button: FC<ButtonProps> = ({ children, onClick }) => {
   return (
-    <button onClick={onClick} className={styles.button}>
+    <button
+      onClick={onClick}
+      className="px-[24px] py-[10px] bg-[var(--orange)] cursor-pointer text-[var(--white)] rounded-[10px] transition-colors duration-300 ease-in-out hover:bg-[var(--dark-gray)]"
+    >
       {children}
     </button>
   );
