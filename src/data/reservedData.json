@@ -1,0 +1,324 @@
+[
+    {
+      "id": 1235234,
+      "src": [
+        "https://img.mvideo.ru/Pdb/small_pic/480/400221326b.jpg",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486215.jpeg/resize/720x720/",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486230.jpeg/resize/3840x2160/",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486247.jpeg/resize/3840x2160/"
+      ],
+      "price": 7499,
+      "rating": 37,
+      "review": 43,
+      "platforms": [
+        "ps5",
+        "PC"
+      ],
+      "manufacturer": "CI Games",
+      "text": "Lords of the Fallen",
+      "dataSearch": "CI Games Lords of the Fallen ps5 PC"
+    },
+    {
+      "id": 2432412,
+      "src": [
+        "https://img.mvideo.ru/Pdb/small_pic/480/400177672b.jpg",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486215.jpeg/resize/720x720/",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486230.jpeg/resize/3840x2160/",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486247.jpeg/resize/3840x2160/"
+      ],
+      "price": 9950,
+      "rating": 42,
+      "review": 682,
+      "platforms": [
+        "ps5"
+      ],
+      "manufacturer": "PlayStation",
+      "text": "Marvel's Spider-Man 2",
+      "dataSearch": "PlayStation Marvel's Spider-Man 2 ps5"
+    },
+    {
+      "id": 3421654,
+      "src": [
+        "https://img.mvideo.ru/Pdb/small_pic/480/400083897b.jpg",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486215.jpeg/resize/720x720/",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486230.jpeg/resize/3840x2160/",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486247.jpeg/resize/3840x2160/"
+      ],
+      "label": 28,
+      "price": 4499,
+      "rating": 48,
+      "review": 91,
+      "platforms": [
+        "ps4",
+        "Xbox",
+        "ps5",
+        "PC"
+      ],
+      "manufacturer": "Capcom",
+      "text": "Resident Evil 4 Remake Стандартное издание",
+      "dataSearch": "Capcom Resident Evil 4 Remake Стандартное издание ps4 Xbox ps5 PC"
+    },
+    {
+      "id": 4825632,
+      "src": [
+        "https://img.mvideo.ru/Pdb/small_pic/480/40078428b.jpg",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486215.jpeg/resize/720x720/",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486230.jpeg/resize/3840x2160/",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486247.jpeg/resize/3840x2160/"
+      ],
+      "label": 30,
+      "price": 4950,
+      "rating": 27,
+      "review": 45,
+      "platforms": [
+        "Xbox",
+        "ps5"
+      ],
+      "manufacturer": "Square Enix",
+      "text": "Forspoken, русские субтитры",
+      "dataSearch": "Square Enix Forspoken, русские субтитры Xbox ps5"
+    },
+    {
+      "id": 5821324,
+      "src": [
+        "https://img.mvideo.ru/Pdb/small_pic/480/400120392b.jpg",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486215.jpeg/resize/720x720/",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486230.jpeg/resize/3840x2160/",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486247.jpeg/resize/3840x2160/"
+      ],
+      "label": 20,
+      "price": 4999,
+      "rating": 39,
+      "review": 3,
+      "platforms": [
+        "Xbox"
+      ],
+      "manufacturer": "WB Games",
+      "text": "Hogwarts Legacy Стандартное издание",
+      "dataSearch": "WB Games Hogwarts Legacy Стандартное издание Xbox"
+    },
+    {
+      "id": 63265963,
+      "src": [
+        "https://img.mvideo.ru/Pdb/small_pic/480/400146620b.jpg",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486215.jpeg/resize/720x720/",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486230.jpeg/resize/3840x2160/",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486247.jpeg/resize/3840x2160/"
+      ],
+      "price": 7599,
+      "rating": 40,
+      "label": 20,
+      "review": 263,
+      "platforms": [
+        "Switch",
+        "Xbox",
+        "ps5"
+      ],
+      "manufacturer": "WB Games",
+      "text": "Mortal Kombat 1",
+      "dataSearch": "WB Games Mortal Kombat 1 Switch Xbox ps5"
+    },
+    {
+      "id": 7633453,
+      "src": [
+        "https://img.mvideo.ru/Pdb/small_pic/480/40078771b.jpg",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486215.jpeg/resize/720x720/",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486230.jpeg/resize/3840x2160/",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486247.jpeg/resize/3840x2160/"
+      ],
+      "label": 24,
+      "price": 4499,
+      "rating": 50,
+      "review": 784,
+      "platforms": [
+        "Xbox",
+        "ps5",
+        "Switch"
+      ],
+      "manufacturer": "Bandai Namco",
+      "text": "Elden Ring русские субтитры",
+      "dataSearch": "Bandai Namco Elden Ring русские субтитры Xbox ps5 Switch"
+    },
+    {
+      "id": 8925185,
+      "src": [
+        "https://img.mvideo.ru/Pdb/small_pic/480/400076052b.jpg",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486215.jpeg/resize/720x720/",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486230.jpeg/resize/3840x2160/",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486247.jpeg/resize/3840x2160/"
+      ],
+      "price": 4899,
+      "rating": 41,
+      "review": 32,
+      "platforms": [
+        "Xbox",
+        "ps5",
+        "Switch"
+      ],
+      "manufacturer": "Square Enix",
+      "text": "Crisis Core: Final Fantasy VII Reunion",
+      "dataSearch": "Square Enix Crisis Core: Final Fantasy VII Reunion Xbox ps5 Switch"
+    },
+    {
+      "id": 9324235,
+      "src": [
+        "https://img.mvideo.ru/Pdb/small_pic/480/400131129b.jpg",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486215.jpeg/resize/720x720/",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486230.jpeg/resize/3840x2160/",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486247.jpeg/resize/3840x2160/"
+      ],
+      "price": 5899,
+      "rating": 44,
+      "label": 30,
+      "review": 145,
+      "platforms": [
+        "Xbox",
+        "ps5",
+        "PC"
+      ],
+      "manufacturer": "Deep Silver",
+      "text": "Dead Island 2 Издание первого дня",
+      "dataSearch": "Deep Silver Dead Island 2 Издание первого дня Xbox ps5 PC"
+    },
+    {
+      "id": 1041212,
+      "src": [
+        "https://img.mvideo.ru/Pdb/small_pic/480/40079003b.jpg",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486215.jpeg/resize/720x720/",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486230.jpeg/resize/3840x2160/",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486247.jpeg/resize/3840x2160/"
+      ],
+      "label": 2,
+      "price": 4680,
+      "rating": 22,
+      "review": 56,
+      "platforms": [
+        "Xbox",
+        "ps5",
+        "Switch"
+      ],
+      "text": "A Plague Tale: Requiem русские субтитры",
+      "dataSearch": "Focus Entertainment A Plague Tale: Requiem русские субтитры Xbox ps5 Switch"
+    },
+    {
+      "id": 11435667,
+      "src": [
+        "https://img.mvideo.ru/Pdb/small_pic/480/400081693b.jpg",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486215.jpeg/resize/720x720/",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486230.jpeg/resize/3840x2160/",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486247.jpeg/resize/3840x2160/"
+      ],
+      "price": 4899,
+      "rating": 38,
+      "review": 87,
+      "label": 11,
+      "platforms": [
+        "Xbox",
+        "ps5",
+        "ps4"
+      ],
+      "manufacturer": "Focus Home",
+      "text": "Atomic Heart",
+      "dataSearch": "Focus Home Atomic Heart Xbox ps5 ps4"
+    },
+    {
+      "id": 125476,
+      "src": [
+        "https://img.mvideo.ru/Pdb/small_pic/480/400282660b.jpg",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486215.jpeg/resize/720x720/",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486230.jpeg/resize/3840x2160/",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486247.jpeg/resize/3840x2160/"
+      ],
+      "price": 9899,
+      "rating": 49,
+      "review": 456,
+      "label": 69,
+      "platforms": [
+        "ps5",
+        "ps4"
+      ],
+      "manufacturer": "Sony",
+      "text": "The Last of Us Part 2. Remastered",
+      "dataSearch": "Sony The Last of Us Part 2. Remastered ps5 ps4"
+    },
+    {
+      "id": 13383419,
+      "src": [
+        "https://img.mvideo.ru/Pdb/small_pic/480/400439066b.jpg",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486215.jpeg/resize/720x720/",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486230.jpeg/resize/3840x2160/",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486247.jpeg/resize/3840x2160/"
+      ],
+      "price": 8899,
+      "rating": 23,
+      "review": 32,
+      "label": 3,
+      "platforms": [
+        "Xbox",
+        "ps5",
+        "Switch"
+      ],
+      "manufacturer": "Ubisoft",
+      "text": "Assassin's Creed Shadows",
+      "dataSearch": "Ubisoft Assassin's Creed Shadows Xbox ps5 Switch"
+    },
+    {
+      "id": 14954296,
+      "src": [
+        "https://img.mvideo.ru/Pdb/small_pic/480/400374973b.jpg",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486215.jpeg/resize/720x720/",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486230.jpeg/resize/3840x2160/",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486247.jpeg/resize/3840x2160/"
+      ],
+      "price": 7999,
+      "rating": 46,
+      "review": 45,
+      "platforms": [
+        "Xbox",
+        "ps5"
+      ],
+      "manufacturer": "Konami",
+      "text": "Silent Hill 2 Remake",
+      "dataSearch": "Konami Silent Hill 2 Remake Xbox ps5"
+    },
+    {
+      "id": 15127895,
+      "src": [
+        "https://img.mvideo.ru/Pdb/small_pic/480/400420812b.jpg",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486215.jpeg/resize/720x720/",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486230.jpeg/resize/3840x2160/",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486247.jpeg/resize/3840x2160/"
+      ],
+      "price": 6099,
+      "rating": 48,
+      "review": 187,
+      "platforms": [
+        "Xbox",
+        "ps5",
+        "ps4"
+      ],
+      "manufacturer": "Deep Silver",
+      "text": "Kingdom Come: Deliverance II",
+      "dataSearch": "Deep Silver Kingdom Come: Deliverance II Xbox ps5 ps4"
+    },
+    {
+      "id": 16435667,
+      "src": [
+        "https://img.mvideo.ru/Pdb/small_pic/480/40079691b.jpg",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486215.jpeg/resize/720x720/",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486230.jpeg/resize/3840x2160/",
+        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486247.jpeg/resize/3840x2160/"
+      ],
+      "price": 7899,
+      "rating": 47,
+      "review": 345,
+      "label": 80,
+      "platforms": [
+        "Xbox",
+        "ps5"
+      ],
+      "manufacturer": "Focus Entertainment",
+      "text": "Warhammer 40,000: Space Marine 2",
+      "dataSearch": "Focus Entertainment Warhammer 40,000: Space Marine 2 Xbox ps5"
+    }
+  ]
