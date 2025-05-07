@@ -25,18 +25,24 @@ const BannerCard: FC<ProductCardProps> = ({ item }) => {
   }, []);
 
   return (
-    <div className={styles.card_container}>
-      <div className={styles.left}>
-        <h2 className={styles.title}>Товар дня :</h2>
-        <img className={styles.img} src={item.src[0]} alt="" />
+    <div className="w-[446px] h-[289px] rounded-[14px] gap-[28px] flex border border-[var(--gray)]">
+      <div>
+        <h2 className="mt-[24px] ml-[15px] text-[24px] font-semibold">Товар дня :</h2>
+        <img className="mt-[10px] ml-[15px] w-[200px] h-[200px]" src={item.src[0]} alt="" />
       </div>
-      <div className={styles.right}>
-        <div className={styles.time}>
-          <div className={styles.time_counter}>{timeLeft.hours}</div>
-          <div className={styles.time_separator}>:</div>
-          <div className={styles.time_counter}>{timeLeft.minutes}</div>
-          <div className={styles.time_separator}>:</div>
-          <div className={styles.time_counter}>{timeLeft.seconds}</div>
+      <div>
+        <div className="flex mt-[15px] gap-[10px]">
+          <div className="text-[24px] font-semibold w-[46px] h-[46px] bg-[var(--gray)] rounded-[6px] text-center pt-[8px]">
+            {timeLeft.hours}
+          </div>
+          <div className="text-[24px] font-semibold mt-[6px]">:</div>
+          <div className="text-[24px] font-semibold w-[46px] h-[46px] bg-[var(--gray)] rounded-[6px] text-center pt-[8px]">
+            {timeLeft.minutes}
+          </div>
+          <div className="text-[24px] font-semibold mt-[6px]">:</div>
+          <div className="text-[24px] font-semibold w-[46px] h-[46px] bg-[var(--gray)] rounded-[6px] text-center pt-[8px]">
+            {timeLeft.seconds}
+          </div>
         </div>
 
         <div className={styles.card_label}>

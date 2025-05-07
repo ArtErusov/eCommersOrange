@@ -1,4 +1,3 @@
-import '../../../assets/css/main.css';
 import ReactDOM from 'react-dom';
 import { FC, ReactNode, MouseEvent } from 'react';
 

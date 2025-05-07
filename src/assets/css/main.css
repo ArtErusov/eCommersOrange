@@ -24,11 +24,6 @@
   padding: 0 10px;
 }
 
-.flex {
-  display: flex;
-  justify-content: space-between;
-}
-
 @layer base {
   :root {
     --black: #393939;
@@ -58,6 +53,7 @@
     padding-right: 10px;
   }
 
+  /* ------------------ */
   .dropdownList {
     position: absolute;
     width: 200px;

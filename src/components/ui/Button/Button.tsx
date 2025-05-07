@@ -1,5 +1,4 @@
 import { ButtonHTMLAttributes, FC } from 'react';
-import '../../../assets/css/main.css';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: string;

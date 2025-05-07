@@ -1,49 +1,4 @@
 @import '../../../assets/css/main.css';
-.card_container {
-  width: 446px;
-  height: 289px;
-  border-radius: 14px;
-  display: flex;
-  border: 1px solid var(--gray);
-}
-/* left */
-.img {
-  margin: 21px 0 0 15px;
-  width: 200px;
-  height: 200px;
-}
-
-.title {
-  margin: 24px 0 0 15px;
-  font-size: 24px;
-  font-weight: 600;
-}
-/* right */
-
-.right {
-  margin-left: 28px;
-}
-.time {
-  margin-top: 15px;
-  display: flex;
-  gap: 10px;
-}
-.time div {
-  font-size: 24px;
-  font-weight: 600;
-}
-.time_counter {
-  height: 46px;
-  width: 46px;
-  background-color: var(--gray);
-  border-radius: 6px;
-  text-align: center;
-  padding-top: 10px;
-}
-
-.time_separator {
-  margin-top: 8px;
-}
 
 /* ------------ */
 .card_label {
