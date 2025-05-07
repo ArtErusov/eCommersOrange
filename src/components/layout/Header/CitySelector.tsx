@@ -2,10 +2,10 @@ import { FC, useState } from 'react';
 import { useLocalStorage } from '../../../helpers/hooks/useLocalStorage';
 import '../../../assets/css/main.css';
 
-import closeList from '../../../assets/images/svg/closeList.svg';
-import openList from '../../../assets/images/svg/openList.svg';
+import closeList from '@/assets/images/svg/closeList.svg';
+import openList from '@/assets/images/svg/openList.svg';
 
-import { CITIES } from '../../../constants/cities';
+import { CITIES } from '@/constants/cities';
 
 const CitySelector: FC = () => {
   const [isActive, setIsActive] = useState<boolean>(false);
