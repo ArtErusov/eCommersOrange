@@ -1,12 +1,13 @@
-import styles from './styles.module.css';
 import banner1 from '@/assets/images/BannerImgOne.png';
 import banner2 from '@/assets/images/BannerImgTwo.png';
 import banner3 from '@/assets/images/BannerImgThree.png';
 import banner4 from '@/assets/images/BannerImgFour.png';
 import banner5 from '@/assets/images/BannerImgFive.png';
-import arrow from '@/assets/images/svg/arrowBannerIcon.svg';
+
+import clsx from 'clsx';
 
 import { useState, useEffect, FC } from 'react';
+import ArrowButton from '@/components/ui/ArrowButton';
 
 const AdvertisingBanner: FC = () => {
   const banners: string[] = [banner1, banner2, banner3, banner4, banner5];
@@ -19,7 +20,7 @@ const AdvertisingBanner: FC = () => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % banners.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, [banners.length, isPaused]);
+  }, [isPaused, banners.length]);
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % banners.length);
@@ -31,28 +32,24 @@ const AdvertisingBanner: FC = () => {
 
   return (
     <div
-      className={styles['slider']}
+      className="bg-[var(--gray)] relative w-[914px] h-[289px] rounded-[14px]"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      <button
-        className={styles['slider__arrow-prev']}
-        onClick={prevSlide}
-        aria-label="Previous banner"
-      >
-        <img src={arrow} alt="Previous" />
-      </button>
-      <img src={banners[currentIndex]} alt="Banner" />
-      <button className={styles['slider__arrow-next']} onClick={nextSlide} aria-label="Next banner">
-        <img className={styles['slider__arrow-icon']} src={arrow} alt="Next" />
-      </button>
-      <div className={styles['slider__dots']}>
+      <ArrowButton onClick={prevSlide} direction="left" />
+      <img src={banners[currentIndex]} alt={`Banner ${currentIndex + 1}`} />
+      <ArrowButton onClick={nextSlide} direction="right" />
+
+      <div className="flex gap-[8px] absolute bottom-[10px] left-1/2 -translate-x-1/2">
         {banners.map((_, index) => (
           <div
             key={index}
-            className={
-              currentIndex === index ? styles['slider__dot-active'] : styles['slider__dot']
-            }
+            className={clsx(
+              'h-[3px] w-[28px] cursor-pointer',
+              currentIndex === index ? 'bg-[var(--orange)]' : 'bg-[var(--white)]',
+            )}
+            aria-label={`Go to banner ${index + 1}`}
+            aria-current={currentIndex === index}
             onClick={() => setCurrentIndex(index)}
           ></div>
         ))}
