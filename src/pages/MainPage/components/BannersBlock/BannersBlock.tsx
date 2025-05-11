@@ -4,7 +4,6 @@ import AdvertisingBanner from './AdvertisingBanner.tsx';
 import BannerCard from '../../../../components/ui/BannerCard/BannerCard.tsx';
 import { FC } from 'react';
 import { Product } from '../../../../types/product.ts';
-import SliderBanner from './SliderBanner.tsx';
 
 interface ProductCardProps {
   item: Product;
@@ -13,8 +12,7 @@ interface ProductCardProps {
 const BannersBlock: FC<ProductCardProps> = ({ item }) => {
   return (
     <div className={styles.banner_block}>
-      {/* <AdvertisingBanner /> */}
-      <SliderBanner />
+      <AdvertisingBanner />
       <BannerCard item={item} />
     </div>
   );
