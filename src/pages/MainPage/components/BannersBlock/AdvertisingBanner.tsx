@@ -1,10 +1,10 @@
 import styles from './styles.module.css';
-import banner1 from '../../../../assets/images/BannerImgOne.png';
-import banner2 from '../../../../assets/images/BannerImgTwo.png';
-import banner3 from '../../../../assets/images/BannerImgThree.png';
-import banner4 from '../../../../assets/images/BannerImgFour.png';
-import banner5 from '../../../../assets/images/BannerImgFive.png';
-import arrow from '../../../../assets/images/svg/arrowBannerIcon.svg';
+import banner1 from '@/assets/images/BannerImgOne.png';
+import banner2 from '@/assets/images/BannerImgTwo.png';
+import banner3 from '@/assets/images/BannerImgThree.png';
+import banner4 from '@/assets/images/BannerImgFour.png';
+import banner5 from '@/assets/images/BannerImgFive.png';
+import arrow from '@/assets/images/svg/arrowBannerIcon.svg';
 
 import { useState, useEffect, FC } from 'react';
 
