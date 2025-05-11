@@ -1,4 +1,4 @@
-import { Product } from '../../../types/product.ts';
+import { Product } from '../../../shared/types/product.ts';
 import styles from './styles.module.css';
 
 import { FC } from 'react';

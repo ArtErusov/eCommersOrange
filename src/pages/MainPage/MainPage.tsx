@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from 'react';
-import { Product } from '@/types/product.ts';
+import { Product } from '@/shared/types/product.ts';
 
 import BannersBlock from './components/BannersBlock/BannersBlock.tsx';
 import ProductBlok from './components/ProductBlok/ProductBlok.tsx';
@@ -28,11 +28,9 @@ const MainPage: FC = () => {
       <Header />
       <div className="container">
         {isLoading ? <BannersBlock item={items[5]} /> : <BannerSkeleton />}
-
         <ProductBlok />
-        <div className="w-[full] h-[120px] bg-[var(--gray)]"></div>
-        <p className="mt-[400px] text-[var(--orange)]">Ghbdtn vbh</p>
       </div>
+      <div className="mt-[400px] w-[full] h-[120px] bg-[var(--gray)]"></div>
     </>
   );
 };

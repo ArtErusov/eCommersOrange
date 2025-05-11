@@ -5,7 +5,7 @@ import SelectionBlock from './components/SelectionBlock/SelectionBlock';
 import styles from './styles.module.css';
 
 import { FC, useEffect, useState } from 'react';
-import { Product } from '../../../../types/product';
+import { Product } from '../../../../shared/types/product';
 import Pagination from './components/Pagination/Pagination';
 
 interface Category {

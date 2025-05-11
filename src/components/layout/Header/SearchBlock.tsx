@@ -1,16 +1,14 @@
 import { FC, FormEvent, useEffect, useState } from 'react';
 
-import '../../../assets/css/main.css';
+import notFound from '@/assets/images/svg/NotFound.svg';
+import loading from '@/assets/images/svg/Loading.svg';
 
-import notFound from '../../../assets/images/svg/NotFound.svg';
-import loading from '../../../assets/images/svg/Loading.svg';
+import searchIcon from '@/assets/images/svg/Search.svg';
 
-import searchIcon from '../../../assets/images/svg/Search.svg';
-
-import temporaryItem from '../../../data/temporaryData.json';
-import { Product } from '../../../types/product';
-import { useDebounce } from '../../../helpers/hooks/UseDebounce';
-import SearchCard from '../../ui/SearchCard/SearchCard';
+import temporaryItem from '@/shared/data/temporaryData.json';
+import { Product } from '@/shared/types/product';
+import { useDebounce } from '@/shared/helpers/hooks/UseDebounce';
+import SearchCard from '@/components/ui/SearchCard/SearchCard';
 
 const SearchBlock: FC = () => {
   const [dataSearch, setDataSearch] = useState<string>('');

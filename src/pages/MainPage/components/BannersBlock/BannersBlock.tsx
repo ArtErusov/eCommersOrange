@@ -1,7 +1,7 @@
 import AdvertisingBanner from './AdvertisingBanner.tsx';
 import BannerCard from '@/components/ui/BannerCard.tsx';
 import { FC } from 'react';
-import { Product } from '@/types/product.ts';
+import { Product } from '@/shared/types/product.ts';
 
 interface ProductCardProps {
   item: Product;

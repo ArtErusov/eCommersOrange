@@ -1,4 +1,4 @@
-import { Product } from '../../../types/product.ts';
+import { Product } from '../../../shared/types/product.ts';
 import Button from '../Button/Button.tsx';
 import styles from './styles.module.css';
 

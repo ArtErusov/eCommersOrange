@@ -1,15 +1,14 @@
 import { FC, useState } from 'react';
-import '../../../assets/css/main.css';
 
-import mainLogo from '../../../assets/images/svg/mainLogo.svg';
-import catalogIcon from '../../../assets/images/svg/catalogIcon.svg';
-import favoritesIcon from '../../../assets/images/svg/favoritesIcon.svg';
-import cartIcon from '../../../assets/images/svg/cartIcon.svg';
-import profileIcon from '../../../assets/images/svg/profileIcon.svg';
+import mainLogo from '@/assets/images/svg/mainLogo.svg';
+import catalogIcon from '@/assets/images/svg/catalogIcon.svg';
+import favoritesIcon from '@/assets/images/svg/favoritesIcon.svg';
+import cartIcon from '@/assets/images/svg/cartIcon.svg';
+import profileIcon from '@/assets/images/svg/profileIcon.svg';
 
 import SearchBlock from './SearchBlock';
-import Modal from '../../ui/Modal/Modal';
-import Registration from '../../../pages/Registration/Registration';
+import Modal from '@/components/ui/Modal/Modal';
+import Registration from '@/pages/Registration/Registration';
 import CitySelector from './CitySelector';
 
 const Header: FC = () => {

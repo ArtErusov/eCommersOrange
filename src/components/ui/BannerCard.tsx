@@ -1,7 +1,7 @@
-import { CalculationOfDiscounts } from '@/helpers/CalculationOfDiscounts.ts';
-import { getRandomNumber } from '@/helpers/getRandomNumber.ts';
-import { getTimeLeft } from '@/helpers/getTimeLeft.ts';
-import { Product } from '@/types/product.ts';
+import { CalculationOfDiscounts } from '@/shared/helpers/CalculationOfDiscounts';
+import { getRandomNumber } from '@/shared/helpers/getRandomNumber';
+import { getTimeLeft } from '@/shared/helpers/getTimeLeft';
+import { Product } from '@/shared/types/product';
 import Button from '@/components/ui/Button/Button';
 
 import { FC, useState, useEffect, useMemo } from 'react';
