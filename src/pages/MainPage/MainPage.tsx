@@ -5,6 +5,7 @@ import BannersBlock from './components/BannersBlock/BannersBlock.tsx';
 import styles from './styles.module.css';
 import ProductBlok from './components/ProductBlok/ProductBlok.tsx';
 import Header from '../../components/layout/Header/Header.tsx';
+import BannerSkeleton from '@/components/ui/BannerSkeleton.tsx';
 
 const MainPage: FC = () => {
   const [items, setItems] = useState<Product[]>([]);
@@ -27,11 +28,7 @@ const MainPage: FC = () => {
     <>
       <Header />
       <div className={styles.container}>
-        {isLoading ? (
-          <BannersBlock item={items[5]} />
-        ) : (
-          <div className={styles.temporary_skeleton}>тут будет прогрузка </div>
-        )}
+        {isLoading ? <BannersBlock item={items[5]} /> : <BannerSkeleton />}
 
         <ProductBlok />
 

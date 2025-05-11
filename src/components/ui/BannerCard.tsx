@@ -1,11 +1,10 @@
-import { CalculationOfDiscounts } from '../../../helpers/CalculationOfDiscounts.ts';
-import { getRandomNumber } from '../../../helpers/getRandomNumber.ts';
-import { getTimeLeft } from '../../../helpers/getTimeLeft.ts';
-import { Product } from '../../../types/product.ts';
-import Button from '../Button/Button.tsx';
-import styles from './styles.module.css';
+import { CalculationOfDiscounts } from '@/helpers/CalculationOfDiscounts.ts';
+import { getRandomNumber } from '@/helpers/getRandomNumber.ts';
+import { getTimeLeft } from '@/helpers/getTimeLeft.ts';
+import { Product } from '@/types/product.ts';
+import Button from '@/components/ui/Button/Button';
 
-import { FC, useState, useEffect } from 'react';
+import { FC, useState, useEffect, useMemo } from 'react';
 
 interface ProductCardProps {
   item: Product;
@@ -14,7 +13,10 @@ interface ProductCardProps {
 const BannerCard: FC<ProductCardProps> = ({ item }) => {
   const [timeLeft, setTimeLeft] = useState(getTimeLeft());
 
-  const temporaryDiscount: number = item.label ? item.label : getRandomNumber(50);
+  const temporaryDiscount: number = useMemo(
+    () => (item.label ? item.label : getRandomNumber(50)),
+    [item.label],
+  );
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -28,8 +30,13 @@ const BannerCard: FC<ProductCardProps> = ({ item }) => {
     <div className="w-[446px] h-[289px] rounded-[14px] gap-[28px] flex border border-[var(--gray)]">
       <div>
         <h2 className="mt-[24px] ml-[15px] text-[24px] font-semibold">Товар дня :</h2>
-        <img className="mt-[10px] ml-[15px] w-[200px] h-[200px]" src={item.src[0]} alt="" />
+        <img
+          className="mt-[10px] ml-[15px] w-[200px] h-[200px]"
+          src={item.src[0]}
+          alt={item.text}
+        />
       </div>
+
       <div>
         <div className="flex mt-[15px] gap-[10px]">
           <div className="text-[24px] font-semibold w-[46px] h-[46px] bg-[var(--gray)] rounded-[6px] text-center pt-[8px]">
@@ -45,35 +52,37 @@ const BannerCard: FC<ProductCardProps> = ({ item }) => {
           </div>
         </div>
 
-        <div className={styles.card_label}>
-          <div className={styles.card_label_gray}>
-            <p>Скидка:</p>
+        <div className="mt-[20px] flex relative">
+          <div className="w-[134px] h-[20px] bg-[var(--dark-gray)] rounded-[15px_3px_15px_3px]">
+            <p className="text-[14px] font-bold text-[var(--white)] ml-[10px]">Скидка:</p>
           </div>
-          <div className={styles.card_label_red}>
-            <p>{temporaryDiscount} %</p>
+          <div className="rounded-[15px_3px_15px_3px] h-[20px] w-[52px] bg-[var(--red)] absolute z-[1] right-[52px]">
+            <p className="text-[14px] font-bold text-[var(--white)] text-center mt-px">
+              {temporaryDiscount} %
+            </p>
           </div>
         </div>
 
         {item.label === undefined ? (
-          <p className={styles.price}>{item.price} p</p>
+          <p className="text-[24px] font-semibold">{item.price} p</p>
         ) : (
-          <div className={styles.price_block}>
-            <p className={styles.price}>
+          <div className="mt-[24px] flex">
+            <p className="text-[24px] font-semibold">
               {CalculationOfDiscounts(item.price, temporaryDiscount)} ₽
             </p>
-            <p className={styles.discount}>{item.price} ₽</p>
+            <p className="discount ml-[10px] mt-[5px]">{item.price} ₽</p>
           </div>
         )}
         {item.manufacturer === undefined ? (
-          <p className={styles.text}>{item.text}</p>
+          <p className="h-[70px] w-[177px] mt-[12px]">{item.text}</p>
         ) : (
           <>
-            <p className={styles.text_manufacturer}>{item.manufacturer}</p>
-            <p className={styles.text_description}>{item.text}</p>
+            <p className="h-[22px] w-[177px]">{item.manufacturer}</p>
+            <p className="h-[44px] w-[177px]">{item.text}</p>
           </>
         )}
 
-        <div className={styles.btn_pos}>
+        <div className="ml-[20px]">
           <Button>Купить</Button>
         </div>
       </div>

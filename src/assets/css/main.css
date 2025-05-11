@@ -78,6 +78,25 @@
     z-index: 3;
     position: absolute;
   }
+
+  .discount {
+    position: relative;
+    margin: 4px 0 0 10px;
+    font-size: 14px;
+    color: var(--dark-gray);
+  }
+
+  .discount::after {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: -3px;
+    right: -3px;
+    height: 2px;
+    background-color: var(--red);
+    pointer-events: none;
+  }
+
   /* Этот стиль для поиска шапки я хочу его переделать под модальное окно */
   .overlay {
     position: fixed;
