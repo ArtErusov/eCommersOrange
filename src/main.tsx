@@ -5,6 +5,7 @@ import './assets/css/main.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import MainPage from './pages/MainPage/MainPage.tsx';
 import Registration from './pages/Registration/Registration.tsx';
+import PromoPage from './pages/PromoPage/PromoPage.tsx';
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
   {
     path: '/reg',
     element: <Registration />,
+  },
+  {
+    path: '/promo',
+    element: <PromoPage />,
   },
 ]);
 

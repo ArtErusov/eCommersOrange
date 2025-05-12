@@ -10,6 +10,7 @@ import SearchBlock from './SearchBlock';
 import Modal from '@/components/ui/Modal/Modal';
 import Registration from '@/pages/Registration/Registration';
 import CitySelector from './CitySelector';
+import { Link } from 'react-router-dom';
 
 const Header: FC = () => {
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
@@ -19,15 +20,21 @@ const Header: FC = () => {
       <div className="bg-[var(--dark-gray)] w-full h-[24px]">
         <div className="container flex justify-between">
           <CitySelector />
-          <p className="text-[var(--white)] mt-px">Портфолио</p>
+          <div className="flex gap-[10px] mt-px text-[var(--white)]">
+            <Link to="/promo">promo</Link>
+            <a href="https://github.com/ArtErusov" target="_blank" rel="noopener noreferrer">
+              Портфолио
+            </a>
+          </div>
         </div>
       </div>
 
       <div className="container">
         <div className="flex justify-between mt-[15px]">
           <div className="flex gap-[28px]">
-            <img src={mainLogo} alt="Логотип компании" role="img" />
-
+            <Link className="w-[186px] h-[43px] mt-[4px]" to="/">
+              <img src={mainLogo} alt="Логотип компании" role="img" />
+            </Link>
             <div className="relative w-[52px] h-[52px] flex-shrink-0 group">
               <div
                 className="cursor-pointer absolute top-0 left-0 h-[52px] w-[52px] bg-[var(--orange)] rounded-[10px] text-[var(--white)] 
