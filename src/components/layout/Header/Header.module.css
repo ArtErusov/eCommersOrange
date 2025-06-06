@@ -1,5 +1,5 @@
 @import '@/shared/styles/main.css';
-
+/* ===================Header==================== */
 .header__top-bar {
   background-color: var(--dark-gray);
   height: 24px;

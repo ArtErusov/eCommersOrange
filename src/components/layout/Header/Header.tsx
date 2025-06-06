@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 
 import mainLogo from '@/assets/images/svg/mainLogo.svg';
 import catalogIcon from '@/assets/images/svg/catalogIcon.svg';
@@ -7,20 +7,35 @@ import cartIcon from '@/assets/images/svg/cartIcon.svg';
 import profileIcon from '@/assets/images/svg/profileIcon.svg';
 
 import SearchBlock from './SearchBlock';
-import Modal from '@/components/ui/Modal/Modal';
-import Registration from '@/pages/Registration/Registration';
 import CitySelector from './CitySelector';
 import { Link } from 'react-router-dom';
 
 import styles from './Header.module.css';
+import { HeaderButton } from '@/shared/types/HeaderButton';
 
 const Header: FC = () => {
-  const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
+  const headerButton: HeaderButton[] = [
+    {
+      title: 'войти',
+      icon: profileIcon,
+      path: '/promo',
+    },
+    {
+      title: 'избранные',
+      icon: favoritesIcon,
+      path: '/promo',
+    },
+    {
+      title: 'корзина',
+      icon: cartIcon,
+      path: '/promo',
+    },
+  ];
 
   return (
     <header>
       <div className={styles['header__top-bar']}>
-        <div className={`container ${styles['header__top-content']}`}>
+        <div className={`${styles['container']} ${styles['header__top-content']}`}>
           <CitySelector />
           <div className={styles['header__links']}>
             <Link to="/promo">promo</Link>
@@ -48,30 +63,15 @@ const Header: FC = () => {
           <SearchBlock />
 
           <div className={styles['header__actions']}>
-            <button
-              onClick={() => setModalIsOpen(!modalIsOpen)}
-              className={styles['header__action']}
-            >
-              <img className="w-[26px] h-[26px]" src={profileIcon} alt="Избранные" />
-              <p>войти</p>
-            </button>
-
-            <button className={styles['header__action']}>
-              <img className="w-[26px] h-[26px]" src={favoritesIcon} alt="Избранные" />
-              <p>избранные</p>
-            </button>
-            <button className={styles['header__action']}>
-              <img className="w-[26px] h-[26px]" src={cartIcon} alt="Корзина" />
-              <p>корзина</p>
-            </button>
+            {headerButton.map((btn) => (
+              <Link to={btn.path} key={btn.title} className={styles['header__action']}>
+                <img src={btn.icon} alt={btn.title} />
+                <p>{btn.title}</p>
+              </Link>
+            ))}
           </div>
         </div>
       </div>
-      {modalIsOpen && (
-        <Modal isOpen={modalIsOpen} onClose={() => setModalIsOpen(false)}>
-          <Registration />
-        </Modal>
-      )}
     </header>
   );
 };
