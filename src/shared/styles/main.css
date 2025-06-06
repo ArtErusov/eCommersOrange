@@ -1,0 +1,22 @@
+:root {
+  --black: #393939;
+  --white: #ffffff;
+  --dark-gray: #797979;
+  --gray: #ededed;
+  --orange: #ff9b04;
+  --light-orange: #ffd498;
+  --red: #e81e1e;
+}
+
+* {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: 'Comfortaa', sans-serif;
+  color: var(--black);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
