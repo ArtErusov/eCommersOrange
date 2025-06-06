@@ -1,3 +1,5 @@
+// ПОЛНОСТЬЮ ИЗМЕНИТЬ ЭТОТ КОМПОНЕНТ
+
 import { FC, FormEvent, useEffect, useState } from 'react';
 
 import notFound from '@/assets/images/svg/NotFound.svg';
