@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import Header from '@/components/layout/Header/Header.tsx';
+import Header from '@/components/Header/Header.tsx';
 
 const PromoPage: FC = () => {
   return (

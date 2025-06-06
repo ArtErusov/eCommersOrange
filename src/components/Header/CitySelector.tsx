@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import { useLocalStorage } from '../../../shared/helpers/hooks/useLocalStorage';
+import { useLocalStorage } from '@/shared/helpers/hooks/useLocalStorage';
 
 import closeList from '@/assets/images/svg/closeList.svg';
 import openList from '@/assets/images/svg/openList.svg';

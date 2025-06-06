@@ -3,7 +3,7 @@ import { Product } from '@/shared/types/product.ts';
 
 import BannersBlock from './components/BannersBlock/BannersBlock.tsx';
 import ProductBlok from './components/ProductBlok/ProductBlok.tsx';
-import Header from '@/components/layout/Header/Header.tsx';
+import Header from '@/components/Header/Header.tsx';
 import BannerSkeleton from '@/components/ui/BannerSkeleton.tsx';
 
 const MainPage: FC = () => {
