@@ -5,6 +5,7 @@ import BannersBlock from './components/BannersBlock/BannersBlock.tsx';
 import ProductBlok from './components/ProductBlok/ProductBlok.tsx';
 import Header from '@/components/Header/Header.tsx';
 import BannerSkeleton from '@/components/ui/BannerSkeleton.tsx';
+import Footer from '@/components/Footer/Footer.tsx';
 
 const MainPage: FC = () => {
   const [items, setItems] = useState<Product[]>([]);
@@ -30,7 +31,7 @@ const MainPage: FC = () => {
         {isLoading ? <BannersBlock item={items[5]} /> : <BannerSkeleton />}
         <ProductBlok />
       </div>
-      <div className="mt-[400px] w-[full] h-[120px] bg-[var(--gray)]"></div>
+      <Footer />
     </>
   );
 };

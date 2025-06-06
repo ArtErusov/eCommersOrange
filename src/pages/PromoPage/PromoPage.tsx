@@ -1,6 +1,7 @@
 import { FC } from 'react';
 
 import Header from '@/components/Header/Header.tsx';
+import Footer from '@/components/Footer/Footer';
 
 const PromoPage: FC = () => {
   return (
@@ -8,7 +9,7 @@ const PromoPage: FC = () => {
       <Header />
       <div className="container">
         <p>Промо страница</p>
-        <div className="mt-[400px] w-[full] h-[120px] bg-[var(--gray)]"></div>
+        <Footer />
       </div>
     </>
   );
