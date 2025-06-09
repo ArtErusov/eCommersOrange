@@ -1,5 +1,5 @@
 import AdvertisingBanner from './AdvertisingBanner.tsx';
-import BannerCard from '@/components/ui/BannerCard.tsx';
+import BannerCard from '@/components/ui/BannerCard/BannerCard.tsx';
 import { FC } from 'react';
 import { Product } from '@/shared/types/product.ts';
 

@@ -1,15 +1,10 @@
-import { ButtonHTMLAttributes, FC } from 'react';
+import { FC } from 'react';
+import styles from './Button.module.css';
+import { ButtonProps } from './Button.types';
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: string;
-}
-
-const Button: FC<ButtonProps> = ({ children, onClick }) => {
+const Button: FC<ButtonProps> = ({ children, onClick, ...props }) => {
   return (
-    <button
-      onClick={onClick}
-      className="px-[24px] py-[10px] bg-[var(--orange)] cursor-pointer text-[var(--white)] rounded-[10px] transition-colors duration-300 ease-in-out hover:bg-[var(--dark-gray)]"
-    >
+    <button onClick={onClick} className={styles['button']} {...props}>
       {children}
     </button>
   );
