@@ -1,14 +1,28 @@
-import { createBrowserRouter, LoaderFunctionArgs } from 'react-router-dom';
+import { createBrowserRouter, LoaderFunctionArgs, Navigate } from 'react-router-dom';
 import MainPage from '@/pages/MainPage/MainPage';
-import Registration from '@/pages/Registration/Registration';
+import Registration from '@/pages/Auth/Registration/Registration';
 import PromoPage from '@/pages/PromoPage/PromoPage';
 import ProductPage from '@/pages/ProductPage/ProductPage';
 import axios from 'axios';
 import ErrorPage from '@/pages/ErrorPage/ErrorPage';
+import Auth from '@/pages/Auth/Auth';
+import Login from '@/pages/Auth/Login/Login';
 
 const router = createBrowserRouter([
   { path: '/', element: <MainPage />, errorElement: <ErrorPage /> },
-  { path: '/reg', element: <Registration />, errorElement: <ErrorPage /> },
+  {
+    path: '/auth',
+    element: <Auth />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        index: true,
+        element: <Navigate to="login" replace />,
+      },
+      { path: 'login', element: <Login />, errorElement: <ErrorPage /> },
+      { path: 'reg', element: <Registration />, errorElement: <ErrorPage /> },
+    ],
+  },
   { path: '/promo', element: <PromoPage />, errorElement: <ErrorPage /> },
   {
     path: '/product/:id',

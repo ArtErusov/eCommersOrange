@@ -18,7 +18,7 @@ const Header: FC = () => {
     {
       title: 'войти',
       icon: profileIcon,
-      path: '/promo',
+      path: '/auth/login',
     },
     {
       title: 'избранные',

@@ -1,4 +1,4 @@
-@import '../../assets/css/main.css';
+@import '@/assets/css/main.css';
 .reg {
   width: 420px;
   height: 400px;
