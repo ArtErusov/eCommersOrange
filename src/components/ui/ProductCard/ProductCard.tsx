@@ -3,6 +3,7 @@ import styles from './ProductCard.module.css';
 
 import { FC, useState } from 'react';
 import { ProductCardProps } from './ProductCard.types.ts';
+import { Link } from 'react-router-dom';
 
 const ProductCard: FC<ProductCardProps> = ({ item }) => {
   const [itemInCart, setItemInCart] = useState<boolean>(false);
@@ -17,7 +18,7 @@ const ProductCard: FC<ProductCardProps> = ({ item }) => {
   };
 
   return (
-    <div className={styles['product-card']}>
+    <Link to={`/product/${item.id}`} className={styles['product-card']}>
       <div className={styles['product-card__container']}>
         <div className={styles['product-card__content']}>
           <img className={styles['product-card__image']} src={item.src[0]} alt={item.text} />
@@ -37,7 +38,7 @@ const ProductCard: FC<ProductCardProps> = ({ item }) => {
           <Button onClick={handleAddToCart}>{itemInCart ? 'в корзине' : 'в корзину'}</Button>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

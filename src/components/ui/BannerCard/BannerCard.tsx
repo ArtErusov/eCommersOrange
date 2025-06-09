@@ -6,6 +6,7 @@ import Button from '@/components/ui/Button/Button';
 
 import { FC, useState, useEffect, useMemo } from 'react';
 import styles from './BannerCard.module.css';
+import { Link } from 'react-router-dom';
 
 const BannerCard: FC<BannerCardProps> = ({ item }) => {
   const [timeLeft, setTimeLeft] = useState<TimeLeft>(getTimeLeft());
@@ -24,7 +25,7 @@ const BannerCard: FC<BannerCardProps> = ({ item }) => {
   }, []);
 
   return (
-    <div className={styles['banner-card']}>
+    <Link to={`/product/${item.id}`} className={styles['banner-card']}>
       <div className={styles['banner-card__content']}>
         <h2 className={styles['banner-card__title']}>Товар дня :</h2>
         <img className={styles['banner-card__image']} src={item.src[0]} alt={item.text} />
@@ -72,7 +73,7 @@ const BannerCard: FC<BannerCardProps> = ({ item }) => {
           <Button>Купить</Button>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

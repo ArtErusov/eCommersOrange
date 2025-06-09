@@ -3,25 +3,8 @@ import { createRoot } from 'react-dom/client';
 // import App from './App.tsx';
 import './assets/css/main.css';
 import '@/shared/styles/main.css';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import MainPage from './pages/MainPage/MainPage.tsx';
-import Registration from './pages/Registration/Registration.tsx';
-import PromoPage from './pages/PromoPage/PromoPage.tsx';
-
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <MainPage />,
-  },
-  {
-    path: '/reg',
-    element: <Registration />,
-  },
-  {
-    path: '/promo',
-    element: <PromoPage />,
-  },
-]);
+import { RouterProvider } from 'react-router-dom';
+import router from './shared/routes/mainRoutes';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
