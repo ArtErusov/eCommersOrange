@@ -6,29 +6,35 @@ import ProductBlok from './components/ProductBlok/ProductBlok.tsx';
 import Header from '@/components/Header/Header.tsx';
 import BannerSkeleton from '@/components/ui/BannerSkeleton.tsx';
 import Footer from '@/components/Footer/Footer.tsx';
+import axios from 'axios';
 
 const MainPage: FC = () => {
   const [items, setItems] = useState<Product[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    setIsLoading(false);
-    fetch(`https://65523e2c5c69a7790329c0eb.mockapi.io/Orange`)
-      .then((res) => res.json())
-      .then((json: Product[]) => {
-        setItems(json);
+    const fetchData = async () => {
+      try {
         setIsLoading(true);
-      })
-      .catch((error) => {
+        const { data } = await axios.get<Product[]>(
+          'https://65523e2c5c69a7790329c0eb.mockapi.io/Orange',
+        );
+        setItems(data);
+        setIsLoading(false);
+      } catch (error) {
         console.error('Ошибка при загрузке данных:', error);
-      });
+        setIsLoading(false);
+        return;
+      }
+    };
+    fetchData();
   }, []);
-
+  console.log(items);
   return (
     <>
       <Header />
       <div className="container">
-        {isLoading ? <BannersBlock item={items[5]} /> : <BannerSkeleton />}
+        {isLoading ? <BannerSkeleton /> : <BannersBlock item={items[5]} />}
         <ProductBlok />
       </div>
       <Footer />

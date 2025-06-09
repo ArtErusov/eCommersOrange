@@ -1,14 +1,17 @@
 import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
+import { Product } from '@/shared/types/product';
 import { FC } from 'react';
-import { useParams } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 
 const ProductPage: FC = () => {
-  const { id } = useParams();
+  const data = useLoaderData() as Product[];
+  console.log(data);
+
   return (
     <>
       <Header />
-      Продукт {id}
+      Продукт {data[0].text}
       <Footer />
     </>
   );
