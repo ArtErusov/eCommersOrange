@@ -1,5 +1,6 @@
 @import '@/assets/css/main.css';
-.reg {
+
+.login-form {
   width: 420px;
   height: 400px;
   border-radius: 10px;
@@ -8,13 +9,18 @@
   padding-top: 40px;
 }
 
-.reg_title {
+.login-form__title {
   font-size: 26px;
   font-weight: 600;
 }
 
-.reg_input_pas,
-.reg_input_text {
+.login-form__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-form__input {
   width: 360px;
   height: 48px;
   border-radius: 10px;
@@ -22,32 +28,32 @@
   padding-left: 10px;
 }
 
-.reg_input_pas::placeholder,
-.reg_input_text::placeholder {
+.login-form__input::placeholder {
   color: var(--gray);
 }
 
-.reg_input_text {
+.login-form__input:first-of-type {
   margin-top: 40px;
 }
 
-.reg_input_pas {
+.login-form__input:last-of-type {
   margin: 20px 0 40px;
 }
 
-.reg_text {
+.login-form__text {
   margin-top: 18px;
 }
 
-.reg_link {
+.login-form__link {
   color: var(--orange);
   font-weight: 600;
+  text-decoration: none;
 }
 
-.reg_link:hover {
+.login-form__link:hover {
   color: var(--dark-gray);
 }
 
-.reg_link:visited {
+.login-form__link:visited {
   color: var(--orange);
 }
