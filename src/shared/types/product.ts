@@ -1,5 +1,6 @@
 export interface Product {
     id: number;
+    customId:string;
     src: string[];
     price: number;
     label?: number;

@@ -1,60 +1,63 @@
 [
-    {
-      "id": 1235234,
-      "src": [
-        "https://img.mvideo.ru/Pdb/small_pic/480/400221326b.jpg",
-        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486215.jpeg/resize/720x720/",
-        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486230.jpeg/resize/3840x2160/",
-        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486247.jpeg/resize/3840x2160/"
-      ],
-      "price": 7499,
-      "rating": 37,
-      "review": 43,
-      "platforms": [
-        "ps5",
-        "PC"
-      ],
-      "manufacturer": "CI Games",
-      "text": "Lords of the Fallen",
-      "dataSearch": "CI Games Lords of the Fallen ps5 PC"
-    },
-    {
-      "id": 2432412,
-      "src": [
-        "https://img.mvideo.ru/Pdb/small_pic/480/400177672b.jpg",
-        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486215.jpeg/resize/720x720/",
-        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486230.jpeg/resize/3840x2160/",
-        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486247.jpeg/resize/3840x2160/"
-      ],
-      "price": 9950,
-      "rating": 42,
-      "review": 682,
-      "platforms": [
-        "ps5"
-      ],
-      "manufacturer": "PlayStation",
-      "text": "Marvel's Spider-Man 2",
-      "dataSearch": "PlayStation Marvel's Spider-Man 2 ps5"
-    },
-    {
-      "id": 3421654,
-      "src": [
-        "https://img.mvideo.ru/Pdb/small_pic/480/400083897b.jpg",
-        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486215.jpeg/resize/720x720/",
-        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486230.jpeg/resize/3840x2160/",
-        "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486247.jpeg/resize/3840x2160/"
-      ],
-      "label": 28,
-      "price": 4499,
-      "rating": 48,
-      "review": 91,
-      "platforms": [
-        "ps4",
-        "Xbox",
-        "ps5",
-        "PC"
-      ],
-      "manufacturer": "Capcom",
-      "text": "Resident Evil 4 Remake Стандартное издание",
-      "dataSearch": "Capcom Resident Evil 4 Remake Стандартное издание ps4 Xbox ps5 PC"
-    }]
+  {
+    "id": 1235234,
+    "customId": "1235234",
+    "src": [
+      "https://img.mvideo.ru/Pdb/small_pic/480/400221326b.jpg",
+      "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486215.jpeg/resize/720x720/",
+      "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486230.jpeg/resize/3840x2160/",
+      "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486247.jpeg/resize/3840x2160/"
+    ],
+    "price": 7499,
+    "rating": 37,
+    "review": 43,
+    "platforms": [
+      "ps5",
+      "PC"
+    ],
+    "manufacturer": "CI Games",
+    "text": "Lords of the Fallen",
+    "dataSearch": "CI Games Lords of the Fallen ps5 PC"
+  },
+  {
+    "id": 2432412,
+    "customId": "2432412",
+    "src": [
+      "https://img.mvideo.ru/Pdb/small_pic/480/400177672b.jpg",
+      "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486215.jpeg/resize/720x720/",
+      "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486230.jpeg/resize/3840x2160/",
+      "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486247.jpeg/resize/3840x2160/"
+    ],
+    "price": 9950,
+    "rating": 42,
+    "review": 682,
+    "platforms": [
+      "ps5"
+    ],
+    "manufacturer": "PlayStation",
+    "text": "Marvel's Spider-Man 2",
+    "dataSearch": "PlayStation Marvel's Spider-Man 2 ps5"
+  },
+  {
+    "id": 3421654,
+    "customId": "3421654",
+    "src": [
+      "https://img.mvideo.ru/Pdb/small_pic/480/400083897b.jpg",
+      "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486215.jpeg/resize/720x720/",
+      "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486230.jpeg/resize/3840x2160/",
+      "https://static.eldorado.ru/photos/71/715/165/43/new_71516543_l_1569486247.jpeg/resize/3840x2160/"
+    ],
+    "label": 28,
+    "price": 4499,
+    "rating": 48,
+    "review": 91,
+    "platforms": [
+      "ps4",
+      "Xbox",
+      "ps5",
+      "PC"
+    ],
+    "manufacturer": "Capcom",
+    "text": "Resident Evil 4 Remake Стандартное издание",
+    "dataSearch": "Capcom Resident Evil 4 Remake Стандартное издание ps4 Xbox ps5 PC"
+  }]
