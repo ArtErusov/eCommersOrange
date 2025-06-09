@@ -4,11 +4,12 @@ import Registration from '@/pages/Registration/Registration';
 import PromoPage from '@/pages/PromoPage/PromoPage';
 import ProductPage from '@/pages/ProductPage/ProductPage';
 import axios from 'axios';
+import ErrorPage from '@/pages/ErrorPage/ErrorPage';
 
 const router = createBrowserRouter([
-  { path: '/', element: <MainPage />, errorElement: <>Ошибка</> },
-  { path: '/reg', element: <Registration />, errorElement: <>Ошибка</> },
-  { path: '/promo', element: <PromoPage />, errorElement: <>Ошибка</> },
+  { path: '/', element: <MainPage />, errorElement: <ErrorPage /> },
+  { path: '/reg', element: <Registration />, errorElement: <ErrorPage /> },
+  { path: '/promo', element: <PromoPage />, errorElement: <ErrorPage /> },
   {
     path: '/product/:id',
     element: <ProductPage />,
