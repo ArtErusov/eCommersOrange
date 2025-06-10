@@ -1,8 +1,9 @@
 import { FC, FormEvent, useState } from 'react';
 import styles from './Login.module.css';
 import Button from '@/components/ui/Button/Button';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios, { AxiosError } from 'axios';
+import { LoginResponse } from '@/shared/types/auth.interface';
 
 // Нужно сделать Стилизовать ошибку и добавить 2 секунды чтоб она пропала
 
@@ -17,6 +18,7 @@ export type LoginForm = {
 
 const Login: FC = () => {
   const [error, setError] = useState<string | null>();
+  const navigate = useNavigate();
 
   const submit = async (e: FormEvent) => {
     setError(null);
@@ -28,11 +30,16 @@ const Login: FC = () => {
 
   const sendLogin = async (email: string, password: string) => {
     try {
-      const { data } = await axios.post(`https://purpleschool.ru/pizza-api-demo/auth/login`, {
-        email,
-        password,
-      });
+      const { data } = await axios.post<LoginResponse>(
+        `https://purpleschool.ru/pizza-api-demo/auth/login`,
+        {
+          email,
+          password,
+        },
+      );
       console.log(data);
+      localStorage.setItem('jwt', data.access_token);
+      navigate('/');
     } catch (e) {
       if (e instanceof AxiosError) {
         console.log(e);
