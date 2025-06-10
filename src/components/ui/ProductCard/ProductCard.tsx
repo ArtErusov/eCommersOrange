@@ -10,17 +10,6 @@ import { cartActions } from '@/shared/store/cart.slice.ts';
 const ProductCard: FC<ProductCardProps> = ({ item }) => {
   const dispatch = useDispatch();
 
-  // const [itemInCart, setItemInCart] = useState<boolean>(false);
-
-  // const handleAddToCart = () => {
-  //   if (itemInCart) {
-  //     console.log(`Удален из корзины: ${item.text}, ID: ${item.id}`);
-  //   } else {
-  //     console.log(`Добавлен в корзину: ${item.text}, ID: ${item.id}`);
-  //   }
-  //   setItemInCart(!itemInCart);
-  // };
-
   const add = (e: MouseEvent) => {
     e.preventDefault();
     dispatch(cartActions.add(item.id));
