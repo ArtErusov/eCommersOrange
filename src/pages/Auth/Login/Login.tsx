@@ -1,12 +1,10 @@
-import { FC, FormEvent, useState } from 'react';
+import { FC, FormEvent, useEffect, useState } from 'react';
 import styles from './Login.module.css';
 import Button from '@/components/ui/Button/Button';
 import { Link, useNavigate } from 'react-router-dom';
-import axios, { AxiosError } from 'axios';
-import { LoginResponse } from '@/shared/types/auth.interface';
-import { useDispatch } from 'react-redux';
-import { AppDispath } from '@/shared/store/store';
-import { userActions } from '@/shared/store/user.slice';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispath, RootState } from '@/shared/store/store';
+import { login } from '@/shared/store/user.slice';
 
 // Нужно сделать Стилизовать ошибку и добавить 2 секунды чтоб она пропала
 
@@ -23,6 +21,13 @@ const Login: FC = () => {
   const [error, setError] = useState<string | null>();
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispath>();
+  const jwt = useSelector((s: RootState) => s.user.jwt);
+
+  useEffect(() => {
+    if (jwt) {
+      navigate('/');
+    }
+  }, [jwt, navigate]);
 
   const submit = async (e: FormEvent) => {
     setError(null);
@@ -33,24 +38,7 @@ const Login: FC = () => {
   };
 
   const sendLogin = async (email: string, password: string) => {
-    try {
-      const { data } = await axios.post<LoginResponse>(
-        `https://purpleschool.ru/pizza-api-demo/auth/login`,
-        {
-          email,
-          password,
-        },
-      );
-      console.log(data);
-      dispatch(userActions.addJwt(data.access_token));
-      // localStorage.setItem('jwt', data.access_token);
-      navigate('/');
-    } catch (e) {
-      if (e instanceof AxiosError) {
-        console.log(e);
-        setError(e.response?.data.message);
-      }
-    }
+    dispatch(login({ email, password }));
   };
 
   return (
