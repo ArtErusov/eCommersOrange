@@ -1,20 +1,29 @@
 import Button from '../Button/Button.tsx';
 import styles from './ProductCard.module.css';
 
-import { FC, useState } from 'react';
+import { FC, MouseEvent, useState } from 'react';
 import { ProductCardProps } from './ProductCard.types.ts';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { cartActions } from '@/shared/store/cart.slice.ts';
 
 const ProductCard: FC<ProductCardProps> = ({ item }) => {
-  const [itemInCart, setItemInCart] = useState<boolean>(false);
+  const dispatch = useDispatch();
 
-  const handleAddToCart = () => {
-    if (itemInCart) {
-      console.log(`Удален из корзины: ${item.text}, ID: ${item.id}`);
-    } else {
-      console.log(`Добавлен в корзину: ${item.text}, ID: ${item.id}`);
-    }
-    setItemInCart(!itemInCart);
+  // const [itemInCart, setItemInCart] = useState<boolean>(false);
+
+  // const handleAddToCart = () => {
+  //   if (itemInCart) {
+  //     console.log(`Удален из корзины: ${item.text}, ID: ${item.id}`);
+  //   } else {
+  //     console.log(`Добавлен в корзину: ${item.text}, ID: ${item.id}`);
+  //   }
+  //   setItemInCart(!itemInCart);
+  // };
+
+  const add = (e: MouseEvent) => {
+    e.preventDefault();
+    dispatch(cartActions.add(item.id));
   };
 
   return (
@@ -35,7 +44,7 @@ const ProductCard: FC<ProductCardProps> = ({ item }) => {
           </h3>
         </div>
         <div className={styles['product-card__footer']}>
-          <Button onClick={handleAddToCart}>{itemInCart ? 'в корзине' : 'в корзину'}</Button>
+          <Button onClick={add}>в корзину</Button>
         </div>
       </div>
     </Link>
