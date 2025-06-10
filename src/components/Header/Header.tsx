@@ -23,12 +23,12 @@ const Header: FC = () => {
     {
       title: 'избранные',
       icon: favoritesIcon,
-      path: '/promo',
+      path: '/cart',
     },
     {
       title: 'корзина',
       icon: cartIcon,
-      path: '/promo',
+      path: '/cart',
     },
   ];
 

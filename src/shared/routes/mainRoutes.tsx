@@ -7,6 +7,8 @@ import axios from 'axios';
 import ErrorPage from '@/pages/ErrorPage/ErrorPage';
 import Auth from '@/pages/Auth/Auth';
 import Login from '@/pages/Auth/Login/Login';
+import CartPage from '@/pages/CartPage/CartPage';
+import { RequireAuth } from '../helpers/RequireAuth';
 
 const router = createBrowserRouter([
   { path: '/', element: <MainPage />, errorElement: <ErrorPage /> },
@@ -24,6 +26,15 @@ const router = createBrowserRouter([
     ],
   },
   { path: '/promo', element: <PromoPage />, errorElement: <ErrorPage /> },
+  {
+    path: '/cart',
+    element: (
+      <RequireAuth>
+        <CartPage />
+      </RequireAuth>
+    ),
+    errorElement: <ErrorPage />,
+  },
   {
     path: '/product/:id',
     element: <ProductPage />,
