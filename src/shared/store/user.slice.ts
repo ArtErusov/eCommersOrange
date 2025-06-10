@@ -2,6 +2,8 @@ import { createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import { loadState } from "./storage";
 import axios from "axios";
 import { LoginResponse } from "../types/auth.interface";
+import { Profile } from "../types/users.interface";
+import { RootState } from "./store";
 
 export const JWT_PERSISTENT_STATE = "userData";
 
@@ -12,6 +14,7 @@ export interface UserPersistentState {
 export interface UserState {
     jwt: string | null;
     loginErrorMessage?: string;
+    profile?: Profile;
 }
 // Устанавливаем начальное состояние пользователя — по умолчанию `jwt` отсутствует.
 const initialState: UserState = {
@@ -25,6 +28,21 @@ export const login = createAsyncThunk("/auth/login",
         {
           email:params.email,
           password:params.password,
+        },
+      );
+      return data;
+    }
+ );
+
+ export const getProfile = createAsyncThunk<Profile, void, { state: RootState}>("/profile",
+    async (_, thunkApi) =>{
+       const jwt = thunkApi.getState().user.jwt
+    const { data } = await axios.get<Profile>(
+        `https://purpleschool.ru/pizza-api-demo/user/profile`,
+        {
+          headers:{
+                Authorization: `Bearer ${jwt}`
+          }
         },
       );
       return data;
@@ -50,7 +68,11 @@ export const userSlice = createSlice({
         } );
         builder.addCase(login.rejected, (state, action) =>{
             state.loginErrorMessage = action.error.message
-        })
+        });
+        // Нужно заменить ссылку
+        builder.addCase(getProfile.fulfilled, (state, action) =>{
+            state.profile = action.payload;
+        });
      }
 });
 

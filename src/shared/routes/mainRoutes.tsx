@@ -9,6 +9,7 @@ import Auth from '@/pages/Auth/Auth';
 import Login from '@/pages/Auth/Login/Login';
 import CartPage from '@/pages/CartPage/CartPage';
 import { RequireAuth } from '../helpers/RequireAuth';
+import Profile from '@/pages/Profile/Profile';
 
 const router = createBrowserRouter([
   { path: '/', element: <MainPage />, errorElement: <ErrorPage /> },
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
     ],
   },
   { path: '/promo', element: <PromoPage />, errorElement: <ErrorPage /> },
+  { path: '/profile', element: <Profile />, errorElement: <ErrorPage /> },
   {
     path: '/cart',
     element: (
