@@ -1,10 +1,10 @@
-import { FC, FormEvent, useEffect, useState } from 'react';
+import { FC, FormEvent, useEffect } from 'react';
 import styles from './Login.module.css';
 import Button from '@/components/ui/Button/Button';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispath, RootState } from '@/shared/store/store';
-import { login } from '@/shared/store/user.slice';
+import { login, userActions } from '@/shared/store/user.slice';
 
 // Нужно сделать Стилизовать ошибку и добавить 2 секунды чтоб она пропала
 
@@ -18,10 +18,10 @@ export type LoginForm = {
 };
 
 const Login: FC = () => {
-  const [error, setError] = useState<string | null>();
+  // const [error, setError] = useState<string | null>();
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispath>();
-  const jwt = useSelector((s: RootState) => s.user.jwt);
+  const { jwt, loginErrorMessage } = useSelector((s: RootState) => s.user);
 
   useEffect(() => {
     if (jwt) {
@@ -30,7 +30,7 @@ const Login: FC = () => {
   }, [jwt, navigate]);
 
   const submit = async (e: FormEvent) => {
-    setError(null);
+    dispatch(userActions.clearLoginError());
     e.preventDefault();
     const target = e.target as typeof e.target & LoginForm;
     const { email, password } = target;
@@ -43,7 +43,7 @@ const Login: FC = () => {
 
   return (
     <div className={styles['login-form']}>
-      {error && <div>{error}</div>}
+      {loginErrorMessage && <div>{loginErrorMessage}</div>}
       <p className={styles['login-form__title']}>Вход</p>
       <form onSubmit={submit} className={styles['login-form__form']}>
         <input
