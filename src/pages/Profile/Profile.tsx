@@ -1,5 +1,3 @@
-import Footer from '@/components/Footer/Footer';
-import Header from '@/components/Header/Header';
 import { AppDispath, RootState } from '@/shared/store/store';
 import { getProfile } from '@/shared/store/user.slice';
 
@@ -16,10 +14,8 @@ const Profile: FC = () => {
   // Не работает из за неверной ссылки
   return (
     <>
-      <Header />
       <p>Пользователь</p>
       <p>{profile?.name}</p>
-      <Footer />
     </>
   );
 };

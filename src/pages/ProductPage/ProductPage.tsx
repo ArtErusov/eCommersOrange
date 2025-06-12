@@ -61,117 +61,112 @@ const ProductPage: FC = () => {
 
   return (
     <>
-      <Header />
+      <p>Продукт {data[0].text}</p>
+      {/* ------------------ОТЗЫВЫ------------------ */}
 
-      <div className={styles['test']}>
-        <p>Продукт {data[0].text}</p>
-        {/* ------------------ОТЗЫВЫ------------------ */}
-
-        <h2>Отзывы ({reviews.length})</h2>
-        <ul>
-          {reviews.map((item) => (
-            <li key={item.id} className={styles['reviews']}>
-              <div className={styles['review-header']}>
-                <p className={styles['reviews-user']}>{item.username}</p>
-                <span className={styles['review-rating']}>
-                  {'★'.repeat(item.rating)}
-                  {'☆'.repeat(5 - item.rating)}
-                </span>
-                <span className={styles['review-time']}>{item.time}</span>
+      <h2>Отзывы ({reviews.length})</h2>
+      <ul>
+        {reviews.map((item) => (
+          <li key={item.id} className={styles['reviews']}>
+            <div className={styles['review-header']}>
+              <p className={styles['reviews-user']}>{item.username}</p>
+              <span className={styles['review-rating']}>
+                {'★'.repeat(item.rating)}
+                {'☆'.repeat(5 - item.rating)}
+              </span>
+              <span className={styles['review-time']}>{item.time}</span>
+            </div>
+            {item.review && <p className={styles['review-text']}>{item.review}</p>}
+            {item.pros && (
+              <div className={styles['review-pros']}>
+                <strong>Плюсы:</strong> {item.pros}
               </div>
-              {item.review && <p className={styles['review-text']}>{item.review}</p>}
-              {item.pros && (
-                <div className={styles['review-pros']}>
-                  <strong>Плюсы:</strong> {item.pros}
-                </div>
-              )}
-              {item.cons && (
-                <div className={styles['review-cons']}>
-                  <strong>Минусы:</strong> {item.cons}
-                </div>
-              )}
-            </li>
-          ))}
-        </ul>
-        {/* ------------------Добавить отзыв------------------ */}
-        <h2>Добавить отзыв</h2>
-        <form onSubmit={handleSubmit} className={styles['review-form']}>
-          <div className={styles['form-group']}>
-            <label htmlFor="username">Имя пользователя *</label>
-            <input
-              type="text"
-              id="username"
-              name="username"
-              value={formData.username}
-              onChange={handleInputChange}
-              required
-              className={styles['form-input']}
-            />
-          </div>
+            )}
+            {item.cons && (
+              <div className={styles['review-cons']}>
+                <strong>Минусы:</strong> {item.cons}
+              </div>
+            )}
+          </li>
+        ))}
+      </ul>
+      {/* ------------------Добавить отзыв------------------ */}
+      <h2>Добавить отзыв</h2>
+      <form onSubmit={handleSubmit} className={styles['review-form']}>
+        <div className={styles['form-group']}>
+          <label htmlFor="username">Имя пользователя *</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            value={formData.username}
+            onChange={handleInputChange}
+            required
+            className={styles['form-input']}
+          />
+        </div>
 
-          <div className={styles['form-group']}>
-            <label htmlFor="rating">Оценка</label>
-            <select
-              id="rating"
-              name="rating"
-              value={formData.rating}
-              onChange={handleInputChange}
-              className={styles['form-select']}
-            >
-              <option value={1}>1 звезда</option>
-              <option value={2}>2 звезды</option>
-              <option value={3}>3 звезды</option>
-              <option value={4}>4 звезды</option>
-              <option value={5}>5 звезд</option>
-            </select>
-          </div>
+        <div className={styles['form-group']}>
+          <label htmlFor="rating">Оценка</label>
+          <select
+            id="rating"
+            name="rating"
+            value={formData.rating}
+            onChange={handleInputChange}
+            className={styles['form-select']}
+          >
+            <option value={1}>1 звезда</option>
+            <option value={2}>2 звезды</option>
+            <option value={3}>3 звезды</option>
+            <option value={4}>4 звезды</option>
+            <option value={5}>5 звезд</option>
+          </select>
+        </div>
 
-          <div className={styles['form-group']}>
-            <label htmlFor="review">Отзыв *</label>
-            <textarea
-              id="review"
-              name="review"
-              value={formData.review}
-              onChange={handleInputChange}
-              required
-              rows={4}
-              className={styles['form-textarea']}
-              placeholder="Напишите ваш отзыв о продукте..."
-            />
-          </div>
+        <div className={styles['form-group']}>
+          <label htmlFor="review">Отзыв *</label>
+          <textarea
+            id="review"
+            name="review"
+            value={formData.review}
+            onChange={handleInputChange}
+            required
+            rows={4}
+            className={styles['form-textarea']}
+            placeholder="Напишите ваш отзыв о продукте..."
+          />
+        </div>
 
-          <div className={styles['form-group']}>
-            <label htmlFor="pros">Плюсы</label>
-            <textarea
-              id="pros"
-              name="pros"
-              value={formData.pros}
-              onChange={handleInputChange}
-              rows={2}
-              className={styles['form-textarea']}
-              placeholder="Что вам понравилось?"
-            />
-          </div>
+        <div className={styles['form-group']}>
+          <label htmlFor="pros">Плюсы</label>
+          <textarea
+            id="pros"
+            name="pros"
+            value={formData.pros}
+            onChange={handleInputChange}
+            rows={2}
+            className={styles['form-textarea']}
+            placeholder="Что вам понравилось?"
+          />
+        </div>
 
-          <div className={styles['form-group']}>
-            <label htmlFor="cons">Минусы</label>
-            <textarea
-              id="cons"
-              name="cons"
-              value={formData.cons}
-              onChange={handleInputChange}
-              rows={2}
-              className={styles['form-textarea']}
-              placeholder="Что можно улучшить?"
-            />
-          </div>
+        <div className={styles['form-group']}>
+          <label htmlFor="cons">Минусы</label>
+          <textarea
+            id="cons"
+            name="cons"
+            value={formData.cons}
+            onChange={handleInputChange}
+            rows={2}
+            className={styles['form-textarea']}
+            placeholder="Что можно улучшить?"
+          />
+        </div>
 
-          <button type="submit" className={styles['submit-button']}>
-            Добавить отзыв
-          </button>
-        </form>
-      </div>
-      <Footer />
+        <button type="submit" className={styles['submit-button']}>
+          Добавить отзыв
+        </button>
+      </form>
     </>
   );
 };

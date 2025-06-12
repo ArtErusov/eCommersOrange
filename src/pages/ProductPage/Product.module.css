@@ -1,9 +1,5 @@
 @import '../../shared/styles/main.css';
 
-.test {
-  margin: 50px 0 50px 300px;
-}
-
 .test h2 {
   font-size: 35px;
   font-weight: 700;

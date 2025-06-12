@@ -3,9 +3,7 @@ import { Product } from '@/shared/types/product.ts';
 
 import BannersBlock from './components/BannersBlock/BannersBlock.tsx';
 import ProductBlok from './components/ProductBlok/ProductBlok.tsx';
-import Header from '@/components/Header/Header.tsx';
 import BannerSkeleton from '@/components/ui/BannerSkeleton.tsx';
-import Footer from '@/components/Footer/Footer.tsx';
 import axios from 'axios';
 
 const MainPage: FC = () => {
@@ -32,12 +30,8 @@ const MainPage: FC = () => {
   console.log(items);
   return (
     <>
-      <Header />
-      <div className="container">
-        {isLoading ? <BannerSkeleton /> : <BannersBlock item={items[5]} />}
-        <ProductBlok />
-      </div>
-      <Footer />
+      {isLoading ? <BannerSkeleton /> : <BannersBlock item={items[5]} />}
+      <ProductBlok />
     </>
   );
 };
