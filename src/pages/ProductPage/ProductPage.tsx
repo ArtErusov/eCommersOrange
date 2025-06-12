@@ -5,20 +5,12 @@ import { FC, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import styles from './Product.module.css';
 import reviewsData from './reviewsData.json';
-
-interface GameReview {
-  username: string;
-  id: number;
-  time: string;
-  review?: string;
-  pros?: string;
-  cons?: string;
-  rating: number;
-}
+import { GameReview } from './ProductPage.interface';
 
 const ProductPage: FC = () => {
   const data = useLoaderData() as Product[];
   const [reviews, setReviews] = useState<GameReview[]>(reviewsData);
+  // formData - состояние для управления полями формы с дефолтными значениями
   const [formData, setFormData] = useState({
     username: '',
     review: '',
@@ -67,14 +59,41 @@ const ProductPage: FC = () => {
     });
   };
 
-  console.log(data);
-
   return (
     <>
       <Header />
+
       <div className={styles['test']}>
         <p>Продукт {data[0].text}</p>
+        {/* ------------------ОТЗЫВЫ------------------ */}
 
+        <h2>Отзывы ({reviews.length})</h2>
+        <ul>
+          {reviews.map((item) => (
+            <li key={item.id} className={styles['reviews']}>
+              <div className={styles['review-header']}>
+                <p className={styles['reviews-user']}>{item.username}</p>
+                <span className={styles['review-rating']}>
+                  {'★'.repeat(item.rating)}
+                  {'☆'.repeat(5 - item.rating)}
+                </span>
+                <span className={styles['review-time']}>{item.time}</span>
+              </div>
+              {item.review && <p className={styles['review-text']}>{item.review}</p>}
+              {item.pros && (
+                <div className={styles['review-pros']}>
+                  <strong>Плюсы:</strong> {item.pros}
+                </div>
+              )}
+              {item.cons && (
+                <div className={styles['review-cons']}>
+                  <strong>Минусы:</strong> {item.cons}
+                </div>
+              )}
+            </li>
+          ))}
+        </ul>
+        {/* ------------------Добавить отзыв------------------ */}
         <h2>Добавить отзыв</h2>
         <form onSubmit={handleSubmit} className={styles['review-form']}>
           <div className={styles['form-group']}>
@@ -151,33 +170,6 @@ const ProductPage: FC = () => {
             Добавить отзыв
           </button>
         </form>
-
-        <h2>Отзывы ({reviews.length})</h2>
-        <ul>
-          {reviews.map((item) => (
-            <li key={item.id} className={styles['reviews']}>
-              <div className={styles['review-header']}>
-                <p className={styles['reviews-user']}>{item.username}</p>
-                <span className={styles['review-rating']}>
-                  {'★'.repeat(item.rating)}
-                  {'☆'.repeat(5 - item.rating)}
-                </span>
-                <span className={styles['review-time']}>{item.time}</span>
-              </div>
-              {item.review && <p className={styles['review-text']}>{item.review}</p>}
-              {item.pros && (
-                <div className={styles['review-pros']}>
-                  <strong>Плюсы:</strong> {item.pros}
-                </div>
-              )}
-              {item.cons && (
-                <div className={styles['review-cons']}>
-                  <strong>Минусы:</strong> {item.cons}
-                </div>
-              )}
-            </li>
-          ))}
-        </ul>
       </div>
       <Footer />
     </>
