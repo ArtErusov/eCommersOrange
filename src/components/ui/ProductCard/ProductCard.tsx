@@ -14,7 +14,6 @@ const ProductCard: FC<ProductCardProps> = ({ item }) => {
     e.preventDefault();
     dispatch(cartActions.add(item.id));
   };
-  console.log('render', item);
 
   return (
     <Link to={`/product/${item.id}`} className={styles['product-card']}>
