@@ -4,11 +4,17 @@ import { Product } from '@/shared/types/product';
 import axios from 'axios';
 import ProductCard from '@/components/ui/ProductCard/ProductCard';
 import Sceleton from '@/components/ui/Sceleton';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 
 const CatalogPage: FC = () => {
   const [items, setItems] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const searchQuery = searchParams.get('q') || '';
+
+  const hendleSerch = (e: string) => {
+    setSearchParams({ q: e });
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,15 +38,24 @@ const CatalogPage: FC = () => {
       <div className={styles.breadcrumbs}>
         <Link to={'/'}>Главная </Link> <p>--</p> <p>Каталог</p>
       </div>
-      <div className={styles.topPlug}>верхнее меню сортировки</div>
+      <div className={styles.topPlug}>
+        <p>верхнее меню сортировки</p>
+        <button onClick={() => hendleSerch('price')} className={styles.button}>
+          Сортировка по цене
+        </button>
+        <button onClick={() => hendleSerch('pc')} className={styles.button}>
+          Сортировка по платформе
+        </button>
+      </div>
       <div className={styles.contetn}>
-        <div className={styles.leftPlug}></div>
+        <div className={styles.leftPlug}>
+          <p>{searchQuery}</p>
+        </div>
         <div className={styles.productList}>
           {isLoading
             ? [...Array(16)].map((_, index) => <Sceleton key={index} />)
             : items.map((item) => <ProductCard key={item.id} item={item} />)}
         </div>
-        {/* <pre>{JSON.stringify(items, null, 2)}</pre> */}
       </div>
     </>
   );

@@ -33,6 +33,8 @@ const ProductBlok: FC = () => {
   // https://65523e2c5c69a7790329c0eb.mockapi.io/Orange?platforms=Ps5&page=2&limit=6
   // https://65523e2c5c69a7790329c0eb.mockapi.io/Orange?page=1&limit=2
 
+  // Сделать фильтрацию в Кверти параметрах
+
   useEffect(() => {
     setIsLoading(false);
     fetch(
