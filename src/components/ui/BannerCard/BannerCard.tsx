@@ -25,7 +25,7 @@ const BannerCard: FC<BannerCardProps> = ({ item }) => {
   }, []);
 
   return (
-    <Link to={`/product/${item.id}`} className={styles['banner-card']}>
+    <Link to={`/catalog/product/${item.id}`} className={styles['banner-card']}>
       <div className={styles['banner-card__content']}>
         <h2 className={styles['banner-card__title']}>Товар дня :</h2>
         <img className={styles['banner-card__image']} src={item.src[0]} alt={item.text} />

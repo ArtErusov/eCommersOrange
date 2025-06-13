@@ -21,21 +21,27 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <MainPage /> },
       { path: 'promo', element: <PromoPage /> },
-      { path: 'catalog', element: <CatalogPage /> },
       {
-        path: 'product/:id',
-        element: <ProductPage />,
-        loader: async ({ params }: LoaderFunctionArgs) => {
-          try {
-            const { data } = await axios.get(
-              `https://65523e2c5c69a7790329c0eb.mockapi.io/Orange?customId=${params.id}`,
-            );
-            return data;
-          } catch (err) {
-            throw new Response('Product not found', { status: 404 });
-          }
-        },
+        path: 'catalog',
+        children: [
+          { index: true, element: <CatalogPage /> },
+          {
+            path: 'product/:id',
+            element: <ProductPage />,
+            loader: async ({ params }: LoaderFunctionArgs) => {
+              try {
+                const { data } = await axios.get(
+                  `https://65523e2c5c69a7790329c0eb.mockapi.io/Orange?customId=${params.id}`,
+                );
+                return data;
+              } catch (err) {
+                throw new Response('Product not found', { status: 404 });
+              }
+            },
+          },
+        ],
       },
+
       {
         path: 'profile',
         element: <Profile />,
@@ -66,3 +72,57 @@ const router = createBrowserRouter([
 ]);
 
 export default router;
+
+// const router = createBrowserRouter([
+//   {
+//     path: '/',
+//     element: <MainLayout />,
+//     errorElement: <ErrorPage />,
+//     children: [
+//       { index: true, element: <MainPage /> },
+//       { path: 'promo', element: <PromoPage /> },
+//       { path: 'catalog', element: <CatalogPage /> },
+//       {
+//         path: 'product/:id',
+//         element: <ProductPage />,
+//         loader: async ({ params }: LoaderFunctionArgs) => {
+//           try {
+//             const { data } = await axios.get(
+//               `https://65523e2c5c69a7790329c0eb.mockapi.io/Orange?customId=${params.id}`,
+//             );
+//             return data;
+//           } catch (err) {
+//             throw new Response('Product not found', { status: 404 });
+//           }
+//         },
+//       },
+//       {
+//         path: 'profile',
+//         element: <Profile />,
+//       },
+//       {
+//         path: 'cart',
+//         element: (
+//           <RequireAuth>
+//             <CartPage />
+//           </RequireAuth>
+//         ),
+//       },
+//     ],
+//   },
+//   {
+//     path: '/auth',
+//     element: <Auth />,
+//     errorElement: <ErrorPage />,
+//     children: [
+//       {
+//         index: true,
+//         element: <Navigate to="login" replace />,
+//       },
+//       { path: 'login', element: <Login /> },
+//       { path: 'reg', element: <Registration /> },
+//     ],
+//   },
+// ]);
+
+// export default router;

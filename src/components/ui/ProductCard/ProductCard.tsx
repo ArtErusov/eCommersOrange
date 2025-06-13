@@ -16,7 +16,7 @@ const ProductCard: FC<ProductCardProps> = ({ item }) => {
   };
 
   return (
-    <Link to={`/product/${item.id}`} className={styles['product-card']}>
+    <Link to={`/catalog/product/${item.id}`} className={styles['product-card']}>
       <div className={styles['product-card__container']}>
         <div className={styles['product-card__content']}>
           <img className={styles['product-card__image']} src={item.src[0]} alt={item.text} />

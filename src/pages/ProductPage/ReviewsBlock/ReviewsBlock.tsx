@@ -1,12 +1,9 @@
-import { Product } from '@/shared/types/product';
 import { FC, useState } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
 import styles from './ReviewsBlock.module.css';
 import reviewsData from './reviewsData.json';
 import { GameReview } from './ReviewsBlock.interface';
 
 const ReviewsBlock: FC = () => {
-  const data = useLoaderData() as Product[];
   const [reviews, setReviews] = useState<GameReview[]>(reviewsData);
   // formData - состояние для управления полями формы с дефолтными значениями
   const [formData, setFormData] = useState({
