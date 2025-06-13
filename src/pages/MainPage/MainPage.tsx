@@ -19,6 +19,7 @@ const MainPage: FC = () => {
         );
         setItems(data);
         setIsLoading(false);
+        console.log('Загрузка прошла', items);
       } catch (error) {
         console.error('Ошибка при загрузке данных:', error);
         setIsLoading(false);

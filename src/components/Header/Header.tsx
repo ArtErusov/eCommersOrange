@@ -52,12 +52,15 @@ const Header: FC = () => {
             <Link className={styles['header__logo']} to="/">
               <img src={mainLogo} alt="Логотип компании" role="img" />
             </Link>
-            <div className={`${styles['header__catalog']} ${styles['header__catalog--hover']}`}>
+            <Link
+              to={'/catalog'}
+              className={`${styles['header__catalog']} ${styles['header__catalog--hover']}`}
+            >
               <div className={styles['header__catalog-button']}>
                 <img src={catalogIcon} alt="Каталог" className={styles['header__catalog-icon']} />
                 <span className={styles['header__catalog-text']}>Каталог</span>
               </div>
-            </div>
+            </Link>
           </div>
 
           <SearchBlock />

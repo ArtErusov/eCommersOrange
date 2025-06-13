@@ -11,6 +11,7 @@ import CartPage from '@/pages/CartPage/CartPage';
 import { RequireAuth } from '../helpers/RequireAuth';
 import Profile from '@/pages/Profile/Profile';
 import MainLayout from '@/layouts/MainLayout/MainLayout';
+import CatalogPage from '@/pages/CatalogPage/CatalogPage';
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <MainPage /> },
       { path: 'promo', element: <PromoPage /> },
+      { path: 'catalog', element: <CatalogPage /> },
       {
         path: 'product/:id',
         element: <ProductPage />,

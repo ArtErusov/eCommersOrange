@@ -1,0 +1,30 @@
+@import '../../assets/css/main.css';
+.productList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  flex: 1;
+  gap: 36px;
+  margin-top: 24px;
+}
+
+.breadcrumbs {
+  display: flex;
+  gap: 30px;
+}
+
+.topPlug {
+  width: 100%;
+  height: 100px;
+  background-color: rgb(204, 172, 144);
+}
+
+.contetn {
+  display: flex;
+}
+
+.leftPlug {
+  height: 2300px;
+
+  width: 200px;
+  background-color: rgb(204, 172, 144);
+}

@@ -1,7 +1,7 @@
 import Button from '../Button/Button.tsx';
 import styles from './ProductCard.module.css';
 
-import { FC, MouseEvent, useState } from 'react';
+import { FC, MouseEvent } from 'react';
 import { ProductCardProps } from './ProductCard.types.ts';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -14,6 +14,7 @@ const ProductCard: FC<ProductCardProps> = ({ item }) => {
     e.preventDefault();
     dispatch(cartActions.add(item.id));
   };
+  console.log('render', item);
 
   return (
     <Link to={`/product/${item.id}`} className={styles['product-card']}>
