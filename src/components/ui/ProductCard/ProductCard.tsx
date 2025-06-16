@@ -6,6 +6,7 @@ import { ProductCardProps } from './ProductCard.types.ts';
 import { Link, useSearchParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { cartActions } from '@/shared/store/cart.slice.ts';
+import ProductModal from '../ProductModal/ProductModal.tsx';
 
 const ProductCard: FC<ProductCardProps> = ({ item }) => {
   const dispatch = useDispatch();
@@ -82,40 +83,7 @@ const ProductCard: FC<ProductCardProps> = ({ item }) => {
 
       {/* Модальное окно с деталями товара */}
       <Modal isOpen={isModalOpen} onClose={handleModalClose}>
-        <div className={styles['modal-content']}>
-          <h2 className={styles['modal-title']}>
-            {item.manufacturer ? `${item.manufacturer} ${item.text}` : item.text}
-          </h2>
-
-          <div className={styles['modal-body']}>
-            <div className={styles['modal-image-container']}>
-              <img className={styles['modal-image']} src={item.src[0]} alt={item.text} />
-            </div>
-
-            <div className={styles['modal-info']}>
-              <p className={styles['modal-price']}>{item.price} ₽</p>
-
-              {item.manufacturer && (
-                <div className={styles['modal-field']}>
-                  <span className={styles['modal-label']}>Производитель:</span>
-                  <span className={styles['modal-value']}>{item.manufacturer}</span>
-                </div>
-              )}
-
-              <div className={styles['modal-field']}>
-                <span className={styles['modal-label']}>Описание:</span>
-                <span className={styles['modal-value']}>{item.text}</span>
-              </div>
-            </div>
-          </div>
-
-          <div className={styles['modal-footer']}>
-            <Button onClick={add}>Добавить в корзину</Button>
-            <button className={styles['modal-close-btn']} onClick={handleModalClose}>
-              Закрыть
-            </button>
-          </div>
-        </div>
+        <ProductModal onClose={handleModalClose} item={item} />
       </Modal>
     </>
   );

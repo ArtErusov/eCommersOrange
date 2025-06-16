@@ -1,17 +1,3 @@
-// import { FC } from 'react';
-// import styles from './Footer.module.css';
-
-// const Footer: FC = () => {
-//   return (
-//     <footer>
-//       <div className={styles['footer']}>
-//         <button className={styles['info']}>Информация о проекте</button>
-//       </div>
-//     </footer>
-//   );
-// };
-// export default Footer;
-
 import { FC, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import styles from './Footer.module.css';
