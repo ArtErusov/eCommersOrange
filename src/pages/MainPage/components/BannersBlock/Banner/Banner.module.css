@@ -1,0 +1,35 @@
+.banner {
+  background-color: var(--gray);
+  position: relative;
+  width: 914px;
+  height: 289px;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.banner__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner__indicators {
+  display: flex;
+  gap: 8px;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.banner__indicator,
+.banner__indicator--active {
+  height: 3px;
+  width: 28px;
+  cursor: pointer;
+  background-color: var(--white);
+}
+
+.banner__indicator--active {
+  background-color: var(--orange);
+}

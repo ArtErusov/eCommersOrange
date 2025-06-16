@@ -1,4 +1,4 @@
-import AdvertisingBanner from './AdvertisingBanner.tsx';
+import Banner from './Banner/Banner.tsx';
 import BannerCard from '@/components/ui/BannerCard/BannerCard.tsx';
 import { FC } from 'react';
 import { Product } from '@/shared/types/product.ts';
@@ -10,7 +10,7 @@ interface ProductCardProps {
 const BannersBlock: FC<ProductCardProps> = ({ item }) => {
   return (
     <div className="flex justify-between mt-[30px]">
-      <AdvertisingBanner />
+      <Banner />
       <BannerCard item={item} />
     </div>
   );

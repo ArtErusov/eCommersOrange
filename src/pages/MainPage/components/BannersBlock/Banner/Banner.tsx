@@ -4,12 +4,11 @@ import banner3 from '@/assets/images/BannerImgThree.png';
 import banner4 from '@/assets/images/BannerImgFour.png';
 import banner5 from '@/assets/images/BannerImgFive.png';
 
-import clsx from 'clsx';
-
 import { useState, useEffect, FC } from 'react';
 import ArrowButton from '@/components/ui/ArrowButton';
+import styles from './Banner.module.css';
 
-const AdvertisingBanner: FC = () => {
+const Banner: FC = () => {
   const banners: string[] = [banner1, banner2, banner3, banner4, banner5];
   const [isPaused, setIsPaused] = useState<boolean>(false);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
@@ -32,22 +31,27 @@ const AdvertisingBanner: FC = () => {
 
   return (
     <div
-      className="bg-[var(--gray)] relative w-[914px] h-[289px] rounded-[14px]"
+      className={styles['banner']}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
       <ArrowButton onClick={prevSlide} direction="left" />
-      <img src={banners[currentIndex]} alt={`Banner ${currentIndex + 1}`} />
+      <img
+        src={banners[currentIndex]}
+        alt={`Banner ${currentIndex + 1}`}
+        className={styles['banner__image']}
+      />
       <ArrowButton onClick={nextSlide} direction="right" />
 
-      <div className="flex gap-[8px] absolute bottom-[10px] left-1/2 -translate-x-1/2">
+      <div className={styles['banner__indicators']}>
         {banners.map((_, index) => (
           <div
             key={index}
-            className={clsx(
-              'h-[3px] w-[28px] cursor-pointer',
-              currentIndex === index ? 'bg-[var(--orange)]' : 'bg-[var(--white)]',
-            )}
+            className={
+              currentIndex === index
+                ? styles['banner__indicator--active']
+                : styles['banner__indicator']
+            }
             aria-label={`Go to banner ${index + 1}`}
             aria-current={currentIndex === index}
             onClick={() => setCurrentIndex(index)}
@@ -57,4 +61,5 @@ const AdvertisingBanner: FC = () => {
     </div>
   );
 };
-export default AdvertisingBanner;
+
+export default Banner;
