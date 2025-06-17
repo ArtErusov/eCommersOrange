@@ -1,0 +1,105 @@
+@import url('../../../shared/styles/main.css');
+
+.banner-skeleton {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.banner-skeleton__main {
+  width: 914px;
+  height: 289px;
+  background-color: var(--gray);
+  border-radius: 14px;
+  position: relative;
+}
+
+.banner-skeleton__side {
+  display: flex;
+  width: 446px;
+  height: 289px;
+  gap: 28px;
+  border: 1px solid var(--gray);
+  border-radius: 14px;
+}
+
+.banner-skeleton__side-left {
+  margin-left: 15px;
+  margin-top: 24px;
+}
+
+.banner-skeleton__title {
+  width: 150px;
+  height: 30px;
+  background-color: var(--gray);
+  border-radius: 4px;
+}
+
+.banner-skeleton__image {
+  margin-top: 10px;
+  width: 200px;
+  height: 200px;
+  background-color: var(--gray);
+  border-radius: 4px;
+}
+
+.banner-skeleton__side-right {
+  margin-top: 15px;
+}
+
+.banner-skeleton__thumbnails {
+  display: flex;
+  gap: 16px;
+}
+
+.banner-skeleton__thumb {
+  width: 46px;
+  height: 46px;
+  background-color: var(--gray);
+  border-radius: 6px;
+}
+
+.banner-skeleton__label {
+  margin-top: 24px;
+  width: 90px;
+  height: 28px;
+  background-color: var(--gray);
+  border-radius: 4px;
+}
+
+.banner-skeleton__subline {
+  margin-top: 24px;
+  width: 160px;
+  height: 22px;
+  background-color: var(--gray);
+  border-radius: 4px;
+}
+
+.banner-skeleton__subline-short {
+  margin-top: 6px;
+  width: 177px;
+  height: 22px;
+  background-color: var(--gray);
+  border-radius: 4px;
+}
+
+.banner-skeleton__button {
+  margin-top: 24px;
+  margin-left: 20px;
+  width: 130px;
+  height: 40px;
+  background-color: var(--gray);
+  border-radius: 8px;
+}
+
+/* simple pulse animation */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
