@@ -25,4 +25,3 @@ const BannersBlock: FC<ProductCardProps> = ({ item, isLoading }) => {
 };
 
 export default BannersBlock;
-``;

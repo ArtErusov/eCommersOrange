@@ -3,8 +3,8 @@ import styles from './CatalogPage.module.css';
 import { Product } from '@/shared/types/product';
 import axios from 'axios';
 import ProductCard from '@/components/ui/ProductCard/ProductCard';
-import Sceleton from '@/components/ui/Sceleton/Sceleton';
 import { Link, useSearchParams } from 'react-router-dom';
+import Skeleton from '@/components/ui/Skeleton/Skeleton';
 
 const CatalogPage: FC = () => {
   const [items, setItems] = useState<Product[]>([]);
@@ -53,7 +53,7 @@ const CatalogPage: FC = () => {
         </div>
         <div className={styles.productList}>
           {isLoading
-            ? [...Array(16)].map((_, index) => <Sceleton key={index} />)
+            ? [...Array(16)].map((_, index) => <Skeleton type={'card'} key={index} />)
             : items.map((item) => <ProductCard key={item.id} item={item} />)}
         </div>
       </div>
