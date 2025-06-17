@@ -1,4 +1,4 @@
-@import '../../../../../../assets/css/main.css';
+@import '../../../../shared/styles/main.css';
 .pagination {
   margin: 20px auto 0;
   display: flex;

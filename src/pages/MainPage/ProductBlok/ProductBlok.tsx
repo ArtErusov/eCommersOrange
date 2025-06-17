@@ -1,12 +1,12 @@
-import ProductCard from '../../../../components/ui/ProductCard/ProductCard';
-import Sceleton from '../../../../components/ui/Sceleton/Sceleton';
-import SelectionBlock from './components/SelectionBlock/SelectionBlock';
+import ProductCard from '@/components/ui/ProductCard/ProductCard';
+import Sceleton from '@/components/ui/Sceleton/Sceleton';
+import SelectionBlock from './SelectionBlock/SelectionBlock';
 
 import styles from './styles.module.css';
 
 import { FC, useEffect, useState } from 'react';
-import { Product } from '../../../../shared/types/product';
-import Pagination from './components/Pagination/Pagination';
+import { Product } from '@/shared/types/product';
+import Pagination from './Pagination/Pagination';
 
 interface Category {
   id: string;

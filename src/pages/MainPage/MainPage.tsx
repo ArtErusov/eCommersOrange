@@ -1,8 +1,8 @@
 import { FC, useEffect, useState } from 'react';
 import { Product } from '@/shared/types/product.ts';
 
-import BannersBlock from './components/BannersBlock/BannersBlock.tsx';
-import ProductBlok from './components/ProductBlok/ProductBlok.tsx';
+import BannersBlock from './BannersBlock/BannersBlock.tsx';
+import ProductBlok from './ProductBlok/ProductBlok.tsx';
 import BannerSkeleton from '@/components/ui/BannerSkeleton/BannerSkeleton.tsx';
 import axios from 'axios';
 
