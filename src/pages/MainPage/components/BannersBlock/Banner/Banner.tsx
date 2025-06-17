@@ -5,7 +5,7 @@ import banner4 from '@/assets/images/BannerImgFour.png';
 import banner5 from '@/assets/images/BannerImgFive.png';
 
 import { useState, useEffect, FC } from 'react';
-import ArrowButton from '@/components/ui/ArrowButton';
+import ArrowButton from '@/components/ui/ArrowButton/ArrowButton';
 import styles from './Banner.module.css';
 
 const Banner: FC = () => {

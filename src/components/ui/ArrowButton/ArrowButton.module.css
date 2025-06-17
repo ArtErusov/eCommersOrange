@@ -1,0 +1,32 @@
+.arrow-button--left,
+.arrow-button--right {
+  height: 36px;
+  width: 36px;
+  background-color: var(--white);
+  position: absolute;
+  top: 132px;
+  border-radius: 55px;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease;
+}
+
+.arrow-button--left:hover,
+.arrow-button--right:hover {
+  box-shadow: 0 0 11px rgba(34, 60, 80, 0.158);
+}
+
+.arrow-button--left {
+  left: -18px;
+}
+
+.arrow-button--right {
+  right: -18px;
+}
+
+.arrow-button__icon {
+  margin-left: 12px;
+}
+
+.arrow-button__icon--rotated {
+  transform: rotate(180deg);
+}
