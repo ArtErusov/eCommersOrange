@@ -1,5 +1,5 @@
 import ProductCard from '@/components/ui/ProductCard/ProductCard';
-import Sceleton from '@/components/ui/Sceleton/Sceleton';
+import Skeleton from '@/components/ui/Skeleton/Skeleton';
 import SelectionBlock from './SelectionBlock/SelectionBlock';
 
 import styles from './styles.module.css';
@@ -80,7 +80,7 @@ const ProductBlok: FC = () => {
       <div className={styles.productList}>
         {isLoading
           ? items.map((item) => <ProductCard key={item.id} item={item} />)
-          : [...Array(6)].map((_, index) => <Sceleton key={index} />)}
+          : [...Array(6)].map((_, index) => <Skeleton type="card" key={index} />)}
       </div>
 
       <Pagination elementsOnPage={elementsOnPage} page={page} setPage={setPage} />

@@ -1,5 +1,75 @@
 @import url('../../../shared/styles/main.css');
 
+/* Base animation */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Card skeleton styles */
+.skeleton {
+  width: 200px;
+  height: 319px;
+  border: 1px solid var(--gray);
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.skeleton__image {
+  width: 160px;
+  height: 160px;
+  margin-top: 5px;
+  margin-left: 20px;
+  margin-right: 20px;
+  background-color: var(--gray);
+  border-radius: 4px;
+}
+
+.skeleton__line-small {
+  width: 70px;
+  height: 25px;
+  margin-top: 25px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: var(--gray);
+  border-radius: 4px;
+}
+
+.skeleton__line-medium {
+  width: 120px;
+  height: 16px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: var(--gray);
+  border-radius: 4px;
+}
+
+.skeleton__line-large {
+  width: 160px;
+  height: 16px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: var(--gray);
+  border-radius: 4px;
+}
+
+.skeleton__line-between {
+  width: 130px;
+  height: 16px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: var(--gray);
+  border-radius: 4px;
+}
+
+/* Banner skeleton styles */
 .banner-skeleton__side {
   display: flex;
   width: 446px;
@@ -7,6 +77,7 @@
   gap: 28px;
   border: 1px solid var(--gray);
   border-radius: 14px;
+  animation: pulse 1.5s infinite ease-in-out;
 }
 
 .banner-skeleton__side-left {
@@ -76,15 +147,4 @@
   height: 40px;
   background-color: var(--gray);
   border-radius: 8px;
-}
-
-/* simple pulse animation */
-@keyframes pulse {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
 }
