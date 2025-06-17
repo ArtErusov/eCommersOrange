@@ -3,7 +3,6 @@ import { Product } from '@/shared/types/product.ts';
 
 import BannersBlock from './BannersBlock/BannersBlock.tsx';
 import ProductBlok from './ProductBlok/ProductBlok.tsx';
-import BannerSkeleton from '@/components/ui/BannerSkeleton/BannerSkeleton.tsx';
 import axios from 'axios';
 
 const MainPage: FC = () => {
@@ -31,7 +30,7 @@ const MainPage: FC = () => {
   console.log(items);
   return (
     <>
-      {isLoading ? <BannerSkeleton /> : <BannersBlock item={items[5]} />}
+      <BannersBlock isLoading={isLoading} item={items[5]} />
       <ProductBlok />
     </>
   );

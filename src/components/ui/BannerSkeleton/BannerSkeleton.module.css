@@ -1,20 +1,5 @@
 @import url('../../../shared/styles/main.css');
 
-.banner-skeleton {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 30px;
-  animation: pulse 1.5s infinite ease-in-out;
-}
-
-.banner-skeleton__main {
-  width: 914px;
-  height: 289px;
-  background-color: var(--gray);
-  border-radius: 14px;
-  position: relative;
-}
-
 .banner-skeleton__side {
   display: flex;
   width: 446px;
