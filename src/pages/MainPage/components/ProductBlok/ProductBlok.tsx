@@ -1,5 +1,5 @@
 import ProductCard from '../../../../components/ui/ProductCard/ProductCard';
-import Sceleton from '../../../../components/ui/Sceleton';
+import Sceleton from '../../../../components/ui/Sceleton/Sceleton';
 import SelectionBlock from './components/SelectionBlock/SelectionBlock';
 
 import styles from './styles.module.css';

@@ -3,7 +3,7 @@ import styles from './CatalogPage.module.css';
 import { Product } from '@/shared/types/product';
 import axios from 'axios';
 import ProductCard from '@/components/ui/ProductCard/ProductCard';
-import Sceleton from '@/components/ui/Sceleton';
+import Sceleton from '@/components/ui/Sceleton/Sceleton';
 import { Link, useSearchParams } from 'react-router-dom';
 
 const CatalogPage: FC = () => {
