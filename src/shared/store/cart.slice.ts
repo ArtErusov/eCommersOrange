@@ -33,18 +33,16 @@ export const cartSlice = createSlice({
             })
         },
         // Удаляем товар из корзины 
-        remove: (state, action: PayloadAction<number>) => {
-        const itemIndex = state.items.findIndex(i => i.id === action.payload);
-        if (itemIndex === -1) return;
+      remove: (state, action: PayloadAction<number>) => {
+  const existingItem = state.items.find(i => i.id === action.payload);
+  if (!existingItem) return;
 
-        const item = state.items[itemIndex];
-
-        if (item.count > 1) {
-            item.count -= 1;
-        } else {
-            state.items.splice(itemIndex, 1);
-        }
-    }
+  if (existingItem.count === 1) {
+    state.items = state.items.filter(i => i.id !== action.payload);
+  } else {
+    existingItem.count -= 1;
+  }
+}
 
     }
 });

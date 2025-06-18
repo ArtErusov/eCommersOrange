@@ -27,7 +27,7 @@ const MainPage: FC = () => {
     };
     fetchData();
   }, []);
-  console.log(items);
+
   return (
     <>
       <BannersBlock isLoading={isLoading} item={items[5]} />
