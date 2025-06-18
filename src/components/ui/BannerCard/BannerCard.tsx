@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/shared/store/store';
 import { cartActions } from '@/shared/store/cart.slice';
-import ProductCounter from '../ProductCounter/ProductCard';
+import ProductCounter from '../ProductCounter/ProductCounter';
 
 const BannerCard: FC<BannerCardProps> = ({ item }) => {
   const dispatch = useDispatch();

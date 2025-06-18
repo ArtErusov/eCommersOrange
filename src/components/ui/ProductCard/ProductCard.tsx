@@ -11,7 +11,7 @@ import { useProductModalParams } from '@/shared/helpers/hooks/useProductModalPar
 import { RootState } from '@/shared/store/store.ts';
 
 import favoritesIcon from '@/assets/images/svg/favoritesIcon.svg';
-import ProductCounter from '../ProductCounter/ProductCard.tsx';
+import ProductCounter from '../ProductCounter/ProductCounter.tsx';
 
 const ProductCard: FC<ProductCardProps> = ({ item }) => {
   const dispatch = useDispatch();

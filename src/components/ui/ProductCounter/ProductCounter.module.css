@@ -1,31 +1,40 @@
 @import '../../../assets/css/main.css';
-/* Блок */
+
 .product-counter {
   display: flex;
   align-items: center;
-  gap: 10px;
+  background-color: var(--gray);
+  width: 120px;
+  height: 44px;
+  border-radius: 10px;
 }
 
-/* Элементы */
-.product-counter__button {
-  background-color: #007bff;
-  border: none;
-  color: white;
+.product-counter__button-plus,
+.product-counter__button-minus {
+  background-color: var(--gray);
+  color: var(--dark-gray);
   font-weight: bold;
-  width: 30px;
-  height: 30px;
-  border-radius: 4px;
+  width: 40px;
+  height: 44px;
   cursor: pointer;
   user-select: none;
   transition: background-color 0.3s;
 }
-
-.product-counter__button:hover {
-  background-color: #0056b3;
+.product-counter__button-plus {
+  border-radius: 10px 0 0 10px;
+}
+.product-counter__button-minus {
+  border-radius: 0 10px 10px 0;
+}
+.product-counter__button-plus:hover,
+.product-counter__button-minus:hover {
+  background-color: var(--dark-gray);
+  color: var(--white);
 }
 
 .product-counter__count {
   font-size: 16px;
+  width: 40px;
   min-width: 20px;
   text-align: center;
 }
