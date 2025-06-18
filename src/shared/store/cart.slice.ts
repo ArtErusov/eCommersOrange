@@ -18,6 +18,7 @@ export const cartSlice = createSlice({
     name: 'cart',
     initialState,
     reducers: {
+        // Добавляем товар в корзину
         add: (state, action: PayloadAction<number> ) =>{
             const existed = state.items.find(i => i.id === action.payload)
             if (!existed){
@@ -30,7 +31,20 @@ export const cartSlice = createSlice({
                 }
                 return i;
             })
+        },
+        // Удаляем товар из корзины 
+        remove: (state, action: PayloadAction<number>) => {
+        const itemIndex = state.items.findIndex(i => i.id === action.payload);
+        if (itemIndex === -1) return;
+
+        const item = state.items[itemIndex];
+
+        if (item.count > 1) {
+            item.count -= 1;
+        } else {
+            state.items.splice(itemIndex, 1);
         }
+    }
 
     }
 });
