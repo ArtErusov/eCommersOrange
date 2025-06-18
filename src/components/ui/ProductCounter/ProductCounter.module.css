@@ -1,0 +1,49 @@
+@import '../../../assets/css/main.css';
+/* Блок */
+.product-counter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Элементы */
+.product-counter__button {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  font-weight: bold;
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s;
+}
+
+.product-counter__button:hover {
+  background-color: #0056b3;
+}
+
+.product-counter__count {
+  font-size: 16px;
+  min-width: 20px;
+  text-align: center;
+}
+
+.product-counter__warning {
+  color: red;
+  margin-top: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  animation: fadeOut 2s forwards;
+}
+
+/* Анимация */
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

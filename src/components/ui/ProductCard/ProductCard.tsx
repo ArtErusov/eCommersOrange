@@ -1,7 +1,7 @@
 import Button from '../Button/Button.tsx';
 import Modal from '../Modal/Modal.tsx';
 import styles from './ProductCard.module.css';
-import { FC, MouseEvent, useEffect, useState } from 'react';
+import { FC, MouseEvent } from 'react';
 import { ProductCardProps } from './ProductCard.types.ts';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,27 +11,19 @@ import { useProductModalParams } from '@/shared/helpers/hooks/useProductModalPar
 import { RootState } from '@/shared/store/store.ts';
 
 import favoritesIcon from '@/assets/images/svg/favoritesIcon.svg';
+import ProductCounter from '../ProductCounter/ProductCard.tsx';
 
 const ProductCard: FC<ProductCardProps> = ({ item }) => {
   const dispatch = useDispatch();
   const { isModalOpen, openModal, closeModal } = useProductModalParams(item.id);
-  const [showLimitWarning, setShowLimitWarning] = useState(false);
 
   const add = (e: MouseEvent) => {
     e.preventDefault();
     if (cartItem && cartItem.count >= 50) {
-      setShowLimitWarning(true);
       return;
     }
     dispatch(cartActions.add(item.id));
   };
-
-  useEffect(() => {
-    if (showLimitWarning) {
-      const timer = setTimeout(() => setShowLimitWarning(false), 2000);
-      return () => clearTimeout(timer);
-    }
-  }, [showLimitWarning]);
 
   const remove = (e: MouseEvent) => {
     e.preventDefault();
@@ -75,21 +67,11 @@ const ProductCard: FC<ProductCardProps> = ({ item }) => {
 
           <div className={styles['product-card__footer']}>
             {cartItem ? (
-              // <div>
-              //   <button onClick={add}>+</button>
-              //   <p>{cartItem.count}</p>
-              //   <button onClick={remove}>-</button>
-              // </div>
-              <div className={styles.counterContainer}>
-                <button className={styles.counterButton} onClick={add}>
-                  +
-                </button>
-                <p className={styles.counterCount}>{cartItem.count}</p>
-                <button className={styles.counterButton} onClick={remove}>
-                  -
-                </button>
-                {showLimitWarning && <p className={styles.limitWarning}>Ограничение</p>}
-              </div>
+              <ProductCounter
+                count={cartItem.count}
+                onClickAdd={add as unknown as () => void}
+                onClickRemove={remove as unknown as () => void}
+              />
             ) : (
               <Button width={120} onClick={add}>
                 в корзину
