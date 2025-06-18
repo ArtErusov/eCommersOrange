@@ -1,21 +1,41 @@
 import Button from '../Button/Button.tsx';
 import Modal from '../Modal/Modal.tsx';
 import styles from './ProductCard.module.css';
-import { FC, MouseEvent } from 'react';
+import { FC, MouseEvent, useEffect, useState } from 'react';
 import { ProductCardProps } from './ProductCard.types.ts';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { cartActions } from '@/shared/store/cart.slice.ts';
 import ProductModal from '../ProductModal/ProductModal.tsx';
-import { useProductModalParams } from '@/shared/helpers/hooks/useProductModalParams.ts'; // путь зависит от структуры проекта
+import { useProductModalParams } from '@/shared/helpers/hooks/useProductModalParams.ts';
+import { RootState } from '@/shared/store/store.ts';
+
+import favoritesIcon from '@/assets/images/svg/favoritesIcon.svg';
 
 const ProductCard: FC<ProductCardProps> = ({ item }) => {
   const dispatch = useDispatch();
   const { isModalOpen, openModal, closeModal } = useProductModalParams(item.id);
+  const [showLimitWarning, setShowLimitWarning] = useState(false);
 
   const add = (e: MouseEvent) => {
     e.preventDefault();
+    if (cartItem && cartItem.count >= 50) {
+      setShowLimitWarning(true);
+      return;
+    }
     dispatch(cartActions.add(item.id));
+  };
+
+  useEffect(() => {
+    if (showLimitWarning) {
+      const timer = setTimeout(() => setShowLimitWarning(false), 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [showLimitWarning]);
+
+  const remove = (e: MouseEvent) => {
+    e.preventDefault();
+    dispatch(cartActions.remove(item.id));
   };
 
   const handleDetailsClick = (e: MouseEvent) => {
@@ -23,6 +43,10 @@ const ProductCard: FC<ProductCardProps> = ({ item }) => {
     e.stopPropagation();
     openModal();
   };
+
+  const cartItem = useSelector((state: RootState) =>
+    state.cart.items.find((i) => i.id === item.id),
+  );
 
   return (
     <>
@@ -50,7 +74,30 @@ const ProductCard: FC<ProductCardProps> = ({ item }) => {
           </div>
 
           <div className={styles['product-card__footer']}>
-            <Button onClick={add}>в корзину</Button>
+            {cartItem ? (
+              // <div>
+              //   <button onClick={add}>+</button>
+              //   <p>{cartItem.count}</p>
+              //   <button onClick={remove}>-</button>
+              // </div>
+              <div className={styles.counterContainer}>
+                <button className={styles.counterButton} onClick={add}>
+                  +
+                </button>
+                <p className={styles.counterCount}>{cartItem.count}</p>
+                <button className={styles.counterButton} onClick={remove}>
+                  -
+                </button>
+                {showLimitWarning && <p className={styles.limitWarning}>Ограничение</p>}
+              </div>
+            ) : (
+              <Button width={120} onClick={add}>
+                в корзину
+              </Button>
+            )}
+            <Button>
+              <img src={favoritesIcon} alt="" />
+            </Button>
           </div>
         </div>
       </Link>
