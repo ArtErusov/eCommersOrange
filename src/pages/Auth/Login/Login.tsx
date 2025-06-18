@@ -5,17 +5,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispath, RootState } from '@/shared/store/store';
 import { login, userActions } from '@/shared/store/user.slice';
+import { LoginForm } from './Login.types';
 
 // Нужно сделать Стилизовать ошибку и добавить 2 секунды чтоб она пропала
-
-export type LoginForm = {
-  email: {
-    value: string;
-  };
-  password: {
-    value: string;
-  };
-};
 
 const Login: FC = () => {
   // const [error, setError] = useState<string | null>();
@@ -25,7 +17,7 @@ const Login: FC = () => {
 
   useEffect(() => {
     if (jwt) {
-      navigate('/');
+      navigate('/auth/profile');
     }
   }, [jwt, navigate]);
 
