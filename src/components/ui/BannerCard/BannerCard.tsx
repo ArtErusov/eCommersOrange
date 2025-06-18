@@ -7,9 +7,31 @@ import Button from '@/components/ui/Button/Button';
 import { FC, useState, useEffect, useMemo } from 'react';
 import styles from './BannerCard.module.css';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '@/shared/store/store';
+import { cartActions } from '@/shared/store/cart.slice';
+import ProductCounter from '../ProductCounter/ProductCard';
 
 const BannerCard: FC<BannerCardProps> = ({ item }) => {
+  const dispatch = useDispatch();
   const [timeLeft, setTimeLeft] = useState<TimeLeft>(getTimeLeft());
+
+  const add = (e: MouseEvent) => {
+    e.preventDefault();
+    if (cartItem && cartItem.count >= 50) {
+      return;
+    }
+    dispatch(cartActions.add(item.id));
+  };
+
+  const remove = (e: MouseEvent) => {
+    e.preventDefault();
+    dispatch(cartActions.remove(item.id));
+  };
+
+  const cartItem = useSelector((state: RootState) =>
+    state.cart.items.find((i) => i.id === item.id),
+  );
 
   const temporaryDiscount: number = useMemo(
     () => (item.label ? item.label : getRandomNumber(50)),
@@ -70,7 +92,17 @@ const BannerCard: FC<BannerCardProps> = ({ item }) => {
         )}
 
         <div className={styles['banner-card__button']}>
-          <Button>Купить</Button>
+          {cartItem ? (
+            <ProductCounter
+              count={cartItem.count}
+              onClickAdd={add as unknown as () => void}
+              onClickRemove={remove as unknown as () => void}
+            />
+          ) : (
+            <Button width={120} onClick={add as unknown as () => void}>
+              в корзину
+            </Button>
+          )}
         </div>
       </div>
     </Link>
