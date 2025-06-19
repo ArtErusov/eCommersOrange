@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import mainLogo from '@/assets/images/svg/mainLogo.svg';
 import catalogIcon from '@/assets/images/svg/catalogIcon.svg';
@@ -11,8 +12,11 @@ import SearchBlock from './SearchBlock';
 import CitySelector from './CitySelector';
 
 import styles from './Header.module.css';
+import { RootState } from '@/shared/store/store';
 
 const Header: FC = () => {
+  const login = useSelector((state: RootState) => state.user.jwt);
+  console.log(login, 'Проверка логина');
   return (
     <header>
       <div className={styles['header__top-bar']}>
@@ -49,7 +53,7 @@ const Header: FC = () => {
           <div className={styles['header__actions']}>
             <Link to="/auth/login" className={styles['header__action']}>
               <img src={profileIcon} alt="войти" />
-              <p>войти</p>
+              <p>{login ? 'Профиль' : 'Войти'}</p>
             </Link>
             <Link to="/cart" className={styles['header__action']}>
               <img src={favoritesIcon} alt="избранные" />
