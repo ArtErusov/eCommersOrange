@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
 
 import mainLogo from '@/assets/images/svg/mainLogo.svg';
 import catalogIcon from '@/assets/images/svg/catalogIcon.svg';
@@ -8,30 +9,10 @@ import profileIcon from '@/assets/images/svg/profileIcon.svg';
 
 import SearchBlock from './SearchBlock';
 import CitySelector from './CitySelector';
-import { Link } from 'react-router-dom';
 
 import styles from './Header.module.css';
-import { HeaderButton } from '@/shared/types/HeaderButton';
 
 const Header: FC = () => {
-  const headerButton: HeaderButton[] = [
-    {
-      title: 'войти',
-      icon: profileIcon,
-      path: '/auth/login',
-    },
-    {
-      title: 'избранные',
-      icon: favoritesIcon,
-      path: '/cart',
-    },
-    {
-      title: 'корзина',
-      icon: cartIcon,
-      path: '/cart',
-    },
-  ];
-
   return (
     <header>
       <div className={styles['header__top-bar']}>
@@ -66,12 +47,18 @@ const Header: FC = () => {
           <SearchBlock />
 
           <div className={styles['header__actions']}>
-            {headerButton.map((btn) => (
-              <Link to={btn.path} key={btn.title} className={styles['header__action']}>
-                <img src={btn.icon} alt={btn.title} />
-                <p>{btn.title}</p>
-              </Link>
-            ))}
+            <Link to="/auth/login" className={styles['header__action']}>
+              <img src={profileIcon} alt="войти" />
+              <p>войти</p>
+            </Link>
+            <Link to="/cart" className={styles['header__action']}>
+              <img src={favoritesIcon} alt="избранные" />
+              <p>избранные</p>
+            </Link>
+            <Link to="/cart" className={styles['header__action']}>
+              <img src={cartIcon} alt="корзина" />
+              <p>корзина</p>
+            </Link>
           </div>
         </div>
       </div>
