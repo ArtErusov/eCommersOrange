@@ -16,6 +16,8 @@ import { RootState } from '@/shared/store/store';
 
 const Header: FC = () => {
   const login = useSelector((state: RootState) => state.user.jwt);
+  // Скорее всего это костыль исправить в дальнейшем
+  const path = login ? '/auth/profile' : '/auth/login';
 
   return (
     <header>
@@ -50,7 +52,7 @@ const Header: FC = () => {
           <SearchBlock />
 
           <div className={styles['header__actions']}>
-            <Link to="/auth/login" className={styles['header__action']}>
+            <Link to={path} className={styles['header__action']}>
               <img src={profileIcon} alt="войти" />
               <p>{login ? 'Профиль' : 'Войти'}</p>
             </Link>

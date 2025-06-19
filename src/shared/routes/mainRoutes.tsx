@@ -7,7 +7,7 @@ import ErrorPage from '@/pages/ErrorPage/ErrorPage';
 import Auth from '@/pages/Auth/Auth';
 import Login from '@/pages/Auth/Login/Login';
 import CartPage from '@/pages/CartPage/CartPage';
-import { RequireAuth } from '../helpers/RequireAuth';
+import { RequireAuth } from '../helpers/hoc/RequireAuth';
 import Profile from '@/pages/Auth/Profile/Profile';
 import MainLayout from '@/layouts/MainLayout/MainLayout';
 import CatalogPage from '@/pages/CatalogPage/CatalogPage';

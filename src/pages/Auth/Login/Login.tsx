@@ -1,7 +1,7 @@
 import { FC, FormEvent, useEffect } from 'react';
 import styles from './Login.module.css';
 import Button from '@/components/ui/Button/Button';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispath, RootState } from '@/shared/store/store';
 import { login, userActions } from '@/shared/store/user.slice';
@@ -10,14 +10,18 @@ import { LoginForm } from './Login.types';
 // Нужно сделать Стилизовать ошибку и добавить 2 секунды чтоб она пропала
 
 const Login: FC = () => {
+  const location = useLocation();
+
   // const [error, setError] = useState<string | null>();
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispath>();
   const { jwt, loginErrorMessage } = useSelector((s: RootState) => s.user);
 
+  const fromPage = location.state?.from?.pathname || '/';
+
   useEffect(() => {
     if (jwt) {
-      navigate('/auth/profile');
+      navigate(fromPage);
     }
   }, [jwt, navigate]);
 
