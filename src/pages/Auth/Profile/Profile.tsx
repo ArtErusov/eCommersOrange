@@ -13,7 +13,6 @@ const Profile: FC = () => {
 
   const logout = () => {
     dispatch(userActions.logout());
-    console.log('del');
     navigate('/');
   };
 

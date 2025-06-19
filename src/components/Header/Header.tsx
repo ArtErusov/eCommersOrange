@@ -16,14 +16,13 @@ import { RootState } from '@/shared/store/store';
 
 const Header: FC = () => {
   const login = useSelector((state: RootState) => state.user.jwt);
-  console.log(login, 'Проверка логина');
+
   return (
     <header>
       <div className={styles['header__top-bar']}>
         <div className={`${styles['container']} ${styles['header__top-content']}`}>
           <CitySelector />
           <div className={styles['header__links']}>
-            <Link to="/promo">promo</Link>
             <a href="https://github.com/ArtErusov" target="_blank" rel="noopener noreferrer">
               Портфолио
             </a>

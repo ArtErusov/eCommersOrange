@@ -66,7 +66,6 @@ const ProductBlok: FC = () => {
       .catch((error) => {
         console.error('Ошибка при загрузке данных:', error);
       });
-    console.log(elementsOnPage);
   }, [selectedCategory]);
 
   return (

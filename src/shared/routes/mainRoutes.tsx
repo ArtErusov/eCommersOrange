@@ -1,7 +1,6 @@
 import { createBrowserRouter, LoaderFunctionArgs, Navigate } from 'react-router-dom';
 import MainPage from '@/pages/MainPage/MainPage';
 import Registration from '@/pages/Auth/Registration/Registration';
-import PromoPage from '@/pages/PromoPage/PromoPage';
 import ProductPage from '@/pages/ProductPage/ProductPage';
 import axios from 'axios';
 import ErrorPage from '@/pages/ErrorPage/ErrorPage';
@@ -20,7 +19,6 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       { index: true, element: <MainPage /> },
-      { path: 'promo', element: <PromoPage /> },
       {
         path: 'catalog',
         children: [

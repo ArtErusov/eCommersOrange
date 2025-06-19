@@ -5,7 +5,6 @@ const SelectSort: FC = () => {
   const [selectedSorting, setSelectedSorting] = useState<number>(0);
   const [sortActive, setSortActive] = useState<boolean>(false);
   const sortCategory: string[] = ['Лучшее совпадение', 'Сначала дешевле', 'Сначала дороже'];
-  console.log(sortActive);
 
   const handleSelect = (index: number): void => {
     setSelectedSorting(index);
