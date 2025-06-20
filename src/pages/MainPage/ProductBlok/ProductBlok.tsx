@@ -9,6 +9,7 @@ import Pagination from './Pagination/Pagination';
 import styles from './styles.module.css';
 import { Product } from '@/shared/types/product';
 import { Category } from './ProductBlok.types';
+import axios from 'axios';
 
 const ProductBlok: FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -37,37 +38,50 @@ const ProductBlok: FC = () => {
 
   useEffect(() => {
     setIsLoading(false);
-    fetch(
-      `https://65523e2c5c69a7790329c0eb.mockapi.io/Orange?${
-        selectedCategory !== 'all' ? `platforms=${selectedCategory}&` : ''
-      }page=${page}&limit=6`,
-    )
-      .then((res) => res.json())
-      .then((json: Product[]) => {
-        setItems(json);
+
+    const fetchData = async () => {
+      try {
+        const response = await axios.get<Product[]>(
+          `https://65523e2c5c69a7790329c0eb.mockapi.io/Orange`,
+          {
+            params: {
+              ...(selectedCategory !== 'all' && { platforms: selectedCategory }),
+              page,
+              limit: 6,
+            },
+          },
+        );
+        setItems(response.data);
         setIsLoading(true);
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error('Ошибка при загрузке данных:', error);
-      });
+      }
+    };
+
+    fetchData();
   }, [selectedCategory, page]);
 
   useEffect(() => {
-    setIsLoading(false);
-    fetch(
-      `https://65523e2c5c69a7790329c0eb.mockapi.io/Orange${
-        selectedCategory !== 'all' ? `?platforms=${selectedCategory}` : ''
-      }`,
-    )
-      .then((res) => res.json())
-      .then((json: Product[]) => {
-        setElementsOnPage(Math.ceil(json.length / 6));
-      })
-      .catch((error) => {
+    const fetchTotalItems = async () => {
+      setIsLoading(false);
+      try {
+        const response = await axios.get<Product[]>(
+          'https://65523e2c5c69a7790329c0eb.mockapi.io/Orange',
+          {
+            params: selectedCategory !== 'all' ? { platforms: selectedCategory } : {},
+          },
+        );
+        const totalPages = Math.ceil(response.data.length / 6);
+        setElementsOnPage(totalPages);
+      } catch (error) {
         console.error('Ошибка при загрузке данных:', error);
-      });
-  }, [selectedCategory]);
+      } finally {
+        setIsLoading(true);
+      }
+    };
 
+    fetchTotalItems();
+  }, [selectedCategory]);
   return (
     <>
       <SelectionBlock
