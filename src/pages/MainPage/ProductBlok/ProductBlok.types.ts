@@ -6,5 +6,6 @@ export interface Category {
 export interface SortBy {
   id: number;
   name: string;
-  dataSearch:string;
+  sortByURL:string;
+  order:string;
 }
