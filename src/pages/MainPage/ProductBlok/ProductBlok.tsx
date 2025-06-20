@@ -1,39 +1,39 @@
+import { useSearchParams } from 'react-router-dom';
+import { FC, useEffect, useState } from 'react';
+
 import ProductCard from '@/components/ui/ProductCard/ProductCard';
 import Skeleton from '@/components/ui/Skeleton/Skeleton';
 import SelectionBlock from './SelectionBlock/SelectionBlock';
-
-import styles from './styles.module.css';
-
-import { FC, useEffect, useState } from 'react';
-import { Product } from '@/shared/types/product';
 import Pagination from './Pagination/Pagination';
 
-interface Category {
-  id: string;
-  name: string;
-}
+import styles from './styles.module.css';
+import { Product } from '@/shared/types/product';
+import { Category } from './ProductBlok.types';
 
 const ProductBlok: FC = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const selectedCategory = searchParams.get('category') || 'all';
+  const page = Number(searchParams.get('page') || 1);
+
   const [items, setItems] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [page, setPage] = useState<number>(1);
   const [elementsOnPage, setElementsOnPage] = useState<number>(1);
 
-  // ----------SelectCategory---------logics------------
-  const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const category: Category[] = [
     { id: 'all', name: 'Все' },
     { id: 'ps5', name: 'ps 5' },
-    { id: 'Switch', name: 'Swith' },
+    { id: 'Switch', name: 'Switch' },
     { id: 'Xbox', name: 'Xbox' },
     { id: 'PC', name: 'PC' },
   ];
 
-  // https://65523e2c5c69a7790329c0eb.mockapi.io/Orange?platforms=PC
-  // https://65523e2c5c69a7790329c0eb.mockapi.io/Orange?platforms=Ps5&page=2&limit=6
-  // https://65523e2c5c69a7790329c0eb.mockapi.io/Orange?page=1&limit=2
+  const handleCategoryChange = (newCategory: string) => {
+    setSearchParams({ category: newCategory, page: '1' });
+  };
 
-  // Сделать фильтрацию в Кверти параметрах
+  const handlePageChange = (newPage: number) => {
+    setSearchParams({ category: selectedCategory, page: String(newPage) });
+  };
 
   useEffect(() => {
     setIsLoading(false);
@@ -73,7 +73,7 @@ const ProductBlok: FC = () => {
       <SelectionBlock
         category={category}
         selectedCategory={selectedCategory}
-        setSelectedCategory={setSelectedCategory}
+        setSelectedCategory={handleCategoryChange}
       />
 
       <div className={styles.productList}>
@@ -82,8 +82,9 @@ const ProductBlok: FC = () => {
           : [...Array(6)].map((_, index) => <Skeleton type="card" key={index} />)}
       </div>
 
-      <Pagination elementsOnPage={elementsOnPage} page={page} setPage={setPage} />
+      <Pagination elementsOnPage={elementsOnPage} page={page} setPage={handlePageChange} />
     </>
   );
 };
+
 export default ProductBlok;
