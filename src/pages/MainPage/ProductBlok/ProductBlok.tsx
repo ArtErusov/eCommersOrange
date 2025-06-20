@@ -8,17 +8,19 @@ import Pagination from './Pagination/Pagination';
 
 import styles from './styles.module.css';
 import { Product } from '@/shared/types/product';
-import { Category } from './ProductBlok.types';
+import { Category, SortBy } from './ProductBlok.types';
 import axios from 'axios';
 
 const ProductBlok: FC = () => {
+  // Работа с URL
   const [searchParams, setSearchParams] = useSearchParams();
   const selectedCategory = searchParams.get('category') || 'all';
   const page = Number(searchParams.get('page') || 1);
-
+  // ----------------------------------
   const [items, setItems] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [elementsOnPage, setElementsOnPage] = useState<number>(1);
+  const [selectedSortBy, setSelectedSortBy] = useState<number>(1);
 
   const category: Category[] = [
     { id: 'all', name: 'Все' },
@@ -27,6 +29,16 @@ const ProductBlok: FC = () => {
     { id: 'Xbox', name: 'Xbox' },
     { id: 'PC', name: 'PC' },
   ];
+
+  const sortBy: SortBy[] = [
+    { id: 1, name: 'Сначала дешевле', dataSearch: 'Aprice' },
+    { id: 2, name: 'Сначала дороже', dataSearch: 'Dprice' },
+    { id: 3, name: 'Высокий рейтинг', dataSearch: 'Drating' },
+    { id: 4, name: 'Низкий рейтинг', dataSearch: 'Arating' },
+    { id: 5, name: 'Количеству отзывов', dataSearch: 'Dreview' },
+  ];
+
+  // const sortBy: string[] = ['Лучшее совпадение', 'Сначала дешевле', 'Сначала дороже'];
 
   const handleCategoryChange = (newCategory: string) => {
     setSearchParams({ category: newCategory, page: '1' });
@@ -85,6 +97,9 @@ const ProductBlok: FC = () => {
   return (
     <>
       <SelectionBlock
+        setSelectedSortBy={setSelectedSortBy}
+        sortBy={sortBy}
+        selectedSortBy={selectedSortBy}
         category={category}
         selectedCategory={selectedCategory}
         setSelectedCategory={handleCategoryChange}
