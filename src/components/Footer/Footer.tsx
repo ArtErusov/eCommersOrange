@@ -1,35 +1,29 @@
 import { FC, useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import styles from './Footer.module.css';
 import Modal from '../ui/Modal/Modal';
+import ProjectInfo from '../ProjectInfo/ProjectInfo';
 
 const Footer: FC = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const location = useLocation();
+  const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Проверяем URL параметры при монтировании и изменении searchParams
   useEffect(() => {
-    const modalParam = searchParams.get('modal');
-
-    if (modalParam === 'project-info') {
-      setIsModalOpen(true);
-    } else {
-      setIsModalOpen(false);
-    }
-  }, [searchParams]);
+    const params = new URLSearchParams(location.search);
+    setIsModalOpen(params.get('modal') === 'project-info');
+  }, [location.search]);
 
   const handleInfoClick = () => {
-    // Добавляем параметр в URL
-    const newSearchParams = new URLSearchParams(searchParams);
-    newSearchParams.set('modal', 'project-info');
-    setSearchParams(newSearchParams);
+    const params = new URLSearchParams(location.search);
+    params.set('modal', 'project-info');
+    navigate(`${location.pathname}?${params.toString()}`);
   };
 
   const handleModalClose = () => {
-    // Удаляем параметр из URL
-    const newSearchParams = new URLSearchParams(searchParams);
-    newSearchParams.delete('modal');
-    setSearchParams(newSearchParams);
+    const params = new URLSearchParams(location.search);
+    params.delete('modal');
+    navigate(`${location.pathname}?${params.toString()}`, { replace: true });
   };
 
   return (
@@ -42,9 +36,8 @@ const Footer: FC = () => {
         </div>
       </footer>
 
-      {/* Модальное окно с информацией о проекте */}
       <Modal isOpen={isModalOpen} onClose={handleModalClose}>
-        <div>Информация о проекте</div>
+        <ProjectInfo />
       </Modal>
     </>
   );

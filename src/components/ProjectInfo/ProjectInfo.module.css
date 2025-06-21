@@ -1,0 +1,28 @@
+@import '@/shared/styles/main.css';
+.project-info {
+  width: 600px;
+}
+.project-info__separator {
+  width: 500px;
+  height: 2px;
+  background-color: var(--gray);
+  margin: 2px auto 0;
+}
+.project-info__title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+}
+.project-info__tech {
+  font-weight: 600;
+  margin-top: 16px;
+  font-size: 18px;
+}
+
+.project-info__section {
+  margin-left: 20px;
+}
+
+.project-info__section p {
+  margin-top: 8px;
+}
