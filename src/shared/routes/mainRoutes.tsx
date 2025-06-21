@@ -11,7 +11,10 @@ import { RequireAuth } from '../helpers/hoc/RequireAuth';
 import Profile from '@/pages/Auth/Profile/Profile';
 import MainLayout from '@/layouts/MainLayout/MainLayout';
 import CatalogPage from '@/pages/CatalogPage/CatalogPage';
-import OfferAgreementPage from '@/pages/OfferAgreementPage/OfferAgreementPage';
+// import OfferAgreementPage from '@/pages/OfferAgreementPage/OfferAgreementPage';
+import { lazy, Suspense } from 'react';
+
+const OfferAgreementPage = lazy(() => import('@/pages/OfferAgreementPage/OfferAgreementPage'));
 
 const router = createBrowserRouter([
   {
@@ -53,7 +56,11 @@ const router = createBrowserRouter([
   },
   {
     path: '/offer',
-    element: <OfferAgreementPage />,
+    element: (
+      <Suspense fallback={<>Loading..</>}>
+        <OfferAgreementPage />
+      </Suspense>
+    ),
     errorElement: <ErrorPage />,
   },
   {
