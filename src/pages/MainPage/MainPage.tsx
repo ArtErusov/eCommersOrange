@@ -4,6 +4,7 @@ import { Product } from '@/shared/types/product.ts';
 import BannersBlock from './BannersBlock/BannersBlock.tsx';
 import ProductBlok from './ProductBlok/ProductBlok.tsx';
 import axios from 'axios';
+import PromoBlock from './PromoBlock/PromoBlock.tsx';
 
 const MainPage: FC = () => {
   const [items, setItems] = useState<Product[]>([]);
@@ -31,6 +32,7 @@ const MainPage: FC = () => {
     <>
       <BannersBlock isLoading={isLoading} item={items[5]} />
       <ProductBlok />
+      <PromoBlock />
     </>
   );
 };
