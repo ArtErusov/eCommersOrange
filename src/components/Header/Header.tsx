@@ -9,10 +9,10 @@ import cartIcon from '@/assets/images/svg/cartIcon.svg';
 import profileIcon from '@/assets/images/svg/profileIcon.svg';
 
 import SearchBlock from './SearchBlock';
-import CitySelector from './CitySelector';
 
 import styles from './Header.module.css';
 import { RootState } from '@/shared/store/store';
+import TopHeader from './TopHeader';
 
 const Header: FC = () => {
   const login = useSelector((state: RootState) => state.user.jwt);
@@ -21,16 +21,7 @@ const Header: FC = () => {
 
   return (
     <header>
-      <div className={styles['header__top-bar']}>
-        <div className={`${styles['container']} ${styles['header__top-content']}`}>
-          <CitySelector />
-          <div className={styles['header__links']}>
-            <a href="https://github.com/ArtErusov" target="_blank" rel="noopener noreferrer">
-              Портфолио
-            </a>
-          </div>
-        </div>
-      </div>
+      <TopHeader />
 
       <div className={styles['container']}>
         <div className={styles['header__main']}>

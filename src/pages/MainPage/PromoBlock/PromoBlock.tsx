@@ -8,7 +8,6 @@ import { userActions } from '@/shared/store/user.slice';
 const PromoBlock: FC = () => {
   const [email, setEmail] = useState<string>('');
   const [error, setError] = useState<boolean>(false);
-  // const [success, setSuccess] = useState<boolean>(false);
 
   const dispatch = useDispatch();
   const showPromo = useSelector((state: RootState) => state.user.showPromoBlock);
@@ -29,7 +28,6 @@ const PromoBlock: FC = () => {
       return;
     } else {
       console.log('Email отправлен:', email);
-      // setSuccess(true);
       dispatch(userActions.hidePromoBlock());
     }
   };
@@ -75,7 +73,7 @@ const PromoBlock: FC = () => {
             <p className={styles['promo-block__terms-text']}>
               Нажимая подписаться вы соглашаетесь с
             </p>
-            <Link className={styles['promo-block__terms-link']} to="/">
+            <Link className={styles['promo-block__terms-link']} to="/offer">
               Условиями использования сайта.
             </Link>
           </div>

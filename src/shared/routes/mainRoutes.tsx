@@ -11,6 +11,7 @@ import { RequireAuth } from '../helpers/hoc/RequireAuth';
 import Profile from '@/pages/Auth/Profile/Profile';
 import MainLayout from '@/layouts/MainLayout/MainLayout';
 import CatalogPage from '@/pages/CatalogPage/CatalogPage';
+import OfferAgreementPage from '@/pages/OfferAgreementPage/OfferAgreementPage';
 
 const router = createBrowserRouter([
   {
@@ -53,6 +54,11 @@ const router = createBrowserRouter([
         ),
       },
     ],
+  },
+  {
+    path: '/offer',
+    element: <OfferAgreementPage />,
+    errorElement: <ErrorPage />,
   },
   {
     path: '/auth',
