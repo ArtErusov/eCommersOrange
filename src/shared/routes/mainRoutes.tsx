@@ -42,10 +42,6 @@ const router = createBrowserRouter([
       },
 
       {
-        path: 'profile',
-        element: <Profile />,
-      },
-      {
         path: 'cart',
         element: (
           <RequireAuth>

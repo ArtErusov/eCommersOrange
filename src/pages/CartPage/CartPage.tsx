@@ -67,7 +67,7 @@ const CartPage: FC = () => {
               >
                 {item.image && (
                   <img
-                    src={item.image}
+                    src={item.image[0]}
                     alt={item.title}
                     width={60}
                     height={60}
