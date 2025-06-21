@@ -1,10 +1,21 @@
 import { FC, useEffect, useState } from 'react';
 import styles from './PromoBlock.module.css';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '@/shared/store/store';
+import { userActions } from '@/shared/store/user.slice';
 
 const PromoBlock: FC = () => {
   const [email, setEmail] = useState<string>('');
   const [error, setError] = useState<boolean>(false);
+  // const [success, setSuccess] = useState<boolean>(false);
+
+  const dispatch = useDispatch();
+  const showPromo = useSelector((state: RootState) => state.user.showPromoBlock);
+
+  const handleHide = () => {
+    dispatch(userActions.hidePromoBlock());
+  };
 
   const handleMail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -18,7 +29,8 @@ const PromoBlock: FC = () => {
       return;
     } else {
       console.log('Email отправлен:', email);
-      setEmail('');
+      // setSuccess(true);
+      dispatch(userActions.hidePromoBlock());
     }
   };
 
@@ -37,6 +49,8 @@ const PromoBlock: FC = () => {
     }
   }, [error]);
 
+  if (!showPromo) return null;
+
   return (
     <>
       <div className={styles['promo-block']}>
@@ -46,7 +60,7 @@ const PromoBlock: FC = () => {
             <input
               value={email}
               placeholder="введите e-mail"
-              type="text"
+              type="email"
               onChange={handleInputChange}
               className={styles[error ? 'promo-block__input--error' : 'promo-block__input']}
             />
@@ -65,7 +79,9 @@ const PromoBlock: FC = () => {
               Условиями использования сайта.
             </Link>
           </div>
-          <div className={styles['promo-block__hide']}>Не показывать больше.</div>
+          <div onClick={handleHide} className={styles['promo-block__hide']}>
+            Не показывать больше.
+          </div>
         </div>
       </div>
     </>

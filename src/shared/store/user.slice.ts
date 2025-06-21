@@ -5,6 +5,7 @@ import { LoginResponse } from "../types/auth.interface";
 import { Profile } from "../types/users.interface";
 import { RootState } from "./store";
 
+
 export const JWT_PERSISTENT_STATE = "userData";
 
 export interface UserPersistentState {
@@ -15,10 +16,12 @@ export interface UserState {
     jwt: string | null;
     loginErrorMessage?: string;
     profile?: Profile;
+    showPromoBlock: boolean;
 }
 // Устанавливаем начальное состояние пользователя — по умолчанию `jwt` отсутствует.
 const initialState: UserState = {
-    jwt: loadState<UserPersistentState>(JWT_PERSISTENT_STATE)?.jwt ?? null
+    jwt: loadState<UserPersistentState>(JWT_PERSISTENT_STATE)?.jwt ?? null,
+    showPromoBlock: true
 };
 
 export const login = createAsyncThunk("/auth/login",
@@ -53,13 +56,19 @@ export const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
-        logout: (state) => {
-            state.jwt = null;
+    logout: (state) => {
+        state.jwt = null;
     },
-    
-        clearLoginError: (state) => {
-            state.loginErrorMessage = undefined;
-        }
+    clearLoginError: (state) => {
+        state.loginErrorMessage = undefined;
+    },
+    hidePromoBlock: (state) => {
+        state.showPromoBlock = false;
+    },
+    showPromoBlock: (state) => {
+        state.showPromoBlock = true;
+    }
+
     
      },
      extraReducers: (builder) =>{
