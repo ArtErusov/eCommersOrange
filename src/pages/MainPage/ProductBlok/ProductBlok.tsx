@@ -1,5 +1,6 @@
 import { useSearchParams } from 'react-router-dom';
 import { FC, useEffect, useState } from 'react';
+import axios from 'axios';
 
 import ProductCard from '@/components/ui/ProductCard/ProductCard';
 import Skeleton from '@/components/ui/Skeleton/Skeleton';
@@ -9,23 +10,18 @@ import Pagination from './Pagination/Pagination';
 import styles from './styles.module.css';
 import { Product } from '@/shared/types/product';
 import { Category, SortBy } from './ProductBlok.types';
-import axios from 'axios';
 
 const ProductBlok: FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  // Читаем параметры из URL
   const selectedCategory = searchParams.get('category') || 'all';
   const nPage = Number(searchParams.get('page') || 1);
   const sortingId = Number(searchParams.get('sort') || 1);
 
-  // Состояния
   const [items, setItems] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [totalPages, setTotalPages] = useState<number>(1);
-  const [selectedSortBy, setSelectedSortBy] = useState<number>(1);
 
-  // Категории
   const category: Category[] = [
     { id: 'all', name: 'Все' },
     { id: 'ps5', name: 'ps 5' },
@@ -34,7 +30,6 @@ const ProductBlok: FC = () => {
     { id: 'PC', name: 'PC' },
   ];
 
-  // Варианты сортировки
   const sortBy: SortBy[] = [
     { id: 1, name: 'Сначала дешевле', sortByURL: 'price', order: 'asc' },
     { id: 2, name: 'Сначала дороже', sortByURL: 'price', order: 'desc' },
@@ -43,37 +38,27 @@ const ProductBlok: FC = () => {
     { id: 5, name: 'Количеству отзывов', sortByURL: 'review', order: 'desc' },
   ];
 
-  // Синхронизация selectedSortBy с URL параметром сортировки
-  useEffect(() => {
-    const foundSort = sortBy.find((s) => s.id === sortingId);
-    setSelectedSortBy(foundSort ? foundSort.id : 1);
-  }, [sortingId]);
-
-  // Обработка смены категории
   const handleCategoryChange = (newCategory: string) => {
     setSearchParams((prev) => {
       const params = new URLSearchParams(prev.toString());
       params.set('category', newCategory);
       params.set('page', '1');
-      params.set('sort', String(selectedSortBy));
+      params.set('sort', String(sortingId));
       return params;
     });
   };
 
-  // Обработка смены страницы
   const handlePageChange = (newPage: number) => {
     setSearchParams((prev) => {
       const params = new URLSearchParams(prev.toString());
       params.set('page', String(newPage));
       params.set('category', selectedCategory);
-      params.set('sort', String(selectedSortBy));
+      params.set('sort', String(sortingId));
       return params;
     });
   };
 
-  // Обработка смены сортировки
   const handleSorting = (newSortId: number) => {
-    setSelectedSortBy(newSortId);
     setSearchParams((prev) => {
       const params = new URLSearchParams(prev.toString());
       params.set('sort', String(newSortId));
@@ -113,7 +98,6 @@ const ProductBlok: FC = () => {
     fetchData();
   }, [selectedCategory, nPage, sortingId]);
 
-  // Загрузка общего количества страниц для пагинации
   useEffect(() => {
     const fetchTotalItems = async () => {
       setIsLoading(true);
@@ -142,7 +126,7 @@ const ProductBlok: FC = () => {
       <SelectionBlock
         setSelectedSortBy={handleSorting}
         sortBy={sortBy}
-        selectedSortBy={selectedSortBy}
+        selectedSortBy={sortingId}
         category={category}
         selectedCategory={selectedCategory}
         setSelectedCategory={handleCategoryChange}
