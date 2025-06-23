@@ -9,8 +9,6 @@ import { cartActions } from '@/shared/store/cart.slice.ts';
 import ProductModal from '../ProductModal/ProductModal.tsx';
 import { useProductModalParams } from '@/shared/helpers/hooks/useProductModalParams.ts';
 import { RootState } from '@/shared/store/store.ts';
-
-import favoritesIcon from '@/assets/images/svg/favoritesIcon.svg';
 import ProductCounter from '../ProductCounter/ProductCounter.tsx';
 
 const ProductCard: FC<ProductCardProps> = ({ item }) => {
@@ -77,9 +75,6 @@ const ProductCard: FC<ProductCardProps> = ({ item }) => {
                 в корзину
               </Button>
             )}
-            <Button>
-              <img src={favoritesIcon} alt="" />
-            </Button>
           </div>
         </div>
       </Link>

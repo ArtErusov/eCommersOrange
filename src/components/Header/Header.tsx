@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 
 import mainLogo from '@/assets/images/svg/mainLogo.svg';
 import catalogIcon from '@/assets/images/svg/catalogIcon.svg';
-import favoritesIcon from '@/assets/images/svg/favoritesIcon.svg';
 import cartIcon from '@/assets/images/svg/cartIcon.svg';
 import profileIcon from '@/assets/images/svg/profileIcon.svg';
 
@@ -46,10 +45,6 @@ const Header: FC = () => {
             <Link to={path} className={styles['header__action']}>
               <img src={profileIcon} alt="войти" />
               <p>{login ? 'Профиль' : 'Войти'}</p>
-            </Link>
-            <Link to="/cart" className={styles['header__action']}>
-              <img src={favoritesIcon} alt="избранные" />
-              <p>избранные</p>
             </Link>
             <Link to="/cart" className={styles['header__action']}>
               <img src={cartIcon} alt="корзина" />
