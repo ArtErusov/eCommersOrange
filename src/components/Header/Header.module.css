@@ -93,6 +93,7 @@
 }
 
 .header__action {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -102,6 +103,22 @@
 .header__action img {
   width: 26px;
   height: 26px;
+}
+
+.header__cart-count {
+  position: absolute;
+  top: -5px;
+  right: 6px;
+  font-size: 10px;
+  color: var(--white);
+  background-color: var(--red);
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
 }
 
 /* =================CitySelector================== */

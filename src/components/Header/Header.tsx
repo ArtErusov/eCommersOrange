@@ -18,6 +18,10 @@ const Header: FC = () => {
   // Скорее всего это костыль исправить в дальнейшем
   const path = login ? '/auth/profile' : '/auth/login';
 
+  const cartItemsCount = useSelector((state: RootState) =>
+    state.cart.items.reduce((total, item) => total + item.count, 0),
+  );
+
   return (
     <header>
       <TopHeader />
@@ -48,6 +52,11 @@ const Header: FC = () => {
             </Link>
             <Link to="/cart" className={styles['header__action']}>
               <img src={cartIcon} alt="корзина" />
+              {cartItemsCount > 0 && (
+                <span className={styles['header__cart-count']}>
+                  {cartItemsCount > 99 ? '99+' : cartItemsCount}
+                </span>
+              )}
               <p>корзина</p>
             </Link>
           </div>
