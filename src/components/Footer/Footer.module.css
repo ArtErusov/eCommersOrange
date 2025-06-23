@@ -1,13 +1,55 @@
 @import '@/shared/styles/main.css';
-.footer {
+.footer__division {
   width: 100%;
-  height: 100px;
-  background-color: var(--dark-gray);
+  height: 1px;
+  margin-top: 40px;
+  background-color: var(--gray);
+}
+.footer {
+  display: flex;
+  margin: 20px auto;
+  justify-content: space-between;
+  width: 1000px;
 }
 
 .info {
   width: 400px;
   height: 30px;
-  background-color: bisque;
   cursor: pointer;
+}
+
+.footer__navigation h4,
+.footer__info button {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.footer__links {
+  font-size: 16px;
+  color: var(--dark-gray);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px 16px;
+}
+
+.footer__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__info button {
+  cursor: pointer;
+}
+
+.footer__info a {
+  color: var(--dark-gray);
+}
+
+.footer__developer {
+  background-color: var(--dark-gray);
+  text-align: center;
+}
+.footer__developer p {
+  color: var(--white);
 }

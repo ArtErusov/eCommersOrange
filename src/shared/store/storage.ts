@@ -1,3 +1,5 @@
+// Компонент для работы с данными из локального стора
+
 export function loadState<T>(key: string): T | undefined {
     try{
         const jsonState = localStorage.getItem(key)
