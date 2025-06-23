@@ -10,6 +10,7 @@ import ProductModal from '../ProductModal/ProductModal.tsx';
 import { useProductModalParams } from '@/shared/helpers/hooks/useProductModalParams.ts';
 import { RootState } from '@/shared/store/store.ts';
 import ProductCounter from '../ProductCounter/ProductCounter.tsx';
+import { CalculationOfDiscounts } from '@/shared/helpers/CalculationOfDiscounts.ts';
 
 const ProductCard: FC<ProductCardProps> = ({ item }) => {
   const dispatch = useDispatch();
@@ -44,7 +45,17 @@ const ProductCard: FC<ProductCardProps> = ({ item }) => {
         <div className={styles['product-card__container']}>
           <div className={styles['product-card__content']}>
             <img className={styles['product-card__image']} src={item.src[0]} alt={item.text} />
-            <p className={styles['product-card__price']}>{item.price} ₽</p>
+
+            <div className={styles['product-card__price']}>
+              {item.label ? (
+                <>
+                  <p>{CalculationOfDiscounts(item.price, item.label)} ₽</p>
+                  <div>{item.price} ₽</div>
+                </>
+              ) : (
+                <p>{item.price} ₽</p>
+              )}
+            </div>
             <h3 className={styles['product-card__text']}>
               {item.manufacturer ? (
                 <>
@@ -56,11 +67,12 @@ const ProductCard: FC<ProductCardProps> = ({ item }) => {
               )}
             </h3>
           </div>
+          {item.label && (
+            <div className={styles['product-card__discounts']}>{`${item.label} %`}</div>
+          )}
 
-          <div className={styles['product-card__overlay']}>
-            <div className={styles['product-card__details-button']} onClick={handleDetailsClick}>
-              подробнее
-            </div>
+          <div className={styles['product-card__details-button']} onClick={handleDetailsClick}>
+            быстрый просмотр
           </div>
 
           <div className={styles['product-card__footer']}>

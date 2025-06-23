@@ -3,7 +3,7 @@
 .product-card {
   position: relative;
   width: 200px;
-  height: 319px;
+  height: 360px;
 }
 
 .product-card__container {
@@ -11,7 +11,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 319px;
+  height: 340px;
   overflow: hidden;
   transition: height 0.3s ease;
   display: flex;
@@ -30,14 +30,41 @@
 }
 
 .product-card__content {
-  flex: 0 0 319px;
+  flex: 0 0 330px;
   position: relative;
 }
 
 .product-card__price {
+  position: relative;
+  display: flex;
+}
+
+.product-card__price p {
   margin: 20px 0 0 10px;
   font-size: 18px;
   font-weight: 600;
+}
+
+.product-card__price div {
+  color: var(--dark-gray);
+  top: 20px;
+  left: 80px;
+  position: absolute;
+  text-decoration: line-through;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.product-card__discounts {
+  position: absolute;
+  padding: 1px 10px;
+  top: 10px;
+  right: 10px;
+  border-radius: 15px 3px 15px 3px;
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 600;
+  background-color: var(--red);
 }
 
 .product-card__text {
@@ -53,45 +80,30 @@
   display: block;
 }
 
-/* Полупрозрачный оверлей с кнопкой "подробнее" */
-.product-card__overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 319px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
-
-.product-card__container:hover .product-card__overlay {
-  opacity: 1;
-  pointer-events: auto;
-}
-
 .product-card__details-button {
-  background-color: rgba(255, 255, 255, 0.9);
-  color: #333;
-  padding: 12px 24px;
+  position: absolute;
+  top: 170px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(190, 190, 190, 0.812);
+  color: var(--black);
+  padding: 2px 6px;
+  width: 178px;
   border-radius: 6px;
   font-size: 14px;
-  font-weight: 500;
-  text-transform: uppercase;
+  font-weight: 600;
   letter-spacing: 0.5px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   transition: all 0.2s ease;
   cursor: pointer;
   user-select: none;
+  opacity: 0;
+  pointer-events: none;
 }
 
-.product-card__details-button:hover {
-  background-color: white;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+.product-card__container:hover .product-card__details-button {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -2px);
 }
 
 .product-card__footer {
