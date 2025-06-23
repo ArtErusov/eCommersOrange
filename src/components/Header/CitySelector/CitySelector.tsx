@@ -3,7 +3,7 @@ import { useLocalStorage } from '@/shared/helpers/hooks/useLocalStorage';
 
 import closeList from '@/assets/images/svg/closeList.svg';
 import openList from '@/assets/images/svg/openList.svg';
-import styles from './Header.module.css';
+import styles from './CitySelector.module.css';
 
 import { CITIES } from '@/shared/constants/cities';
 

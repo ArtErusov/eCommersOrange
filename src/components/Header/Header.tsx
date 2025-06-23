@@ -7,11 +7,11 @@ import catalogIcon from '@/assets/images/svg/catalogIcon.svg';
 import cartIcon from '@/assets/images/svg/cartIcon.svg';
 import profileIcon from '@/assets/images/svg/profileIcon.svg';
 
-import SearchBlock from './SearchBlock';
+import SearchBlock from './SearchBlock/SearchBlock';
 
 import styles from './Header.module.css';
 import { RootState } from '@/shared/store/store';
-import TopHeader from './TopHeader';
+import TopHeader from './TopHeader/TopHeader';
 
 const Header: FC = () => {
   const login = useSelector((state: RootState) => state.user.jwt);

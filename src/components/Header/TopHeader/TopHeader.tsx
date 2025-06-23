@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import CitySelector from './CitySelector';
-import styles from './Header.module.css';
+import CitySelector from '../CitySelector/CitySelector';
+import styles from './TopHeader.module.css';
 
 const TopHeader: FC = () => {
   return (

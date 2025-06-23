@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import styles from './OfferAgreementPage.module.css';
-import TopHeader from '@/components/Header/TopHeader';
+import TopHeader from '@/components/Header/TopHeader/TopHeader';
 import Button from '@/components/ui/Button/Button';
 
 const OfferAgreementPage: FC = () => {
